@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/conad2026/
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp -R package.json package-lock.json next.config.ts postcss.config.mjs tsconfig.json server.js public src $DEPLOYPATH
