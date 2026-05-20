@@ -82,14 +82,6 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
       <div className="heroOverlay" />
 
       <div className="heroContent" key={activeIndex}>
-        <Image
-          src="/images/conad-logo.png"
-          width={499}
-          height={175}
-          alt="CONAD"
-          className="heroLogo"
-          priority
-        />
         <p className="heroEyebrow">{activeSlide.eyebrow}</p>
         <h1>{activeSlide.title}</h1>
         <p className="heroLead">{activeSlide.lead}</p>
