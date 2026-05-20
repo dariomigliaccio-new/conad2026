@@ -42,29 +42,11 @@ a {
 .holdingPanel {
   display: grid;
   justify-items: center;
-  gap: 16px;
 }
 
 .holdingLogo {
   width: min(499px, 84vw);
   height: auto;
-}
-
-.holdingPanel p {
-  margin: 10px 0 0;
-  color: rgba(255, 255, 255, .68);
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: .28em;
-  text-transform: uppercase;
-}
-
-.holdingPanel h1 {
-  margin: 0;
-  font-size: clamp(48px, 10vw, 128px);
-  font-weight: 900;
-  line-height: .92;
-  letter-spacing: 0;
 }
 
 .siteHeaderWrap {

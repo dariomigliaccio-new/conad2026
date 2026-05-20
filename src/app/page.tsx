@@ -12,8 +12,6 @@ export default function Home() {
           className="holdingLogo"
           priority
         />
-        <p>CONAD 2026</p>
-        <h1>Aguarde</h1>
       </section>
     </main>
   );
