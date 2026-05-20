@@ -10,9 +10,9 @@ export default function Home() {
         <div className="siteHeader">
           <a className="brand" href="#" aria-label="CONAD 2026">
             <Image
-              src="/images/conad-logo.svg"
-              width={520}
-              height={168}
+              src="/images/conad-logo.png"
+              width={499}
+              height={175}
               alt="CONAD"
               priority
             />

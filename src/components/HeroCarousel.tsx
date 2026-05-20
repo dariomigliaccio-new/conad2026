@@ -83,9 +83,9 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
 
       <div className="heroContent" key={activeIndex}>
         <Image
-          src="/images/conad-logo.svg"
-          width={520}
-          height={168}
+          src="/images/conad-logo.png"
+          width={499}
+          height={175}
           alt="CONAD"
           className="heroLogo"
           priority
