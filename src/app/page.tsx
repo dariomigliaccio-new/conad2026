@@ -9,8 +9,13 @@ export default function Home() {
       <header className="siteHeaderWrap">
         <div className="siteHeader">
           <a className="brand" href="#" aria-label="CONAD 2026">
-            <span>CONAD</span>
-            <strong>2026</strong>
+            <Image
+              src="/images/conad-logo.svg"
+              width={520}
+              height={168}
+              alt="CONAD"
+              priority
+            />
           </a>
           <nav className="mainNav" aria-label="Navegacao principal">
             <a href="#planos">Preços</a>

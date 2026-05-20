@@ -52,19 +52,14 @@ a {
 
 .brand {
   display: inline-flex;
-  align-items: baseline;
-  gap: 6px;
-  font-size: 25px;
-  letter-spacing: -.03em;
+  align-items: center;
+  width: 166px;
 }
 
-.brand span {
-  font-weight: 700;
-}
-
-.brand strong {
-  color: var(--accent);
-  font-weight: 500;
+.brand img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .mainNav {
@@ -156,6 +151,13 @@ a {
   margin-left: clamp(28px, 5vw, 72px);
   color: #fff;
   animation: heroCopyIn .85s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.heroLogo {
+  display: block;
+  width: min(320px, 58vw);
+  height: auto;
+  margin: 0 0 18px;
 }
 
 .heroEyebrow,
@@ -516,7 +518,7 @@ a {
   }
 
   .brand {
-    font-size: 22px;
+    width: 136px;
   }
 
   .headerCta {
