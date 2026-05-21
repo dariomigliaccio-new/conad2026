@@ -704,8 +704,7 @@ body {
 /* ── PLANS CAROUSEL ─────────────────────────────────── */
 
 .plansCarouselOuter {
-  overflow: hidden;
-  padding: clamp(40px, 5vw, 64px) 0;
+  padding: clamp(40px, 5vw, 64px) 0 clamp(32px, 4vw, 48px);
   background: #fafafa;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -722,26 +721,62 @@ body {
   margin: 0 0 32px;
 }
 
+.plansCarouselViewport {
+  overflow: hidden;
+  position: relative;
+}
+
 .plansCarouselTrack {
   display: flex;
   gap: 24px;
-  width: max-content;
-  animation: plansScroll 32s linear infinite;
-  padding: 0 24px;
+  will-change: transform;
 }
 
-.plansCarouselTrack:hover {
-  animation-play-state: paused;
-}
-
-@keyframes plansScroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
+/* Card in carousel: fixed width + colored border via CSS custom property */
 .planoCardCarousel {
   width: 300px;
   flex-shrink: 0;
+  border-width: 2px !important;
+  border-color: var(--plan-color, #e0e0e0) !important;
+}
+
+/* Plan name color for non-highlighted cards */
+.planoCardCarousel:not(.planoDestaque) h3 {
+  color: var(--plan-color, #000);
+}
+
+/* CTA button uses plan color */
+.planoCardCarousel:not(.planoDestaque) .planoBtn {
+  border-color: var(--plan-color, #000);
+  color: var(--plan-color, #000);
+}
+.planoCardCarousel:not(.planoDestaque) .planoBtn:hover {
+  background: var(--plan-color, #000);
+  color: #fff;
+}
+
+/* Navigation dots */
+.plansCarouselDots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.plansCarouselDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d0d0d0;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.plansCarouselDot.active {
+  background: var(--plan-color, #000);
+  transform: scale(1.35);
 }
 
 .localGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px; }
