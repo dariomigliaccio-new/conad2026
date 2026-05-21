@@ -455,19 +455,29 @@ body {
 
 /* ── LOCAL ──────────────────────────────────────────── */
 
+/* Map: same dimensions as the hero banner */
 .localMapWrap {
-  width: 100%;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  width: calc(100% - 120px);
+  max-width: 1668px;
+  aspect-ratio: 1668 / 661;
+  margin: 32px auto;
   overflow: hidden;
+  border-radius: 2px;
   line-height: 0;
 }
 
 .localMapImg {
   width: 100%;
-  height: clamp(260px, 40vw, 520px);
+  height: 100%;
   object-fit: cover;
   display: block;
+}
+
+@media (max-width: 900px) {
+  .localMapWrap { margin-top: 20px; }
+}
+@media (max-width: 640px) {
+  .localMapWrap { width: calc(100% - 32px); margin-top: 12px; }
 }
 
 .localContent {
