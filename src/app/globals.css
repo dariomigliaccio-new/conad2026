@@ -798,6 +798,20 @@ body {
   background: color-mix(in srgb, var(--plan-color, #f0f0f0) 6%, white);
 }
 
+/* Scrollable content — hides scrollbar but allows scroll if content overflows */
+.planoCardBodyScroll {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.planoCardBodyScroll::-webkit-scrollbar { display: none; }
+
+/* CTA always pinned to bottom, never clipped */
+.planoCarouselBtnFixed {
+  flex-shrink: 0 !important;
+  margin-top: 12px !important;
+}
+
 .planoCardCarousel h3       { color: var(--plan-color, #111) !important; margin-bottom: 4px !important; }
 .planoCardCarousel .planoDesc      { color: #555 !important; margin-bottom: 12px !important; }
 .planoCardCarousel .planoBeneficios { margin-bottom: 16px !important; }

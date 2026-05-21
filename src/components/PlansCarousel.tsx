@@ -75,18 +75,20 @@ export function PlansCarousel({ planos }: { planos: Plano[] }) {
 
               {/* Card body */}
               <div className="planoCardBody">
-                <h3>{p.nome}</h3>
-                <p className="planoPreco">{p.preco}</p>
-                <p className="planoDesc">{p.descricao}</p>
-                {isCenter && (
-                  <>
+                <div className="planoCardBodyScroll">
+                  <h3>{p.nome}</h3>
+                  <p className="planoPreco">{p.preco}</p>
+                  <p className="planoDesc">{p.descricao}</p>
+                  {isCenter && (
                     <ul className="planoBeneficios">
                       {p.beneficios.map((b, bi) => b.trim() && <li key={bi}>{b}</li>)}
                     </ul>
-                    <a href={p.ctaHref} className="planoBtn planoCarouselBtn" style={{ marginTop: "auto" }}>
-                      {p.ctaText}
-                    </a>
-                  </>
+                  )}
+                </div>
+                {isCenter && (
+                  <a href={p.ctaHref} className="planoBtn planoCarouselBtn planoCarouselBtnFixed">
+                    {p.ctaText}
+                  </a>
                 )}
               </div>
             </article>
