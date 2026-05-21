@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LogoutButton } from "@/components/admin/LogoutButton";
 
 const navItems = [
   { href: "/admin", label: "Dashboard" },
@@ -34,6 +35,7 @@ export default function AdminLayout({
             </Link>
           ))}
         </nav>
+        <LogoutButton />
       </aside>
       <div className="adminContent">
         <header className="adminTopbar">
