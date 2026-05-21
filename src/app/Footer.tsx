@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 const COLS = [
@@ -81,12 +80,8 @@ export default function Footer({ logo, logoAlt }: Props) {
     <footer className="saksFooter">
       <div className="saksFooterInner">
         <Link href="/" className="saksFooterLogo">
-          <Image
-            src={logo}
-            width={160}
-            height={56}
-            alt={logoAlt}
-          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={logo} alt={logoAlt} style={{ height: 56, width: "auto", display: "block" }} />
         </Link>
 
         <div className="saksFooterDivider" />

@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 const NAV = [
@@ -39,13 +38,8 @@ export default function Header({ logo, logoAlt }: Props) {
           </button>
 
           <Link href="/" className="saksLogo">
-            <Image
-              src={logo}
-              width={180}
-              height={63}
-              alt={logoAlt}
-              priority
-            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={logo} alt={logoAlt} style={{ height: 63, width: "auto", display: "block" }} />
           </Link>
 
           <Link href="#planos" className="saksHeaderCta">

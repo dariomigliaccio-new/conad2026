@@ -22,6 +22,9 @@ function initData() {
       console.log(`[init] Copied default: ${file}`);
     }
   }
+  // Ensure uploads directory exists (persisted on Railway Volume)
+  const uploadsDir = path.join(dataDir, "uploads");
+  if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
 initData();

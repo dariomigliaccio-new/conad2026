@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { UploadInput } from "@/components/admin/UploadInput";
 
 type Global = { logo: string; logoAlt: string };
@@ -38,7 +37,8 @@ export default function AdminConfiguracoes() {
           </div>
           {d.logo && (
             <div style={{ background: "#f4f4f4", padding: 20, display: "inline-block", borderRadius: 6, marginBottom: 14 }}>
-              <Image src={d.logo} width={200} height={70} alt={d.logoAlt} style={{ objectFit: "contain", height: "auto" }} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={d.logo} alt={d.logoAlt} style={{ maxWidth: 200, maxHeight: 70, objectFit: "contain", display: "block" }} />
             </div>
           )}
           <label>Texto alternativo do logo<input value={d.logoAlt} onChange={f("logoAlt")} /></label>

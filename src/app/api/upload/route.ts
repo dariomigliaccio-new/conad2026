@@ -10,10 +10,11 @@ export async function POST(req: Request) {
   const buffer = Buffer.from(bytes);
   const ext = file.name.split(".").pop()?.toLowerCase() ?? "jpg";
   const safeName = `${Date.now()}.${ext}`;
-  const uploadDir = path.join(process.cwd(), "public", "images", "uploads");
+  // Save to data/uploads so files persist on the Railway Volume at /app/data
+  const uploadDir = path.join(process.cwd(), "data", "uploads");
 
   await fs.mkdir(uploadDir, { recursive: true });
   await fs.writeFile(path.join(uploadDir, safeName), buffer);
 
-  return Response.json({ url: `/images/uploads/${safeName}` });
+  return Response.json({ url: `/api/image/${safeName}` });
 }
