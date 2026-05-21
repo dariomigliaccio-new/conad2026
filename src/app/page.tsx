@@ -5,10 +5,10 @@ export default function Home() {
     <main className="holdingPage">
       <section className="holdingPanel" aria-label="CONAD 2026">
         <Image
-          src="/images/conad-logo.png"
-          width={499}
-          height={175}
-          alt="CONAD"
+          src="/images/conad-coming.png"
+          width={880}
+          height={900}
+          alt="CONAD 2026 — Em breve"
           className="holdingLogo"
           priority
         />
