@@ -1,17 +1,14 @@
 import { readContent } from "@/lib/content";
 
 type Local = { nome: string; endereco: string; cidade: string; estado: string; cep: string; descricao: string; lat: string; lng: string; como_chegar: string; hospedagem: string };
-type Global = { mapboxToken: string };
 
 export default async function LocalPage() {
-  const [d, g] = await Promise.all([
-    readContent<Local>("local"),
-    readContent<Global>("global").catch(() => ({ mapboxToken: "" })),
-  ]);
+  const d = await readContent<Local>("local");
+  const token = process.env.MAPBOX_TOKEN ?? "";
 
-  const hasMap = d.lat && d.lng && g.mapboxToken;
+  const hasMap = d.lat && d.lng && token;
   const mapUrl = hasMap
-    ? `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/pin-l+000000(${d.lng},${d.lat})/${d.lng},${d.lat},14,0/1200x500@2x?access_token=${g.mapboxToken}`
+    ? `https://api.mapbox.com/styles/v1/mapbox/outdoors-v12/static/pin-l+000000(${d.lng},${d.lat})/${d.lng},${d.lat},14,0/1200x500@2x?access_token=${token}`
     : null;
 
   const fullAddress = [d.endereco, d.cidade, d.estado, d.cep].filter(Boolean).join(", ");

@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { UploadInput } from "@/components/admin/UploadInput";
 
-type Global = { logo: string; logoAlt: string; mapboxToken: string };
-const EMPTY: Global = { logo: "", logoAlt: "CONAD 2026", mapboxToken: "" };
+type Global = { logo: string; logoAlt: string };
+const EMPTY: Global = { logo: "", logoAlt: "CONAD 2026" };
 
 export default function AdminConfiguracoes() {
   const [d, setD] = useState<Global>(EMPTY);
@@ -42,11 +42,13 @@ export default function AdminConfiguracoes() {
             </div>
           )}
           <label>Texto alternativo do logo<input value={d.logoAlt} onChange={f("logoAlt")} /></label>
-          <label>
-            Mapbox Access Token
-            <input value={d.mapboxToken ?? ""} onChange={f("mapboxToken")} placeholder="pk.eyJ1IjoiLi4uIn0..." />
-          </label>
-          <small style={{ color: "#888", fontSize: 12 }}>Obtenha seu token gratuito em mapbox.com → Account → Tokens</small>
+          <div style={{ background: "#f8f8f0", border: "1px solid #e0d890", borderRadius: 6, padding: "14px 16px" }}>
+            <p style={{ margin: "0 0 6px", fontWeight: 700, fontSize: 13 }}>Token do Mapbox</p>
+            <p style={{ margin: 0, fontSize: 13, color: "#666" }}>
+              O token do Mapbox é configurado como variável de ambiente no Railway para não expor em código.<br />
+              <strong>No Railway:</strong> Seu projeto → Variables → adicione <code>MAPBOX_TOKEN</code> com o valor do seu token.
+            </p>
+          </div>
         </div>
       </div>
     </div>
