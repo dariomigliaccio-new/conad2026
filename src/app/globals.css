@@ -701,10 +701,10 @@ body {
 .planoBtnDest { border-color: #fff; color: #fff; background: transparent; }
 .planoBtnDest:hover { background: #fff; color: #000; }
 
-/* ── PLANS CAROUSEL ─────────────────────────────────── */
+/* ── PLANS CAROUSEL (cover-flow) ────────────────────── */
 
 .plansCarouselOuter {
-  padding: clamp(40px, 5vw, 64px) 0 clamp(32px, 4vw, 48px);
+  padding: clamp(40px, 5vw, 64px) 0 clamp(36px, 4vw, 52px);
   background: #fafafa;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -721,38 +721,34 @@ body {
   margin: 0 0 32px;
 }
 
+/* Viewport: fixed height, clips side cards overflow, centered */
 .plansCarouselViewport {
-  overflow: hidden;
   position: relative;
+  height: 480px;
+  overflow: hidden;
 }
 
-.plansCarouselTrack {
-  display: flex;
-  gap: 24px;
-  will-change: transform;
-}
-
-/* Card in carousel: fixed width + colored border via CSS custom property */
+/* Card in carousel: absolutely centered then offset by JS */
 .planoCardCarousel {
-  width: 300px;
-  flex-shrink: 0;
   border-width: 2px !important;
   border-color: var(--plan-color, #e0e0e0) !important;
+  will-change: transform, opacity;
+  overflow: hidden;
 }
 
-/* Plan name color for non-highlighted cards */
+/* Plan name uses plan color on non-featured cards */
 .planoCardCarousel:not(.planoDestaque) h3 {
   color: var(--plan-color, #000);
 }
 
 /* CTA button uses plan color */
 .planoCardCarousel:not(.planoDestaque) .planoBtn {
-  border-color: var(--plan-color, #000);
-  color: var(--plan-color, #000);
+  border-color: var(--plan-color, #000) !important;
+  color: var(--plan-color, #000) !important;
 }
 .planoCardCarousel:not(.planoDestaque) .planoBtn:hover {
-  background: var(--plan-color, #000);
-  color: #fff;
+  background: var(--plan-color, #000) !important;
+  color: #fff !important;
 }
 
 /* Navigation dots */
@@ -776,7 +772,11 @@ body {
 
 .plansCarouselDot.active {
   background: var(--plan-color, #000);
-  transform: scale(1.35);
+  transform: scale(1.4);
+}
+
+@media (max-width: 768px) {
+  .plansCarouselViewport { height: 430px; }
 }
 
 .localGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px; }

@@ -12,48 +12,26 @@ type Plano = {
   cor?: string;
 };
 
-const CARD_W = 300;
-const GAP = 24;
-const STEP = CARD_W + GAP;
+// Visual config indexed by position: -2, -1, 0 (center), +1, +2
+const CFG = [
+  { xOffset: -430, scale: 0.62, opacity: 0.28, gz: 0.9, zIndex: 1 },
+  { xOffset: -235, scale: 0.82, opacity: 0.55, gz: 0.65, zIndex: 3 },
+  { xOffset:    0, scale: 1.00, opacity: 1.00, gz: 0,    zIndex: 5 },
+  { xOffset:  235, scale: 0.82, opacity: 0.55, gz: 0.65, zIndex: 3 },
+  { xOffset:  430, scale: 0.62, opacity: 0.28, gz: 0.9,  zIndex: 1 },
+];
+const OFFSETS = [-2, -1, 0, 1, 2];
 
 export function PlansCarousel({ planos }: { planos: Plano[] }) {
   const n = planos.length;
-  // Clone last item at start and first item at end for seamless loop
-  const items = [planos[n - 1], ...planos, planos[0]];
-
-  const [pos, setPos] = useState(1); // 1 = first real card centered
-  const [animated, setAnimated] = useState(true);
+  const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     if (paused) return;
-    const t = setInterval(() => setPos(p => p + 1), 3500);
+    const t = setInterval(() => setCurrent(c => (c + 1) % n), 4000);
     return () => clearInterval(t);
-  }, [paused]);
-
-  // After transition: silently jump back to real array boundaries
-  function handleTransitionEnd(e: React.TransitionEvent) {
-    if (e.propertyName !== "transform") return;
-    if (pos >= n + 1) {
-      setAnimated(false);
-      setPos(1);
-    } else if (pos <= 0) {
-      setAnimated(false);
-      setPos(n);
-    }
-  }
-
-  // Re-enable animation one frame after the silent position jump
-  useEffect(() => {
-    if (!animated) {
-      const id = requestAnimationFrame(() => setAnimated(true));
-      return () => cancelAnimationFrame(id);
-    }
-  }, [animated]);
-
-  // Centers item at index `pos`: 50vw = track_left + pos*STEP + CARD_W/2
-  const offset = pos * STEP + CARD_W / 2;
-  const currentIdx = ((pos - 1) % n + n) % n;
+  }, [paused, n]);
 
   return (
     <div
@@ -64,49 +42,63 @@ export function PlansCarousel({ planos }: { planos: Plano[] }) {
       <p className="plansCarouselEyebrow">PLANOS DE INSCRIÇÃO</p>
 
       <div className="plansCarouselViewport">
-        <div
-          className="plansCarouselTrack"
-          style={{
-            transform: `translateX(calc(50vw - ${offset}px))`,
-            transition: animated
-              ? "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)"
-              : "none",
-          }}
-          onTransitionEnd={handleTransitionEnd}
-        >
-          {items.map((p, i) => (
+        {OFFSETS.map((offset, ci) => {
+          const idx = ((current + offset) % n + n) % n;
+          const p = planos[idx];
+          const { xOffset, scale, opacity, gz, zIndex } = CFG[ci];
+          const isCenter = offset === 0;
+
+          return (
             <article
-              key={i}
-              className={`planoCard planoCardCarousel${p.destaque ? " planoDestaque" : ""}`}
-              style={{ "--plan-color": p.cor || "#cccccc" } as React.CSSProperties}
+              key={offset}
+              className={`planoCard planoCardCarousel${isCenter && p.destaque ? " planoDestaque" : ""}`}
+              style={{
+                "--plan-color": p.cor || "#cccccc",
+                position: "absolute",
+                width: 300,
+                left: "50%",
+                top: "50%",
+                transform: `translateX(calc(-50% + ${xOffset}px)) translateY(-50%) scale(${scale})`,
+                transformOrigin: "center center",
+                opacity,
+                zIndex,
+                filter: gz > 0 ? `grayscale(${gz})` : "none",
+                transition: "transform 0.55s cubic-bezier(.25,.46,.45,.94), opacity 0.55s ease, filter 0.55s ease",
+                cursor: isCenter ? "default" : "pointer",
+              } as React.CSSProperties}
+              onClick={() => !isCenter && setCurrent(idx)}
             >
-              {p.destaque && (
+              {isCenter && p.destaque && (
                 <span className="planoDestaqueLabel">MAIS POPULAR</span>
               )}
               <h3>{p.nome}</h3>
               <p className="planoPreco">{p.preco}</p>
               <p className="planoDesc">{p.descricao}</p>
-              <ul className="planoBeneficios">
-                {p.beneficios.map((b, bi) => b.trim() && <li key={bi}>{b}</li>)}
-              </ul>
-              <a
-                href={p.ctaHref}
-                className={`planoBtn${p.destaque ? " planoBtnDest" : ""}`}
-              >
-                {p.ctaText}
-              </a>
+              {isCenter && (
+                <>
+                  <ul className="planoBeneficios">
+                    {p.beneficios.map((b, bi) => b.trim() && <li key={bi}>{b}</li>)}
+                  </ul>
+                  <a
+                    href={p.ctaHref}
+                    className={`planoBtn${p.destaque ? " planoBtnDest" : ""}`}
+                  >
+                    {p.ctaText}
+                  </a>
+                </>
+              )}
             </article>
-          ))}
-        </div>
+          );
+        })}
       </div>
 
       <div className="plansCarouselDots">
         {planos.map((p, i) => (
           <button
             key={i}
-            className={`plansCarouselDot${currentIdx === i ? " active" : ""}`}
+            className={`plansCarouselDot${current === i ? " active" : ""}`}
             style={{ "--plan-color": p.cor || "#cccccc" } as React.CSSProperties}
-            onClick={() => { setAnimated(true); setPos(i + 1); }}
+            onClick={() => setCurrent(i)}
             aria-label={`Ver ${p.nome}`}
           />
         ))}

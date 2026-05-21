@@ -6,9 +6,10 @@ export default async function LocalPage() {
   const d = await readContent<Local>("local");
   const token = process.env.MAPBOX_TOKEN ?? "";
 
-  const hasMap = d.lat && d.lng && token;
+  const hasCoords = d.lat && d.lng;
+  const hasMap = hasCoords && token;
   const mapUrl = hasMap
-    ? `https://api.mapbox.com/styles/v1/mapbox/outdoors-v12/static/pin-l+000000(${d.lng},${d.lat})/${d.lng},${d.lat},14,0/1200x500@2x?access_token=${token}`
+    ? `https://api.mapbox.com/styles/v1/mapbox/light-v11/static/pin-l+000000(${d.lng},${d.lat})/${d.lng},${d.lat},14/1200x500@2x?access_token=${token}`
     : null;
 
   const fullAddress = [d.endereco, d.cidade, d.estado, d.cep].filter(Boolean).join(", ");

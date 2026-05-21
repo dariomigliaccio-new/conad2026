@@ -39,12 +39,29 @@ export default function AdminLocal() {
           <label>Descrição<textarea rows={3} value={d.descricao} onChange={f("descricao")} /></label>
 
           <div style={{ borderTop: "1px solid #e0e0e6", paddingTop: 16, marginTop: 4 }}>
-            <p style={{ fontWeight: 700, fontSize: 12, letterSpacing: ".1em", textTransform: "uppercase", color: "#888", marginBottom: 12 }}>Mapa Mapbox</p>
-            <small style={{ color: "#888", fontSize: 12, display: "block", marginBottom: 10 }}>Cole as coordenadas do local. Para encontrá-las, acesse maps.google.com, clique no local e copie latitude e longitude.</small>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-              <label>Latitude (ex: -23.5505)<input value={d.lat} onChange={f("lat")} placeholder="-23.5505" /></label>
-              <label>Longitude (ex: -46.6333)<input value={d.lng} onChange={f("lng")} placeholder="-46.6333" /></label>
+            <p style={{ fontWeight: 700, fontSize: 12, letterSpacing: ".1em", textTransform: "uppercase", color: "#888", marginBottom: 8 }}>Coordenadas para o Mapa</p>
+            <div style={{ background: "#fffbe6", border: "1px solid #f0e060", borderRadius: 6, padding: "10px 14px", marginBottom: 14, fontSize: 13 }}>
+              <strong>Como obter as coordenadas:</strong><br />
+              1. Acesse <strong>maps.google.com</strong><br />
+              2. Pesquise o endereço do evento<br />
+              3. Clique com botão direito no local exato → <em>&#34;O que há aqui?&#34;</em><br />
+              4. Copie os números que aparecem (ex: -15.7797, -47.9297).<br />
+              O primeiro é a <strong>latitude</strong>, o segundo é a <strong>longitude</strong>.
             </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+              <label>Latitude (ex: -15.7797)<input value={d.lat} onChange={f("lat")} placeholder="-15.7797" /></label>
+              <label>Longitude (ex: -47.9297)<input value={d.lng} onChange={f("lng")} placeholder="-47.9297" /></label>
+            </div>
+            {d.lat && d.lng && (
+              <a
+                href={`https://www.google.com/maps?q=${d.lat},${d.lng}`}
+                target="_blank"
+                rel="noopener"
+                style={{ display: "inline-block", marginTop: 10, fontSize: 12, color: "#1976D2", textDecoration: "underline" }}
+              >
+                Verificar no Google Maps ↗
+              </a>
+            )}
           </div>
 
           <label>Como chegar<textarea rows={4} value={d.como_chegar} onChange={f("como_chegar")} /></label>
