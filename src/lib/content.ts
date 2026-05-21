@@ -10,14 +10,18 @@ export async function readContent<T>(section: string): Promise<T> {
   return JSON.parse(raw) as T;
 }
 
-export async function writeContent(section: string, data: unknown): Promise<void> {
+export async function writeContent(section: string, data: unknown): Promise<{ github: boolean }> {
   const json = JSON.stringify(data, null, 2);
   const file = path.join(DATA_DIR, `${section}.json`);
   await fs.writeFile(file, json, "utf-8");
-  // Persist to GitHub in background so redeploys never lose data
-  commitToGitHub(section, json).catch(err =>
-    console.error(`[github] Failed to commit ${section}:`, err)
-  );
+  // Persist to GitHub so redeploys never lose data
+  try {
+    await commitToGitHub(section, json);
+    return { github: true };
+  } catch (err) {
+    console.error(`[github] Failed to commit ${section}:`, err);
+    return { github: false };
+  }
 }
 
 async function commitToGitHub(section: string, json: string): Promise<void> {

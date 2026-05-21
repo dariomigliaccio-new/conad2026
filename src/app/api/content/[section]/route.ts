@@ -17,8 +17,8 @@ export async function POST(req: NextRequest, { params }: Ctx) {
   const { section } = await params;
   try {
     const body = await req.json();
-    await writeContent(section, body);
-    return Response.json({ ok: true });
+    const { github } = await writeContent(section, body);
+    return Response.json({ ok: true, github });
   } catch {
     return Response.json({ error: "Failed to save" }, { status: 500 });
   }

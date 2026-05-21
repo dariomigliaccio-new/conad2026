@@ -17,7 +17,7 @@ export default function AdminProgramacao() {
   async function save() {
     setSaving(true); setMsg("");
     const r = await fetch("/api/content/programacao", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) });
-    setMsg(r.ok ? "✓ Salvo com sucesso!" : "✗ Erro ao salvar.");
+    r.json().then(j => setMsg(j?.github ? "✓ Salvo e sincronizado com GitHub!" : j?.ok ? "✓ Salvo! ⚠ Token GitHub inválido." : "✗ Erro ao salvar."));
     setSaving(false);
   }
 
