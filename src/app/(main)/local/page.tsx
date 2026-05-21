@@ -6,12 +6,10 @@ type Local = { nome: string; endereco: string; cidade: string; estado: string; c
 
 export default async function LocalPage() {
   const d = await readContent<Local>("local");
-  const token = process.env.MAPBOX_TOKEN ?? "";
 
   const hasCoords = d.lat && d.lng;
-  const hasMap = hasCoords && token;
-  const mapUrl = hasMap
-    ? `https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v12/static/pin-l+ff0000(${d.lng},${d.lat})/${d.lng},${d.lat},15/1280x508@2x?access_token=${token}`
+  const mapSrc = hasCoords
+    ? `https://maps.google.com/maps?q=${d.lat},${d.lng}&z=15&output=embed&hl=pt`
     : null;
 
   const fullAddress = [d.endereco, d.cidade, d.estado, d.cep].filter(Boolean).join(", ");
@@ -25,12 +23,16 @@ export default async function LocalPage() {
         <p className="pageLead">{d.descricao}</p>
       </section>
 
-      {mapUrl && (
+      {mapSrc && (
         <div className="localMapWrap">
-          <img
-            src={mapUrl}
-            alt={`Mapa — ${d.nome}`}
+          <iframe
+            src={mapSrc}
             className="localMapImg"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title={`Mapa — ${d.nome}`}
           />
         </div>
       )}
