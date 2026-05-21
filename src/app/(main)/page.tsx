@@ -1,18 +1,12 @@
-import Image from "next/image";
+import { Countdown } from "@/components/Countdown";
+import { HeroCarousel } from "@/components/HeroCarousel";
+import { heroSlides } from "@/data/home";
 
 export default function Home() {
   return (
-    <main className="holdingPage">
-      <section className="holdingPanel" aria-label="CONAD 2026">
-        <Image
-          src="/images/conad-coming.png"
-          width={880}
-          height={900}
-          alt="CONAD 2026 — Em breve"
-          className="holdingLogo"
-          priority
-        />
-      </section>
+    <main>
+      <HeroCarousel slides={heroSlides} />
+      <Countdown />
     </main>
   );
 }
