@@ -4,7 +4,7 @@ import { HeroCarousel } from "@/components/HeroCarousel";
 import { PlansCarousel } from "@/components/PlansCarousel";
 import { heroSlides } from "@/data/home";
 
-type Plano = { nome: string; preco: string; descricao: string; beneficios: string[]; ctaText: string; ctaHref: string; destaque: boolean };
+type Plano = { nome: string; preco: string; descricao: string; beneficios: string[]; ctaText: string; ctaHref: string; destaque: boolean; cor?: string };
 type PlanosData = { planos: Plano[] };
 
 export default async function Home() {

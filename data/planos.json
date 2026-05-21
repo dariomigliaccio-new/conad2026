@@ -7,7 +7,8 @@
       "beneficios": ["Acesso a todas as sessões", "Kit do participante", "Almoço nos 3 dias", "Certificado de participação"],
       "ctaText": "Inscrever-se",
       "ctaHref": "#inscricao",
-      "destaque": true
+      "destaque": true,
+      "cor": "#C9A84C"
     },
     {
       "nome": "Plano Prata",
@@ -16,7 +17,8 @@
       "beneficios": ["Acesso online ao vivo", "Gravações disponíveis por 30 dias", "Certificado digital"],
       "ctaText": "Garantir acesso",
       "ctaHref": "#inscricao",
-      "destaque": false
+      "destaque": false,
+      "cor": "#9E9E9E"
     },
     {
       "nome": "Plano Verde",
@@ -25,7 +27,8 @@
       "beneficios": ["Licença para exibição em grupo", "Material de apoio", "Certificado digital"],
       "ctaText": "Encontrar grupo",
       "ctaHref": "#inscricao",
-      "destaque": false
+      "destaque": false,
+      "cor": "#4A7C59"
     },
     {
       "nome": "Plano Azul",
@@ -34,7 +37,8 @@
       "beneficios": ["Transmissão oficial para sua igreja", "Suporte técnico", "Material de divulgação"],
       "ctaText": "Ver disponibilidade",
       "ctaHref": "#contato",
-      "destaque": false
+      "destaque": false,
+      "cor": "#1976D2"
     }
   ]
 }

@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 
-type Plano = { nome: string; preco: string; descricao: string; beneficios: string[]; ctaText: string; ctaHref: string; destaque: boolean };
+type Plano = { nome: string; preco: string; descricao: string; beneficios: string[]; ctaText: string; ctaHref: string; destaque: boolean; cor: string };
 type Data = { planos: Plano[] };
-const newItem = (): Plano => ({ nome: "", preco: "", descricao: "", beneficios: [""], ctaText: "Inscrever-se", ctaHref: "#inscricao", destaque: false });
+const newItem = (): Plano => ({ nome: "", preco: "", descricao: "", beneficios: [""], ctaText: "Inscrever-se", ctaHref: "#inscricao", destaque: false, cor: "#000000" });
 
 export default function AdminPlanos() {
   const [d, setD] = useState<Data>({ planos: [] });
@@ -57,6 +57,11 @@ export default function AdminPlanos() {
               <label>Benefícios (um por linha)<textarea rows={5} value={p.beneficios.join("\n")} onChange={e => updateBeneficios(i, e.target.value)} /></label>
               <label>Texto do botão<input value={p.ctaText} onChange={e => updatePlano(i, "ctaText", e.target.value)} /></label>
               <label>Link do botão<input value={p.ctaHref} onChange={e => updatePlano(i, "ctaHref", e.target.value)} /></label>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14 }}>
+                <span style={{ fontSize: 13, fontWeight: 600 }}>Cor do plano</span>
+                <input type="color" value={p.cor || "#000000"} onChange={e => updatePlano(i, "cor", e.target.value)} style={{ width: 48, height: 32, padding: 2, border: "1px solid #ccc", borderRadius: 4, cursor: "pointer" }} />
+                <span style={{ fontSize: 12, color: "#888" }}>{p.cor || "#000000"}</span>
+              </div>
               <label style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
                 <input type="checkbox" checked={p.destaque} onChange={e => updatePlano(i, "destaque", e.target.checked)} style={{ width: "auto" }} />
                 Destacar este plano
