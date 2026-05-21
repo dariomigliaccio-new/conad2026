@@ -701,6 +701,49 @@ body {
 .planoBtnDest { border-color: #fff; color: #fff; background: transparent; }
 .planoBtnDest:hover { background: #fff; color: #000; }
 
+/* ── PLANS CAROUSEL ─────────────────────────────────── */
+
+.plansCarouselOuter {
+  overflow: hidden;
+  padding: clamp(40px, 5vw, 64px) 0;
+  background: #fafafa;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.plansCarouselEyebrow {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 32px;
+}
+
+.plansCarouselTrack {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: plansScroll 32s linear infinite;
+  padding: 0 24px;
+}
+
+.plansCarouselTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes plansScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.planoCardCarousel {
+  width: 300px;
+  flex-shrink: 0;
+}
+
 .localGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px; }
 .localInfo h3 { font-family: var(--font-serif); font-size: 28px; font-weight: 400; margin: 0 0 12px; }
 .localInfo p { color: var(--muted); margin: 0 0 8px; line-height: 1.6; }

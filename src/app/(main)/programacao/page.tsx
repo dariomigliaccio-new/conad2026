@@ -14,7 +14,7 @@ export default async function ProgramacaoPage() {
         <div className="pageDivider" />
         <p className="pageLead">Confira a grade completa de sessões e ministrações.</p>
       </section>
-      <div className="section progGrid">
+      <section className="section"><div className="progGrid">
         {d.dias.map((dia, di) => (
           <div key={di} className="progDia">
             <h3 className="progDiaTitle">{dia.data}</h3>
@@ -32,7 +32,7 @@ export default async function ProgramacaoPage() {
             </ul>
           </div>
         ))}
-      </div>
+      </div></section>
     </main>
   );
 }
