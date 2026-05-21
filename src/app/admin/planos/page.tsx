@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
+import { UploadInput } from "@/components/admin/UploadInput";
 
-type Plano = { nome: string; preco: string; descricao: string; beneficios: string[]; ctaText: string; ctaHref: string; destaque: boolean; cor: string };
+type Plano = { nome: string; preco: string; descricao: string; beneficios: string[]; ctaText: string; ctaHref: string; destaque: boolean; cor: string; imagem: string };
 type Data = { planos: Plano[] };
-const newItem = (): Plano => ({ nome: "", preco: "", descricao: "", beneficios: [""], ctaText: "Inscrever-se", ctaHref: "#inscricao", destaque: false, cor: "#000000" });
+const newItem = (): Plano => ({ nome: "", preco: "", descricao: "", beneficios: [""], ctaText: "Inscrever-se", ctaHref: "#inscricao", destaque: false, cor: "#000000", imagem: "" });
 
 export default function AdminPlanos() {
   const [d, setD] = useState<Data>({ planos: [] });
@@ -57,6 +58,27 @@ export default function AdminPlanos() {
               <label>Benefícios (um por linha)<textarea rows={5} value={p.beneficios.join("\n")} onChange={e => updateBeneficios(i, e.target.value)} /></label>
               <label>Texto do botão<input value={p.ctaText} onChange={e => updatePlano(i, "ctaText", e.target.value)} /></label>
               <label>Link do botão<input value={p.ctaHref} onChange={e => updatePlano(i, "ctaHref", e.target.value)} /></label>
+
+              {/* Image upload */}
+              <div style={{ marginBottom: 14 }}>
+                <p style={{ fontSize: 13, fontWeight: 600, margin: "0 0 8px" }}>Imagem do plano (topo do cartão)</p>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+                  <input
+                    value={p.imagem}
+                    onChange={e => updatePlano(i, "imagem", e.target.value)}
+                    placeholder="URL da imagem ou faça upload →"
+                    style={{ flex: 1, minWidth: 200 }}
+                  />
+                  <UploadInput label="Upload imagem" onUpload={url => updatePlano(i, "imagem", url)} />
+                </div>
+                {p.imagem && (
+                  <div style={{ marginTop: 10, background: p.cor || "#888", borderRadius: 8, padding: 12, display: "inline-block" }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={p.imagem} alt={p.nome} style={{ height: 80, width: "auto", objectFit: "contain", display: "block" }} />
+                  </div>
+                )}
+              </div>
+
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14 }}>
                 <span style={{ fontSize: 13, fontWeight: 600 }}>Cor do plano</span>
                 <input type="color" value={p.cor || "#000000"} onChange={e => updatePlano(i, "cor", e.target.value)} style={{ width: 48, height: 32, padding: 2, border: "1px solid #ccc", borderRadius: 4, cursor: "pointer" }} />

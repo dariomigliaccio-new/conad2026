@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 type Plano = {
   nome: string; preco: string; descricao: string;
   beneficios: string[]; ctaText: string; ctaHref: string;
-  destaque: boolean; cor?: string;
+  destaque: boolean; cor?: string; imagem?: string;
 };
 
 // Config per slot: -2, -1, 0 (center), +1, +2
@@ -51,7 +51,7 @@ export function PlansCarousel({ planos }: { planos: Plano[] }) {
                 position: "absolute",
                 width: 300,
                 left: "50%",
-                top: "calc(50% - 210px)",
+                top: "calc(50% - 250px)",
                 transform: `translateX(calc(-50% + ${x}px)) scale(${scale})`,
                 transformOrigin: "center center",
                 opacity,
@@ -62,24 +62,33 @@ export function PlansCarousel({ planos }: { planos: Plano[] }) {
               } as React.CSSProperties}
               onClick={() => !isCenter && setCur(idx)}
             >
-              {isCenter && p.destaque && (
-                <span className="planoDestaqueLabel" style={{ background: p.cor || "#000", color: "#fff" }}>
-                  MAIS POPULAR
-                </span>
-              )}
-              <h3>{p.nome}</h3>
-              <p className="planoPreco">{p.preco}</p>
-              <p className="planoDesc">{p.descricao}</p>
-              {isCenter && (
-                <>
-                  <ul className="planoBeneficios">
-                    {p.beneficios.map((b, bi) => b.trim() && <li key={bi}>{b}</li>)}
-                  </ul>
-                  <a href={p.ctaHref} className="planoBtn planoCarouselBtn">
-                    {p.ctaText}
-                  </a>
-                </>
-              )}
+              {/* Image banner */}
+              <div className="planoCardImgBanner">
+                {isCenter && p.destaque && (
+                  <span className="planoCardImgBannerBadge">MAIS POPULAR</span>
+                )}
+                {p.imagem && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={p.imagem} alt={p.nome} />
+                )}
+              </div>
+
+              {/* Card body */}
+              <div className="planoCardBody">
+                <h3>{p.nome}</h3>
+                <p className="planoPreco">{p.preco}</p>
+                <p className="planoDesc">{p.descricao}</p>
+                {isCenter && (
+                  <>
+                    <ul className="planoBeneficios">
+                      {p.beneficios.map((b, bi) => b.trim() && <li key={bi}>{b}</li>)}
+                    </ul>
+                    <a href={p.ctaHref} className="planoBtn planoCarouselBtn" style={{ marginTop: "auto" }}>
+                      {p.ctaText}
+                    </a>
+                  </>
+                )}
+              </div>
             </article>
           );
         })}
