@@ -734,13 +734,13 @@ body {
 /* Fixed-height stage — cards are absolutely positioned inside */
 .plansCarouselViewport {
   position: relative;
-  height: 540px;
+  height: 590px;
   overflow: hidden;
 }
 
 /* Card in the cover-flow: fixed size, pastel bg, colored border */
 .planoCardCarousel {
-  height: 500px;
+  height: 550px;
   overflow: hidden;
   padding: 0 !important;
   display: flex !important;
@@ -757,7 +757,7 @@ body {
 .planoCardImgBanner {
   position: relative;
   width: 100%;
-  height: 160px;
+  height: 210px;
   flex-shrink: 0;
   background: var(--plan-color, #aaa);
   border-radius: 10px 10px 0 0;
@@ -836,10 +836,9 @@ body {
 }
 
 @media (max-width: 600px) {
-  .plansCarouselViewport { height: 480px; }
-  .planoCardCarousel { height: 440px; }
-  .planoCardImgBanner { height: 130px; }
-  .planoCardImgBanner img { height: 120px; }
+  .plansCarouselViewport { height: 530px; }
+  .planoCardCarousel { height: 490px; }
+  .planoCardImgBanner { height: 180px; }
 }
 
 .localGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px; }

@@ -51,7 +51,7 @@ export function PlansCarousel({ planos }: { planos: Plano[] }) {
                 position: "absolute",
                 width: 300,
                 left: "50%",
-                top: "calc(50% - 250px)",
+                top: "calc(50% - 275px)",
                 transform: `translateX(calc(-50% + ${x}px)) scale(${scale})`,
                 transformOrigin: "center center",
                 opacity,
