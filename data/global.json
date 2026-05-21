@@ -1,4 +1,5 @@
 {
   "logo": "/images/conad-logo.png",
-  "logoAlt": "CONAD 2026"
+  "logoAlt": "CONAD 2026",
+  "mapboxToken": ""
 }

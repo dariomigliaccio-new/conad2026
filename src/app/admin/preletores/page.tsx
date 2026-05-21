@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import { UploadInput } from "@/components/admin/UploadInput";
 
 type Preletor = { nome: string; cargo: string; bio: string; foto: string };
 type Data = { lista: Preletor[] };
@@ -45,11 +47,19 @@ export default function AdminPreletores() {
               <strong>{p.nome || `Preletor ${i + 1}`}</strong>
               <button className="adminRemoveBtn" onClick={() => remove(i)}>Remover</button>
             </div>
-            <div className="adminForm">
-              <label>Nome completo<input value={p.nome} onChange={e => update(i, "nome", e.target.value)} /></label>
-              <label>Cargo / Título<input value={p.cargo} onChange={e => update(i, "cargo", e.target.value)} /></label>
-              <label>URL da foto<input value={p.foto} onChange={e => update(i, "foto", e.target.value)} placeholder="/images/speakers/nome.jpg" /></label>
-              <label>Biografia<textarea rows={3} value={p.bio} onChange={e => update(i, "bio", e.target.value)} /></label>
+            <div style={{ display: "flex", gap: 20, alignItems: "flex-start" }}>
+              <div style={{ flexShrink: 0 }}>
+                <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", background: "#eee", position: "relative", marginBottom: 8 }}>
+                  {p.foto && <Image src={p.foto} fill alt={p.nome} style={{ objectFit: "cover" }} />}
+                </div>
+                <UploadInput label="Upload foto" onUpload={url => update(i, "foto", url)} />
+              </div>
+              <div className="adminForm" style={{ flex: 1 }}>
+                <label>Nome completo<input value={p.nome} onChange={e => update(i, "nome", e.target.value)} /></label>
+                <label>Cargo / Título<input value={p.cargo} onChange={e => update(i, "cargo", e.target.value)} /></label>
+                <label>URL da foto<input value={p.foto} onChange={e => update(i, "foto", e.target.value)} placeholder="/images/speakers/nome.jpg" /></label>
+                <label>Biografia<textarea rows={3} value={p.bio} onChange={e => update(i, "bio", e.target.value)} /></label>
+              </div>
             </div>
           </div>
         ))}

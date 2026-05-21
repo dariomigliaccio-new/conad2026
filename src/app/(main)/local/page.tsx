@@ -1,39 +1,64 @@
 import { readContent } from "@/lib/content";
 
-type Local = { nome: string; endereco: string; cidade: string; estado: string; cep: string; descricao: string; maps_link: string; como_chegar: string; hospedagem: string };
+type Local = { nome: string; endereco: string; cidade: string; estado: string; cep: string; descricao: string; lat: string; lng: string; como_chegar: string; hospedagem: string };
+type Global = { mapboxToken: string };
 
 export default async function LocalPage() {
-  const d = await readContent<Local>("local");
+  const [d, g] = await Promise.all([
+    readContent<Local>("local"),
+    readContent<Global>("global").catch(() => ({ mapboxToken: "" })),
+  ]);
+
+  const hasMap = d.lat && d.lng && g.mapboxToken;
+  const mapUrl = hasMap
+    ? `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/pin-l+000000(${d.lng},${d.lat})/${d.lng},${d.lat},14,0/1200x500@2x?access_token=${g.mapboxToken}`
+    : null;
+
+  const fullAddress = [d.endereco, d.cidade, d.estado, d.cep].filter(Boolean).join(", ");
+
   return (
-    <main className="section" id="local">
-      <div className="sectionHeader">
-        <h2>Local do Evento</h2>
-        <p>{d.descricao}</p>
-      </div>
-      <div className="localGrid">
-        <div className="localInfo">
-          <h3>{d.nome}</h3>
-          {d.endereco && <p>{d.endereco}</p>}
-          {d.cidade && <p>{d.cidade}{d.estado && `, ${d.estado}`}{d.cep && ` — ${d.cep}`}</p>}
+    <main>
+      <section className="pageHero pageHeroSm">
+        <p className="pageEyebrow">CONAD 2026</p>
+        <h1 className="pageTitle">Local do Evento</h1>
+        <div className="pageDivider" />
+        <p className="pageLead">{d.descricao}</p>
+      </section>
+
+      {mapUrl && (
+        <div className="localMapWrap">
+          <img
+            src={mapUrl}
+            alt={`Mapa — ${d.nome}`}
+            className="localMapImg"
+          />
+        </div>
+      )}
+
+      <section className="section localContent">
+        <div className="localVenueBlock">
+          <p className="localVenueLabel">VENUE</p>
+          <h2 className="localVenueName">{d.nome}</h2>
+          {fullAddress && <p className="localVenueAddress">{fullAddress}</p>}
+        </div>
+
+        <div className="localInfoGrid">
           {d.como_chegar && (
-            <div className="localSec">
-              <h4>Como chegar</h4>
+            <div className="localInfoCard">
+              <span className="localInfoIcon">→</span>
+              <h3>Como chegar</h3>
               <p style={{ whiteSpace: "pre-line" }}>{d.como_chegar}</p>
             </div>
           )}
           {d.hospedagem && (
-            <div className="localSec">
-              <h4>Hospedagem</h4>
+            <div className="localInfoCard">
+              <span className="localInfoIcon">◇</span>
+              <h3>Hospedagem</h3>
               <p style={{ whiteSpace: "pre-line" }}>{d.hospedagem}</p>
             </div>
           )}
         </div>
-        {d.maps_link && (
-          <div className="localMapa">
-            <iframe src={d.maps_link} width="100%" height="400" style={{ border: 0, display: "block" }} allowFullScreen loading="lazy" />
-          </div>
-        )}
-      </div>
+      </section>
     </main>
   );
 }

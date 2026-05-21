@@ -5,16 +5,27 @@ type Evento = { titulo: string; subtitulo: string; descricao: string; data: stri
 export default async function EventoPage() {
   const d = await readContent<Evento>("evento");
   return (
-    <main className="section" id="evento">
-      <div className="sectionHeader">
-        <p className="kicker">{d.subtitulo}</p>
-        <h2>{d.titulo}</h2>
-        <p>{d.descricao}</p>
-      </div>
-      <div className="eventoMeta">
-        <div className="eventoMetaItem"><span>DATA</span><strong>{d.data}</strong></div>
-        <div className="eventoMetaItem"><span>LOCAL</span><strong>{d.cidade}</strong></div>
-      </div>
+    <main>
+      <section className="pageHero">
+        <p className="pageEyebrow">{d.subtitulo}</p>
+        <h1 className="pageTitle">{d.titulo}</h1>
+        <div className="pageDivider" />
+        <p className="pageLead">{d.descricao}</p>
+      </section>
+
+      <section className="eventoMetaSection">
+        <div className="eventoMetaCard">
+          <span className="eventoMetaIcon">◇</span>
+          <span className="eventoMetaLabel">DATA</span>
+          <strong className="eventoMetaValue">{d.data}</strong>
+        </div>
+        <div className="eventoMetaDivider" />
+        <div className="eventoMetaCard">
+          <span className="eventoMetaIcon">◇</span>
+          <span className="eventoMetaLabel">LOCAL</span>
+          <strong className="eventoMetaValue">{d.cidade}</strong>
+        </div>
+      </section>
     </main>
   );
 }

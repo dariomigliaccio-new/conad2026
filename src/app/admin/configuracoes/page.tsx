@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { UploadInput } from "@/components/admin/UploadInput";
 
-type Global = { logo: string; logoAlt: string };
-const EMPTY: Global = { logo: "", logoAlt: "CONAD 2026" };
+type Global = { logo: string; logoAlt: string; mapboxToken: string };
+const EMPTY: Global = { logo: "", logoAlt: "CONAD 2026", mapboxToken: "" };
 
 export default function AdminConfiguracoes() {
   const [d, setD] = useState<Global>(EMPTY);
@@ -30,22 +31,22 @@ export default function AdminConfiguracoes() {
         </div>
         {msg && <p className="adminMsg">{msg}</p>}
         <div className="adminForm">
-          <label>
-            URL do Logo (caminho da imagem)
-            <input value={d.logo} onChange={f("logo")} placeholder="/images/conad-logo.png" />
-          </label>
-          <label>
-            Texto alternativo do logo (acessibilidade)
-            <input value={d.logoAlt} onChange={f("logoAlt")} />
-          </label>
+          <label>URL do Logo</label>
+          <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 14 }}>
+            <input value={d.logo} onChange={f("logo")} placeholder="/images/conad-logo.png" style={{ flex: 1 }} />
+            <UploadInput label="Upload logo" onUpload={url => setD(p => ({ ...p, logo: url }))} />
+          </div>
           {d.logo && (
-            <div style={{ marginTop: 16 }}>
-              <p style={{ fontSize: 12, color: "#888", marginBottom: 8 }}>Pré-visualização:</p>
-              <div style={{ background: "#f4f4f4", padding: 20, display: "inline-block", borderRadius: 6 }}>
-                <Image src={d.logo} width={200} height={70} alt={d.logoAlt} style={{ objectFit: "contain", height: "auto" }} />
-              </div>
+            <div style={{ background: "#f4f4f4", padding: 20, display: "inline-block", borderRadius: 6, marginBottom: 14 }}>
+              <Image src={d.logo} width={200} height={70} alt={d.logoAlt} style={{ objectFit: "contain", height: "auto" }} />
             </div>
           )}
+          <label>Texto alternativo do logo<input value={d.logoAlt} onChange={f("logoAlt")} /></label>
+          <label>
+            Mapbox Access Token
+            <input value={d.mapboxToken ?? ""} onChange={f("mapboxToken")} placeholder="pk.eyJ1IjoiLi4uIn0..." />
+          </label>
+          <small style={{ color: "#888", fontSize: 12 }}>Obtenha seu token gratuito em mapbox.com → Account → Tokens</small>
         </div>
       </div>
     </div>
