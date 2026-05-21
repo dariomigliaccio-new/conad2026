@@ -1,5 +1,7 @@
 import { readContent } from "@/lib/content";
 
+export const dynamic = "force-dynamic";
+
 type Contato = { email: string; whatsapp: string; horario: string; intro: string };
 
 export default async function ContatoPage() {

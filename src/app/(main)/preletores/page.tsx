@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { readContent } from "@/lib/content";
 
+export const dynamic = "force-dynamic";
+
 type Preletor = { nome: string; cargo: string; bio: string; foto: string };
 type Data = { lista: Preletor[] };
 

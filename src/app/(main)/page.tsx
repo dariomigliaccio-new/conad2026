@@ -1,6 +1,8 @@
 import { readContent } from "@/lib/content";
 import { Countdown } from "@/components/Countdown";
 import { HeroCarousel } from "@/components/HeroCarousel";
+
+export const dynamic = "force-dynamic";
 import { PlansCarousel } from "@/components/PlansCarousel";
 import { heroSlides } from "@/data/home";
 

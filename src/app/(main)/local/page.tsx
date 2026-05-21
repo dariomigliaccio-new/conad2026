@@ -1,5 +1,7 @@
 import { readContent } from "@/lib/content";
 
+export const dynamic = "force-dynamic";
+
 type Local = { nome: string; endereco: string; cidade: string; estado: string; cep: string; descricao: string; lat: string; lng: string; como_chegar: string; hospedagem: string };
 
 export default async function LocalPage() {

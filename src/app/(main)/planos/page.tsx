@@ -1,6 +1,8 @@
 import { readContent } from "@/lib/content";
 import { PlansCarousel } from "@/components/PlansCarousel";
 
+export const dynamic = "force-dynamic";
+
 type Plano = { nome: string; preco: string; descricao: string; beneficios: string[]; ctaText: string; ctaHref: string; destaque: boolean; cor?: string };
 type Data = { planos: Plano[] };
 

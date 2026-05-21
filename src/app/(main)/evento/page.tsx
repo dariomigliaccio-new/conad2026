@@ -1,5 +1,7 @@
 import { readContent } from "@/lib/content";
 
+export const dynamic = "force-dynamic";
+
 type Evento = { titulo: string; subtitulo: string; descricao: string; data: string; cidade: string };
 
 export default async function EventoPage() {

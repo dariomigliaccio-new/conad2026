@@ -2,6 +2,8 @@ import { readContent } from "@/lib/content";
 import Header from "../Header";
 import Footer from "../Footer";
 
+export const dynamic = "force-dynamic";
+
 type Global = { logo: string; logoAlt: string };
 
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {

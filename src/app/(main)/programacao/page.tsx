@@ -1,5 +1,7 @@
 import { readContent } from "@/lib/content";
 
+export const dynamic = "force-dynamic";
+
 type Sessao = { horario: string; titulo: string; preletor: string; local: string };
 type Dia = { data: string; sessoes: Sessao[] };
 type Prog = { dias: Dia[] };
