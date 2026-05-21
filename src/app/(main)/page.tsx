@@ -14,8 +14,8 @@ export default async function Home() {
   return (
     <main>
       <HeroCarousel slides={heroSlides} />
-      <Countdown />
       <PlansCarousel planos={planos} />
+      <Countdown />
     </main>
   );
 }
