@@ -2,8 +2,16 @@ import Link from "next/link";
 
 const navItems = [
   { href: "/admin", label: "Dashboard" },
+  { href: "/admin/hero", label: "Carrossel" },
+  { href: "/admin/evento", label: "O Evento" },
+  { href: "/admin/programacao", label: "Programação" },
+  { href: "/admin/preletores", label: "Preletores" },
+  { href: "/admin/planos", label: "Planos" },
+  { href: "/admin/local", label: "Local" },
+  { href: "/admin/contato", label: "Contato" },
+  { href: "/admin/sociais", label: "Redes Sociais" },
   { href: "/admin/banners", label: "Banners" },
-  { href: "/admin/conteudo", label: "Conteudo" },
+  { href: "/admin/conteudo", label: "Conteúdo" },
 ];
 
 export default function AdminLayout({

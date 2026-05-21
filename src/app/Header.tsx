@@ -4,12 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const NAV = [
-  { label: "O EVENTO", href: "#evento" },
-  { label: "PROGRAMAÇÃO", href: "#programacao" },
-  { label: "PRELETORES", href: "#preletores" },
-  { label: "PLANOS", href: "#planos" },
-  { label: "LOCAL", href: "#local" },
-  { label: "CONTATO", href: "#contato" },
+  { label: "O EVENTO", href: "/evento" },
+  { label: "PROGRAMAÇÃO", href: "/programacao" },
+  { label: "PRELETORES", href: "/preletores" },
+  { label: "PLANOS", href: "/planos" },
+  { label: "LOCAL", href: "/local" },
+  { label: "CONTATO", href: "/contato" },
 ];
 
 export default function Header() {

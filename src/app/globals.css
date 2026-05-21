@@ -288,6 +288,106 @@ body {
   }
 }
 
+/* ── ADMIN EXTRAS ──────────────────────────────────── */
+
+.adminMsg {
+  padding: 10px 14px;
+  margin: 0 0 16px;
+  background: #f0f9f0;
+  border: 1px solid #b8e0b8;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2a6e2a;
+}
+
+.adminListItem {
+  border: 1px solid #e0e0e6;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 14px;
+  background: #fff;
+}
+
+.adminListItemHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.adminRemoveBtn {
+  border: 1px solid #f0b8b8;
+  border-radius: 6px;
+  padding: 4px 12px;
+  background: #fff5f5;
+  color: #c0392b;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.adminRemoveBtn:hover { background: #ffe0e0; }
+
+/* ── PÁGINAS PÚBLICAS ──────────────────────────────── */
+
+.eventoMeta { display: flex; gap: 40px; margin-top: 40px; flex-wrap: wrap; }
+.eventoMetaItem span { display: block; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.eventoMetaItem strong { font-family: var(--font-serif); font-size: 22px; font-weight: 400; }
+
+.progGrid { display: grid; gap: 48px; max-width: 900px; margin: 48px auto 0; }
+.progDiaTitle { font-family: var(--font-serif); font-size: 28px; font-weight: 400; margin: 0 0 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.progList { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+.progItem { display: grid; grid-template-columns: 80px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); align-items: start; }
+.progHorario { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--muted); padding-top: 3px; }
+.progInfo strong { display: block; font-size: 16px; font-weight: 600; margin-bottom: 2px; }
+.progInfo span { display: block; font-size: 13px; color: var(--muted); }
+.progLocal { font-size: 11px !important; letter-spacing: .06em; text-transform: uppercase; margin-top: 2px; }
+
+.prelatoresGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 32px; margin-top: 48px; }
+.preletorCard { text-align: center; }
+.preletorFoto { position: relative; width: 160px; height: 160px; margin: 0 auto 16px; border-radius: 50%; overflow: hidden; background: var(--line); }
+.preletorFotoPlaceholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 48px; color: #999; }
+.preletorCard h3 { font-family: var(--font-serif); font-size: 22px; font-weight: 400; margin: 0 0 4px; }
+.preletorCargo { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+.preletorBio { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0; }
+
+.planosGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 24px; margin-top: 48px; align-items: start; }
+.planoCard { border: 1px solid var(--line); border-radius: 2px; padding: 32px 28px; background: #fff; }
+.planoDestaque { border-color: #000; background: #000; color: #fff; }
+.planoDestaqueLabel { display: block; font-size: 9px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 16px; color: rgba(255,255,255,.6); }
+.planoCard h3 { font-family: var(--font-serif); font-size: 24px; font-weight: 400; margin: 0 0 8px; }
+.planoPreco { font-size: 28px; font-weight: 800; margin: 0 0 12px; letter-spacing: -.02em; }
+.planoDesc { font-size: 14px; color: var(--muted); margin: 0 0 20px; line-height: 1.5; }
+.planoDestaque .planoDesc { color: rgba(255,255,255,.65); }
+.planoBeneficios { list-style: none; padding: 0; margin: 0 0 28px; display: grid; gap: 8px; }
+.planoBeneficios li { font-size: 13px; padding-left: 16px; position: relative; color: var(--muted); }
+.planoDestaque .planoBeneficios li { color: rgba(255,255,255,.75); }
+.planoBeneficios li::before { content: "✓"; position: absolute; left: 0; font-size: 11px; }
+.planoBtn { display: block; text-align: center; padding: 12px; border: 1px solid #000; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #000; transition: background .15s, color .15s; }
+.planoBtn:hover { background: #000; color: #fff; }
+.planoBtnDest { border-color: #fff; color: #fff; background: transparent; }
+.planoBtnDest:hover { background: #fff; color: #000; }
+
+.localGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px; }
+.localInfo h3 { font-family: var(--font-serif); font-size: 28px; font-weight: 400; margin: 0 0 12px; }
+.localInfo p { color: var(--muted); margin: 0 0 8px; line-height: 1.6; }
+.localSec { margin-top: 24px; }
+.localSec h4 { font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 8px; }
+.localMapa { border-radius: 2px; overflow: hidden; }
+
+.contatoGrid { display: flex; gap: 48px; margin-top: 40px; flex-wrap: wrap; }
+.contatoItem span { display: block; font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.contatoItem a, .contatoItem strong { font-family: var(--font-serif); font-size: 20px; font-weight: 400; color: #000; text-decoration: underline; text-underline-offset: 4px; }
+.contatoItem strong { text-decoration: none; }
+
+@media (max-width: 768px) {
+  .localGrid { grid-template-columns: 1fr; }
+  .planosGrid { grid-template-columns: 1fr; }
+}
+
 a {
   color: inherit;
   text-decoration: none;

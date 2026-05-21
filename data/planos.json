@@ -1,0 +1,40 @@
+{
+  "planos": [
+    {
+      "nome": "Campus Presencial",
+      "preco": "R$ 250,00",
+      "descricao": "Participe presencialmente em um dos polos oficiais do evento.",
+      "beneficios": ["Acesso a todas as sessões", "Kit do participante", "Almoço nos 3 dias", "Certificado de participação"],
+      "ctaText": "Inscrever-se",
+      "ctaHref": "#inscricao",
+      "destaque": true
+    },
+    {
+      "nome": "Transmissão Ao Vivo",
+      "preco": "R$ 80,00",
+      "descricao": "Acompanhe a conferência online com acesso completo às ministrações.",
+      "beneficios": ["Acesso online ao vivo", "Gravações disponíveis por 30 dias", "Certificado digital"],
+      "ctaText": "Garantir acesso",
+      "ctaHref": "#inscricao",
+      "destaque": false
+    },
+    {
+      "nome": "Watch Party",
+      "preco": "R$ 40,00",
+      "descricao": "Reúna seu grupo para assistir junto em comunidade.",
+      "beneficios": ["Licença para exibição em grupo", "Material de apoio", "Certificado digital"],
+      "ctaText": "Encontrar grupo",
+      "ctaHref": "#inscricao",
+      "destaque": false
+    },
+    {
+      "nome": "Pop-Up",
+      "preco": "Consulte-nos",
+      "descricao": "Leve a CONAD para sua cidade.",
+      "beneficios": ["Transmissão oficial para sua igreja", "Suporte técnico", "Material de divulgação"],
+      "ctaText": "Ver disponibilidade",
+      "ctaHref": "#contato",
+      "destaque": false
+    }
+  ]
+}
