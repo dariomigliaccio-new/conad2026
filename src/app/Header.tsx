@@ -12,7 +12,9 @@ const NAV = [
   { label: "CONTATO", href: "/contato" },
 ];
 
-export default function Header() {
+type Props = { logo: string; logoAlt: string };
+
+export default function Header({ logo, logoAlt }: Props) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -38,10 +40,10 @@ export default function Header() {
 
           <Link href="/" className="saksLogo">
             <Image
-              src="/images/conad-logo.png"
+              src={logo}
               width={180}
               height={63}
-              alt="CONAD 2026"
+              alt={logoAlt}
               priority
             />
           </Link>

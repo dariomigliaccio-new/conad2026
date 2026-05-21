@@ -12,6 +12,7 @@ const navItems = [
   { href: "/admin/sociais", label: "Redes Sociais" },
   { href: "/admin/banners", label: "Banners" },
   { href: "/admin/conteudo", label: "Conteúdo" },
+  { href: "/admin/configuracoes", label: "Configurações" },
 ];
 
 export default function AdminLayout({

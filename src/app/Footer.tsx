@@ -74,16 +74,18 @@ const SOCIALS = [
   },
 ];
 
-export default function Footer() {
+type Props = { logo: string; logoAlt: string };
+
+export default function Footer({ logo, logoAlt }: Props) {
   return (
     <footer className="saksFooter">
       <div className="saksFooterInner">
         <Link href="/" className="saksFooterLogo">
           <Image
-            src="/images/conad-logo.png"
+            src={logo}
             width={160}
             height={56}
-            alt="CONAD 2026"
+            alt={logoAlt}
           />
         </Link>
 
