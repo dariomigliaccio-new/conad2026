@@ -11,7 +11,7 @@ export default async function LocalPage() {
   const hasCoords = d.lat && d.lng;
   const hasMap = hasCoords && token;
   const mapUrl = hasMap
-    ? `https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v12/static/pin-l+ff0000(${d.lng},${d.lat})/${d.lng},${d.lat},15/1280x508@2x?access_token=${token}`
+    ? `https://api.mapbox.com/styles/v1/mapbox/standard/static/pin-l+ff0000(${d.lng},${d.lat})/${d.lng},${d.lat},15/1280x508@2x?access_token=${token}`
     : null;
 
   const fullAddress = [d.endereco, d.cidade, d.estado, d.cep].filter(Boolean).join(", ");
