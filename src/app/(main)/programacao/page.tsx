@@ -7,12 +7,14 @@ type Prog = { dias: Dia[] };
 export default async function ProgramacaoPage() {
   const d = await readContent<Prog>("programacao");
   return (
-    <main className="section" id="programacao">
-      <div className="sectionHeader centered">
-        <h2>Programação</h2>
-        <p>Confira a grade completa de sessões e ministrações.</p>
-      </div>
-      <div className="progGrid">
+    <main>
+      <section className="pageHero pageHeroSm">
+        <p className="pageEyebrow">CONAD 2026</p>
+        <h1 className="pageTitle">Programação</h1>
+        <div className="pageDivider" />
+        <p className="pageLead">Confira a grade completa de sessões e ministrações.</p>
+      </section>
+      <div className="section progGrid">
         {d.dias.map((dia, di) => (
           <div key={di} className="progDia">
             <h3 className="progDiaTitle">{dia.data}</h3>
@@ -34,3 +36,4 @@ export default async function ProgramacaoPage() {
     </main>
   );
 }
+

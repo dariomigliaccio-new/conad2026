@@ -6,12 +6,14 @@ type Data = { planos: Plano[] };
 export default async function PlanosPage() {
   const d = await readContent<Data>("planos");
   return (
-    <main className="section" id="planos">
-      <div className="sectionHeader centered">
-        <h2>Planos de Inscrição</h2>
-        <p>Escolha a modalidade que melhor se adapta à sua realidade.</p>
-      </div>
-      <div className="planosGrid">
+    <main>
+      <section className="pageHero pageHeroSm">
+        <p className="pageEyebrow">CONAD 2026</p>
+        <h1 className="pageTitle">Planos de Inscrição</h1>
+        <div className="pageDivider" />
+        <p className="pageLead">Escolha a modalidade que melhor se adapta à sua realidade.</p>
+      </section>
+      <div className="section planosGrid">
         {d.planos.map((p, i) => (
           <article key={i} className={`planoCard${p.destaque ? " planoDestaque" : ""}`}>
             {p.destaque && <span className="planoDestaqueLabel">MAIS POPULAR</span>}
