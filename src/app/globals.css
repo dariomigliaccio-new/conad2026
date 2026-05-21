@@ -701,13 +701,14 @@ body {
 .planoBtnDest { border-color: #fff; color: #fff; background: transparent; }
 .planoBtnDest:hover { background: #fff; color: #000; }
 
-/* ── PLANS CAROUSEL (cover-flow) ────────────────────── */
+/* ── PLANS CAROUSEL ─────────────────────────────────── */
 
 .plansCarouselOuter {
   padding: clamp(40px, 5vw, 64px) 0 clamp(36px, 4vw, 52px);
   background: #fafafa;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+  overflow: hidden;
 }
 
 .plansCarouselEyebrow {
@@ -721,33 +722,45 @@ body {
   margin: 0 0 32px;
 }
 
-/* Viewport: fixed height, clips side cards overflow, centered */
+/* Centered viewport showing 3 cards (1098px = 3×350 + 2×24) */
 .plansCarouselViewport {
-  position: relative;
-  height: 480px;
+  max-width: 1098px;
+  margin: 0 auto;
   overflow: hidden;
 }
 
-/* Card in carousel: absolutely centered then offset by JS */
+.plansCarouselTrack {
+  display: flex;
+  gap: 24px;
+  will-change: transform;
+}
+
+/* Equal-size cards with pastel fill and colored border */
 .planoCardCarousel {
+  width: 350px;
+  flex-shrink: 0;
   border-width: 2px !important;
   border-color: var(--plan-color, #e0e0e0) !important;
-  will-change: transform, opacity;
-  overflow: hidden;
+  background: color-mix(in srgb, var(--plan-color, #f0f0f0) 10%, white) !important;
+  color: #000 !important;
 }
 
-/* Plan name uses plan color on non-featured cards */
-.planoCardCarousel:not(.planoDestaque) h3 {
-  color: var(--plan-color, #000);
+.planoCardCarousel h3 {
+  color: var(--plan-color, #111) !important;
 }
 
-/* CTA button uses plan color */
-.planoCardCarousel:not(.planoDestaque) .planoBtn {
-  border-color: var(--plan-color, #000) !important;
-  color: var(--plan-color, #000) !important;
+.planoCardCarousel .planoDesc { color: #555 !important; }
+
+.planoCardCarousel .planoBeneficios li { color: #444 !important; }
+
+/* Colored CTA button */
+.planoCarouselBtn {
+  border-color: var(--plan-color, #111) !important;
+  color: var(--plan-color, #111) !important;
+  background: transparent !important;
 }
-.planoCardCarousel:not(.planoDestaque) .planoBtn:hover {
-  background: var(--plan-color, #000) !important;
+.planoCarouselBtn:hover {
+  background: var(--plan-color, #111) !important;
   color: #fff !important;
 }
 
@@ -756,7 +769,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 28px;
+  margin-top: 32px;
 }
 
 .plansCarouselDot {
@@ -767,7 +780,7 @@ body {
   border: none;
   cursor: pointer;
   padding: 0;
-  transition: background 0.25s, transform 0.25s;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .plansCarouselDot.active {
@@ -775,8 +788,8 @@ body {
   transform: scale(1.4);
 }
 
-@media (max-width: 768px) {
-  .plansCarouselViewport { height: 430px; }
+@media (max-width: 800px) {
+  .plansCarouselViewport { max-width: calc(350px + 48px); }
 }
 
 .localGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px; }
