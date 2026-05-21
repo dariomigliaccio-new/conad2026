@@ -25,6 +25,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  overflow-x: hidden;
 }
 
 /* ── HEADER ────────────────────────────────────────── */
@@ -282,7 +283,22 @@ body {
   }
 
   .saksHeaderTop {
-    padding: 12px 16px;
+    padding: 10px 16px;
+  }
+
+  .saksLogo img {
+    height: 50px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .saksFooterGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .saksLogo img {
+    height: 44px !important;
   }
 }
 
@@ -477,7 +493,11 @@ body {
   .localMapWrap { margin-top: 20px; }
 }
 @media (max-width: 640px) {
-  .localMapWrap { width: calc(100% - 32px); margin-top: 12px; }
+  .localMapWrap {
+    width: calc(100% - 32px);
+    margin-top: 12px;
+    aspect-ratio: 4 / 3;
+  }
 }
 
 .localContent {
@@ -850,10 +870,22 @@ body {
   transform: scale(1.4);
 }
 
+/* ── RESPONSIVE: CAROUSEL ─────────────────────────────── */
 @media (max-width: 600px) {
-  .plansCarouselViewport { height: 530px; }
-  .planoCardCarousel { height: 490px; }
-  .planoCardImgBanner { height: 180px; }
+  .plansCarouselViewport { height: 540px; }
+  .planoCardCarousel     { height: 500px !important; width: min(300px, calc(100vw - 32px)) !important; }
+  .planoCardImgBanner    { height: 175px; }
+  /* On mobile the side cards barely peek in — give them a smaller offset via CSS vars isn't possible,
+     but reducing their opacity to near-zero hides the visual noise on small screens */
+  .planoCardCarousel[style*="opacity: 0.2"],
+  .planoCardCarousel[style*="opacity: 0.20"] {
+    display: none !important;
+  }
+}
+@media (max-width: 400px) {
+  .plansCarouselViewport { height: 500px; }
+  .planoCardCarousel     { height: 460px !important; width: calc(100vw - 32px) !important; }
+  .planoCardImgBanner    { height: 155px; }
 }
 
 .localGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px; }
