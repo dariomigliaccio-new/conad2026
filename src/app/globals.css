@@ -305,14 +305,14 @@ body {
 /* ── PAGE HERO ─────────────────────────────────────── */
 
 .pageHero {
-  padding: clamp(48px, 7vw, 90px) clamp(24px, 8vw, 120px) clamp(40px, 5vw, 64px);
+  padding: clamp(32px, 4vw, 56px) clamp(24px, 8vw, 120px) clamp(28px, 3.5vw, 48px);
   text-align: center;
   background: #fff;
   border-bottom: 1px solid var(--line);
 }
 
 .pageHeroSm {
-  padding: clamp(40px, 5vw, 70px) clamp(24px, 8vw, 120px) clamp(32px, 4vw, 52px);
+  padding: clamp(24px, 3vw, 44px) clamp(24px, 8vw, 120px) clamp(20px, 2.5vw, 36px);
 }
 
 .pageEyebrow {
@@ -1054,7 +1054,7 @@ a {
   position: relative;
   z-index: 2;
   width: min(660px, calc(100% - 80px));
-  padding: clamp(120px, 14vw, 230px) 0 56px;
+  padding: clamp(48px, 7vw, 110px) 0 48px;
   margin-left: clamp(28px, 5vw, 72px);
   color: #fff;
   animation: heroCopyIn .85s cubic-bezier(.2, .8, .2, 1) both;

@@ -42,9 +42,7 @@ export default function Header({ logo, logoAlt }: Props) {
             <img src={logo} alt={logoAlt} style={{ height: 63, width: "auto", display: "block" }} />
           </Link>
 
-          <Link href="#planos" className="saksHeaderCta">
-            INSCREVA-SE
-          </Link>
+          <div />
         </div>
 
         <nav className="saksNav" aria-label="Menu principal">
