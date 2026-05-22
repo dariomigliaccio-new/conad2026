@@ -305,14 +305,14 @@ body {
 /* ── PAGE HERO ─────────────────────────────────────── */
 
 .pageHero {
-  padding: clamp(32px, 4vw, 56px) clamp(24px, 8vw, 120px) clamp(28px, 3.5vw, 48px);
+  padding: clamp(28px, 3.5vw, 48px) clamp(24px, 8vw, 120px) clamp(20px, 2.5vw, 32px);
   text-align: center;
   background: #fff;
   border-bottom: 1px solid var(--line);
 }
 
 .pageHeroSm {
-  padding: clamp(24px, 3vw, 44px) clamp(24px, 8vw, 120px) clamp(20px, 2.5vw, 36px);
+  padding: clamp(20px, 2.5vw, 36px) clamp(24px, 8vw, 120px) clamp(16px, 2vw, 24px);
 }
 
 .pageEyebrow {
@@ -1203,7 +1203,12 @@ a {
 }
 
 .section {
-  padding: clamp(54px, 8vw, 96px) clamp(20px, 7vw, 96px);
+  padding: clamp(28px, 4vw, 52px) clamp(20px, 7vw, 96px);
+}
+
+/* When a section comes right after a page hero, kill the extra top gap */
+.pageHero + .section {
+  padding-top: clamp(16px, 2vw, 24px);
 }
 
 .sectionHeader {
