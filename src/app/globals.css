@@ -316,9 +316,9 @@ body {
 }
 
 .pageEyebrow {
-  margin: 0 0 16px;
+  margin: 0 0 8px;
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 800;
   letter-spacing: .22em;
   text-transform: uppercase;
@@ -328,7 +328,7 @@ body {
 .pageTitle {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: clamp(30px, 4vw, 52px);
+  font-size: clamp(20px, 2.4vw, 30px);
   font-weight: 300;
   letter-spacing: -.02em;
   line-height: 1.1;
@@ -336,19 +336,19 @@ body {
 }
 
 .pageDivider {
-  width: 40px;
+  width: 32px;
   height: 1px;
   background: #000;
-  margin: 20px auto;
+  margin: 12px auto;
 }
 
 .pageLead {
-  max-width: 600px;
+  max-width: 560px;
   margin: 0 auto;
   font-family: var(--font-serif);
-  font-size: clamp(14px, 1.4vw, 17px);
+  font-size: clamp(13px, 1.1vw, 15px);
   font-weight: 300;
-  line-height: 1.7;
+  line-height: 1.65;
   color: var(--muted);
 }
 
@@ -730,6 +730,66 @@ body {
 .planoBtn:hover { background: #000; color: #fff; }
 .planoBtnDest { border-color: #fff; color: #fff; background: transparent; }
 .planoBtnDest:hover { background: #fff; color: #000; }
+
+/* ── PLANS DETAIL PAGE ──────────────────────────────── */
+
+.planosDetailGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.planoDetailCard {
+  border: 2px solid var(--plan-color, #e0e0e0);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.planoDetailBody {
+  padding: 20px 24px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: color-mix(in srgb, var(--plan-color, #f0f0f0) 5%, white);
+}
+
+.planoDetailCard h2 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0 0 4px;
+  color: var(--plan-color, #111);
+  letter-spacing: -.01em;
+}
+
+.planoDetailCard .planoBeneficios {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.planoDetailBtn {
+  display: block;
+  text-align: center;
+  padding: 13px;
+  border: 1px solid var(--plan-color, #000);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--plan-color, #000);
+  transition: background .15s, color .15s;
+  margin-top: auto;
+}
+
+.planoDetailBtn:hover {
+  background: var(--plan-color, #000);
+  color: #fff;
+}
 
 /* ── PLANS CAROUSEL (cover-flow) ────────────────────── */
 
