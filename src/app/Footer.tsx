@@ -81,7 +81,7 @@ export default function Footer({ logo, logoAlt }: Props) {
       <div className="saksFooterInner">
         <Link href="/" className="saksFooterLogo">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={logo} alt={logoAlt} style={{ height: 56, width: "auto", display: "block" }} />
+          <img src={logo} alt={logoAlt} style={{ height: 80, width: "auto", display: "block" }} />
         </Link>
 
         <div className="saksFooterDivider" />
