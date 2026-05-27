@@ -1,0 +1,10 @@
+{
+  "lista": [
+    {
+      "nome": "Preletor 1",
+      "cargo": "Pastor",
+      "bio": "Breve biografia do preletor.",
+      "foto": "/images/speakers/preletor1.jpg"
+    }
+  ]
+}

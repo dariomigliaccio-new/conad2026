@@ -1,0 +1,66 @@
+{
+  "planos": [
+    {
+      "nome": "Plano uma pessoa",
+      "preco": "US$ 250.00",
+      "descricao": "Participe presencialmente em um dos polos oficiais do evento.",
+      "beneficios": [
+        "Acesso a todas as sessões",
+        "Kit do participante",
+        "Almoço nos 3 dias",
+        "Certificado de participação",
+        "ADBelem"
+      ],
+      "ctaText": "Inscrever-se",
+      "ctaHref": "#inscricao",
+      "destaque": true,
+      "cor": "#C9A84C",
+      "imagem": "/api/image/1779403095777.png"
+    },
+    {
+      "nome": "Plano Prata",
+      "preco": "US$ 80.00",
+      "descricao": "Acompanhe a conferência online com acesso completo às ministrações.",
+      "beneficios": [
+        "Acesso online ao vivo",
+        "Gravações disponíveis por 30 dias",
+        "Certificado digital"
+      ],
+      "ctaText": "Inscrever-se",
+      "ctaHref": "#inscricao",
+      "destaque": false,
+      "cor": "#0042aa",
+      "imagem": ""
+    },
+    {
+      "nome": "Plano Verde",
+      "preco": "US$ 40.00",
+      "descricao": "Reúna seu grupo para assistir junto em comunidade.",
+      "beneficios": [
+        "Licença para exibição em grupo",
+        "Material de apoio",
+        "Certificado digital"
+      ],
+      "ctaText": "Inscrever-se",
+      "ctaHref": "#inscricao",
+      "destaque": false,
+      "cor": "#4A7C59",
+      "imagem": ""
+    },
+    {
+      "nome": "Plano Azul",
+      "preco": "US$ 170.00",
+      "descricao": "Leve a CONAD para sua cidade.",
+      "beneficios": [
+        "Transmissão oficial para sua igreja",
+        "Suporte técnico",
+        "Material de divulgação"
+      ],
+      "ctaText": "Inscrever-se",
+      "ctaHref": "#contato",
+      "destaque": false,
+      "cor": "#1976D2",
+      "imagem": ""
+    }
+  ]
+}
