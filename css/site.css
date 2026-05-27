@@ -923,6 +923,35 @@ main{padding-top:var(--header-h)}
 }
 .social a:hover{border-color:#fff}
 
+/* Homepage: logo centrado acima do banner rotativo */
+.home-logo-hero{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:40px 24px 28px;
+  background:transparent;
+}
+.home-logo-hero img{
+  max-width:min(460px,80vw);
+  height:auto;
+  filter:drop-shadow(0 6px 28px rgba(0,0,0,.22));
+}
+
+/* Pricing carousel (scroll horizontal em mobile) */
+.pricing-scroll-wrap{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scroll-snap-type:x mandatory;
+  padding-bottom:8px;
+}
+.pricing-scroll-wrap .pricing{
+  min-width:max-content;
+  grid-template-columns:repeat(var(--plan-count,3), 280px);
+}
+.pricing-scroll-wrap .price{
+  scroll-snap-align:start;
+}
+
 /* Small hero for inner pages */
 .page-hero{
   position:relative;

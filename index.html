@@ -1,36 +1,223 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="CONAD 2026 — Em breve." />
-    <title>CONAD 2026 | Em Breve</title>
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #0a0a0a;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
-        .container {
-            text-align: center;
-            padding: 2rem 1rem;
-        }
-        .container img {
-            max-width: min(90vw, 700px);
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="CONAD 2026 — Conferência Nacional de Distritos. Inscrições abertas." data-cms-attr="content:home.metaDescription" />
+  <title>CONAD 2026</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/site.css?v=20260527" />
+  <script src="js/i18n.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <img src="images/conad-coming.png" alt="CONAD 2026 — Em breve" />
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <div class="header-left">
+        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-menu-toggle>
+          <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+
+        <a class="brand" href="index.html" aria-label="CONAD 2026">
+          <img class="brand-logo" src="images/novo-logo.png" width="140" height="32" decoding="async" loading="eager" alt="CONAD 2026" data-cms-attr="src:global.logoSrc;alt:global.logoAlt" />
+          <span class="brand-text"><span class="brand-mark" data-cms-text="global.brandMark">CONAD</span><span class="brand-year" data-cms-text="global.brandYear">2026</span></span>
+        </a>
+      </div>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="index.html" class="is-active">Home</a>
+        <a href="precos.html">Preços</a>
+        <a href="informacoes.html">Informações</a>
+        <a href="preletores.html">Preletores</a>
+        <a href="local.php">Local</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-selector" data-lang-selector>
+          <button class="lang-toggle" aria-label="Selecionar idioma" aria-haspopup="listbox">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span class="lang-code" data-lang-code>PT</span>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="lang-menu" role="listbox" aria-label="Opções de idioma">
+            <button class="lang-option" data-lang="pt-BR" role="option"><span>🇧🇷 Português</span></button>
+            <button class="lang-option" data-lang="en-US" role="option"><span>🇺🇸 English</span></button>
+            <button class="lang-option" data-lang="es-ES" role="option"><span>🇪🇸 Español</span></button>
+          </div>
+        </div>
+        <a class="btn btn-primary" href="precos.html">Inscreva-se</a>
+      </div>
     </div>
+
+    <div class="menu-overlay" data-menu-overlay aria-hidden="true">
+      <div class="menu-panel" role="dialog" aria-modal="true" aria-label="Menu" data-menu-panel>
+        <nav class="menu-nav" aria-label="Navegação do menu">
+          <a class="menu-link is-active" href="index.html"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
+          <a class="menu-link" href="precos.html"><i class="fa-solid fa-tag" aria-hidden="true"></i><span>Preços</span></a>
+          <a class="menu-link" href="informacoes.html"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span>Informações</span></a>
+          <a class="menu-link" href="preletores.html"><i class="fa-solid fa-user-group" aria-hidden="true"></i><span>Preletores</span></a>
+          <a class="menu-link" href="local.php"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Local</span></a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- 1. Logo centralizado (banner-fundo aparece por trás via CSS do body) -->
+    <section class="home-logo-hero">
+      <img src="images/novo-logo.png" alt="CONAD 2026" data-cms-attr="src:global.logoSrc;alt:global.logoAlt" />
+    </section>
+
+    <!-- 2. Banner rotativo -->
+    <section class="hero" data-hero-carousel>
+      <div class="hero-media">
+        <div class="hero-media-track">
+          <div class="hero-slide">
+            <img data-hero-image src="images/hero1.jpg" alt="CONAD 2026" loading="eager" decoding="async" class="is-active" />
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <div class="container">
+          <div class="hero-inner">
+            <div class="hero-copy" data-hero-copy>
+              <p class="hero-eyebrow" data-cms-text="home.hero.eyebrow">15–17 de Agosto, 2026</p>
+              <h1 data-cms-text="home.hero.title">Conferência Nacional de Distritos</h1>
+              <p data-cms-text="home.hero.subtitle">São Paulo / SP</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="precos.html" data-cms-text="home.hero.buttonText">Inscreva-se</a>
+                <a class="btn btn-ghost" href="informacoes.html">Saiba mais</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="hero-nav hero-nav-prev" data-hero-prev aria-label="Anterior" hidden>
+        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+      </button>
+      <button class="hero-nav hero-nav-next" data-hero-next aria-label="Próximo" hidden>
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      </button>
+      <div class="hero-dots" data-hero-dots hidden></div>
+    </section>
+
+    <!-- 3. Carrossel de preços -->
+    <section class="section section-plans" id="planos">
+      <div class="container">
+        <h2 class="plans-title" data-cms-text="precos.sectionTitle">Planos de inscrição</h2>
+        <p class="plans-lead" data-cms-text="precos.sectionLead">Escolha um plano e garanta sua inscrição para o CONAD 2026.</p>
+
+        <div class="pricing-scroll-wrap">
+          <div class="pricing" data-plans-container>
+            <div style="color:var(--color-muted)">Carregando planos…</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Contagem regressiva -->
+    <div class="impact-countdown-wrap section">
+      <div class="container" style="text-align:center">
+        <p class="impact-kicker" data-cms-text="home.countdown.kicker">CONAD 2026</p>
+        <h2 class="impact-title" data-cms-text="home.countdown.title">Faltam para o evento</h2>
+        <div class="countdown impact-countdown" id="countdown">
+          <div class="countdown-item"><span id="days">--</span><label data-i18n="countdown.days">Dias</label></div>
+          <div class="countdown-item"><span id="hours">--</span><label data-i18n="countdown.hours">Horas</label></div>
+          <div class="countdown-item"><span id="minutes">--</span><label data-i18n="countdown.minutes">Minutos</label></div>
+          <div class="countdown-item"><span id="seconds">--</span><label data-i18n="countdown.seconds">Segundos</label></div>
+        </div>
+        <p style="margin-top:24px">
+          <a class="btn btn-primary" href="precos.html">Garantir minha vaga</a>
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img class="footer-brand-logo" src="images/novo-logo.png" alt="CONAD 2026" loading="lazy" decoding="async" data-cms-attr="src:global.logoSrc;alt:global.logoAlt" />
+      <div class="social" aria-label="Mídias sociais">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+      </div>
+      <p class="footer-address" data-cms-text="global.footerAddress">CONFRADEB - Concilio Distrital Brasileiro 4000 N. Federal Hwy. - Lighthouse Point, FL 33064 - USA</p>
+    </div>
+    <div class="container footer-note">
+      <p data-cms-text="global.copyright">© 2026 Brazilian District Council of the Assemblies of God. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/content.js?v=20260527"></script>
+  <script src="js/cms-frontend.js"></script>
+  <script src="js/plans.js"></script>
+  <script src="js/site.js?v=20260527"></script>
+  <script>
+    // Ajusta --plan-count para o carrossel de preços
+    document.addEventListener('DOMContentLoaded', function () {
+      const container = document.querySelector('[data-plans-container]');
+      if (!container) return;
+      const observer = new MutationObserver(function () {
+        const count = container.querySelectorAll('.price').length;
+        if (count > 0) {
+          container.style.setProperty('--plan-count', count);
+          container.parentElement && container.parentElement.parentElement &&
+            container.parentElement.parentElement.style.setProperty('--plan-count', count);
+        }
+      });
+      observer.observe(container, { childList: true });
+    });
+
+    // Language selector
+    document.addEventListener('DOMContentLoaded', function () {
+      const selector = document.querySelector('[data-lang-selector]');
+      if (!selector) return;
+      const toggle = selector.querySelector('.lang-toggle');
+      const menu = selector.querySelector('.lang-menu');
+      const options = selector.querySelectorAll('.lang-option');
+      const codeSpan = selector.querySelector('.lang-code');
+      const langCodes = { 'pt-BR': 'PT', 'en-US': 'EN', 'es-ES': 'ES' };
+      function updateUI() {
+        const current = localStorage.getItem('lang') || 'pt-BR';
+        codeSpan.textContent = langCodes[current] || 'PT';
+        options.forEach(opt => opt.setAttribute('aria-selected', opt.dataset.lang === current ? 'true' : 'false'));
+      }
+      toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const isOpen = menu.classList.contains('is-open');
+        menu.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+      document.addEventListener('click', function (e) {
+        if (!selector.contains(e.target)) {
+          menu.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+      options.forEach(opt => {
+        opt.addEventListener('click', function () {
+          const lang = this.dataset.lang;
+          localStorage.setItem('lang', lang);
+          if (window.i18n?.setLang) {
+            window.i18n.setLang(lang);
+            window.i18n.init(lang).then(() => { if (window.i18n?.translatePage) window.i18n.translatePage(); });
+          }
+          updateUI();
+          menu.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+      updateUI();
+    });
+  </script>
 </body>
 </html>
