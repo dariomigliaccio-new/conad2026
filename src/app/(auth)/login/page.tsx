@@ -54,7 +54,7 @@ export default function LoginPage() {
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
           <label style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase", color: "#555" }}>E-mail</label>
           <input
-            type="email"
+            type="text"
             value={user}
             onChange={e => setUser(e.target.value)}
             required

@@ -14,8 +14,14 @@ export default function AdminConfiguracoes() {
 
   async function save() {
     setSaving(true); setMsg("");
-    const r = await fetch("/api/content/global", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) });
-    r.json().then(j => setMsg(j?.github ? "✓ Salvo e sincronizado com GitHub!" : j?.ok ? "✓ Salvo! ⚠ Token GitHub inválido." : "✗ Erro ao salvar."));
+    try {
+      const r = await fetch("/api/content/global", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) });
+      if (r.status === 401) { setMsg("✗ Não autorizado. Faça login novamente."); setSaving(false); return; }
+      const j = await r.json();
+      if (j?.github) setMsg("✓ Salvo e sincronizado com GitHub! Mudanças persistentes.");
+      else if (j?.ok) setMsg("✓ Salvo! (Sessão atual apenas — configure GITHUB_TOKEN no Railway para persistir)");
+      else setMsg("✗ Erro ao salvar. Verifique os logs do Railway.");
+    } catch { setMsg("✗ Erro de conexão."); }
     setSaving(false);
   }
 
