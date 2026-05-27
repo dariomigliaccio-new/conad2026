@@ -25,7 +25,13 @@ html {
 
 body {
   margin: 0;
-  background: var(--background);
+  background-color: var(--background);
+  background-image:
+    linear-gradient(to bottom, transparent 0%, var(--background) 40vh),
+    url('/images/banner-fundo.png');
+  background-size: auto, cover;
+  background-position: 0 0, center top;
+  background-repeat: no-repeat, no-repeat;
   color: var(--foreground);
   font-family: var(--font-sans);
   overflow-x: hidden;

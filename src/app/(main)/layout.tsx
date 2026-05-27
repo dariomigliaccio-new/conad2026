@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 type Global = { logo: string; logoAlt: string };
 
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {
-  let global: Global = { logo: "/images/conad-logo.png", logoAlt: "CONAD 2026" };
+  let global: Global = { logo: "/images/novo-logo.png", logoAlt: "CONAD 2026" };
   try { global = await readContent<Global>("global"); } catch {}
 
   return (
