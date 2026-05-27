@@ -1,0 +1,252 @@
+{
+  "global": {
+    "brandMark": "CONAD",
+    "brandYear": "2026",
+    "logoSrc": "images/novo-logo.png",
+    "logoAlt": "CONAD 2026",
+    "eventName": "CONAD 2026",
+    "eventDatesAndCity": "15–17 de Agosto, 2026 — São Paulo / SP",
+    "contactEmail": "contato@conad2026.org",
+    "contactEmailHref": "mailto:contato@conad2026.org",
+    "contactPhoneLabel": "(11) 9999-9999",
+    "contactPhoneE164": "+5511999999999",
+    "contactPhoneHref": "tel:+5511999999999",
+    "contactCity": "São Paulo / SP",
+    "social": {
+      "instagram": "#",
+      "youtube": "#",
+      "facebook": "#"
+    },
+    "copyright": "© 2025–2026 CONAD. Todos os direitos reservados.",
+    "eventDateTimeISO": "2026-08-15T09:00:00",
+    "eventStartedHeading": "CONAD 2026",
+    "eventStartedText": "O evento já começou."
+  },
+  "home": {
+    "metaDescription": "CONAD 2026 — Conferência Nacional. 15–17 de Agosto, 2026. Inscreva-se agora.",
+    "hero": {
+      "imageSrc": "images/hero1.jpg",
+      "imageAlt": "Auditório e público em conferência",
+      "eyebrow": "Conferência Nacional",
+      "title": "CONAD 2026",
+      "subtitle": "15–17 de Agosto, 2026. Três dias de aprendizado, networking e crescimento espiritual.",
+      "primaryCtaText": "Inscreva-se agora",
+      "primaryCtaHref": "precos.html",
+      "secondaryCtaText": "Ver informações",
+      "secondaryCtaHref": "informacoes.html"
+    },
+    "countdownTitle": "Começa em",
+    "countdown": {
+      "kicker": "CONAD 2026",
+      "title": "Faltam poucos dias para começar.",
+      "labels": {
+        "days": "Dias",
+        "hours": "Horas",
+        "minutes": "Minutos",
+        "seconds": "Segundos"
+      }
+    },
+    "plans": {
+      "title": "Encontre a experiência certa para você.",
+      "lead": "Não importa de onde você vem, presencial ou online, participe da CONAD 2026.",
+      "ctaText": "Ver todos os planos",
+      "ctaHref": "precos.html",
+      "items": [
+        {
+          "title": "Campus Presencial",
+          "text": "Participe conosco presencialmente em um dos polos oficiais do evento.",
+          "linkText": "Ver opções",
+          "linkHref": "precos.html",
+          "iconSvg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M3 21h18\"/><path d=\"M5 21V7l7-4 7 4v14\"/><path d=\"M9 10h6\"/><path d=\"M9 14h6\"/></svg>"
+        },
+        {
+          "title": "Transmissão Ao Vivo",
+          "text": "Acompanhe a conferência online com acesso completo aos conteúdos e ministrações.",
+          "linkText": "Garantir acesso",
+          "linkHref": "precos.html",
+          "iconSvg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"3\" y=\"5\" width=\"15\" height=\"14\" rx=\"2\"/><path d=\"m10 9 4 3-4 3V9Z\"/><path d=\"m18 10 3-2v8l-3-2\"/></svg>"
+        },
+        {
+          "title": "Watch Party",
+          "text": "Reúna seu grupo para assistir junto e viver a experiência da conferência em comunidade.",
+          "linkText": "Encontrar grupo",
+          "linkHref": "precos.html",
+          "iconSvg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"12\" cy=\"8\" r=\"3\"/><path d=\"M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6\"/><circle cx=\"4\" cy=\"9\" r=\"2\"/><circle cx=\"20\" cy=\"9\" r=\"2\"/></svg>"
+        },
+        {
+          "title": "Pop-Up",
+          "text": "Leve a CONAD para sua cidade e conecte sua igreja ao movimento nacional.",
+          "linkText": "Ver disponibilidade",
+          "linkHref": "precos.html",
+          "iconSvg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"11\" cy=\"11\" r=\"6\"/><path d=\"M21 21l-4.3-4.3\"/><path d=\"m8 11 2 2 4-4\"/></svg>"
+        }
+      ]
+    },
+    "about": {
+      "title": "Sobre o evento",
+      "lead": "A CONAD 2026 reúne líderes, palestrantes e participantes de todo o Brasil para uma experiência intensa e bem organizada.",
+      "cards": [
+        {
+          "kicker": "Comunidade",
+          "title": "+2000 participantes",
+          "text": "Networking de alto nível com líderes de todo o Brasil."
+        },
+        {
+          "kicker": "Conteúdo",
+          "title": "30+ palestrantes",
+          "text": "Especialistas renomados e convidados com visão prática."
+        },
+        {
+          "kicker": "Experiência",
+          "title": "3 dias completos",
+          "text": "Programação cuidadosamente distribuída para cada dia."
+        }
+      ]
+    },
+    "quick": {
+      "title": "Informações rápidas",
+      "lead": "Programação, regras e dúvidas frequentes em um só lugar.",
+      "cards": [
+        {
+          "kicker": "Informações",
+          "title": "Programação (resumo)",
+          "text": "Veja o panorama dos 3 dias e prepare sua agenda."
+        },
+        {
+          "kicker": "Preletores",
+          "title": "Convidados",
+          "text": "Conheça os preletores e temas da conferência."
+        },
+        {
+          "kicker": "Local",
+          "title": "Como chegar",
+          "text": "Endereço, rotas e orientações do espaço."
+        }
+      ],
+      "primaryCtaText": "Ver Informações",
+      "primaryCtaHref": "informacoes.html",
+      "secondaryCtaText": "Ver Local",
+      "secondaryCtaHref": "local.html"
+    }
+  },
+  "precos": {
+    "metaDescription": "Preços e inscrições da CONAD 2026. Escolha seu lote e finalize sua inscrição.",
+    "pageHeroTitle": "Preços",
+    "pageHeroLead": "Escolha seu lote e finalize sua inscrição via formulário.",
+    "sectionTitle": "Planos de inscrição",
+    "sectionLead": "Escolha um plano e preencha sua inscrição."
+  },
+  "informacoes": {
+    "metaDescription": "Informações da CONAD 2026: programação, horários, regras e dúvidas frequentes.",
+    "pageHeroTitle": "Informações",
+    "pageHeroLead": "Programação, orientações e respostas rápidas para você se preparar.",
+    "scheduleTitle": "Programação (resumo)",
+    "scheduleLead": "Ajuste os detalhes conforme sua programação oficial.",
+    "schedule": [
+      {
+        "strong": "Dia 1 — 15/08",
+        "text": "Abertura e Keynote • Workshop • Painel • Culto"
+      },
+      {
+        "strong": "Dia 2 — 16/08",
+        "text": "Capacitação • Preletores • Trilhas • Adoração"
+      },
+      {
+        "strong": "Dia 3 — 17/08",
+        "text": "Sessão Final • Encerramento e certificados"
+      }
+    ],
+    "faqTitle": "Perguntas frequentes",
+    "faq": [
+      {
+        "strong": "Como funciona o credenciamento?",
+        "text": "Retire sua credencial no credenciamento principal com documento e confirmação."
+      },
+      {
+        "strong": "Quais horários de abertura?",
+        "text": "Chegue com antecedência para evitar filas e garantir assento."
+      },
+      {
+        "strong": "Posso transferir inscrição?",
+        "text": "Defina aqui a regra oficial da organização (placeholder)."
+      }
+    ]
+  },
+  "preletores": {
+    "metaDescription": "Preletores da CONAD 2026. Conheça os convidados e temas.",
+    "pageHeroTitle": "Preletores",
+    "pageHeroLead": "Confira os convidados e temas da CONAD 2026. (Conteúdo placeholder.)",
+    "sectionTitle": "Preletores",
+    "sectionLead": "Adicione foto, nome e (opcional) título/cargo para cada preletor.",
+    "speakers": [
+      {
+        "photoSrc": "images/hero1.jpg",
+        "photoAlt": "Foto do preletor",
+        "name": "Nome do preletor",
+        "role": "Cargo / Igreja (opcional)"
+      },
+      {
+        "photoSrc": "images/hero1.jpg",
+        "photoAlt": "Foto do preletor",
+        "name": "Nome do preletor",
+        "role": "Cargo / Igreja (opcional)"
+      },
+      {
+        "photoSrc": "images/hero1.jpg",
+        "photoAlt": "Foto do preletor",
+        "name": "Nome do preletor",
+        "role": "Cargo / Igreja (opcional)"
+      },
+      {
+        "photoSrc": "images/hero1.jpg",
+        "photoAlt": "Foto do preletor",
+        "name": "Nome do preletor",
+        "role": "Cargo / Igreja (opcional)"
+      },
+      {
+        "photoSrc": "images/hero1.jpg",
+        "photoAlt": "Foto do preletor",
+        "name": "Nome do preletor",
+        "role": "Cargo / Igreja (opcional)"
+      },
+      {
+        "photoSrc": "images/hero1.jpg",
+        "photoAlt": "Foto do preletor",
+        "name": "Nome do preletor",
+        "role": "Cargo / Igreja (opcional)"
+      }
+    ]
+  },
+  "local": {
+    "metaDescription": "Local da CONAD 2026. Endereço, orientações de chegada e informações do espaço.",
+    "pageHeroTitle": "Local",
+    "pageHeroLead": "Endereço, orientações de chegada e informações do espaço.",
+    "mapTitle": "Localização do evento",
+    "mapAddress": "Endereço do evento (substitua no Admin → Conteúdo)",
+    "sectionTitle": "Endereço",
+    "sectionLead": "Centro de Convenções — São Paulo / SP (substitua pelo endereço oficial quando definir).",
+    "cards": {
+      "venue": {
+        "kicker": "Local",
+        "title": "Centro de Convenções",
+        "text": "São Paulo / SP"
+      },
+      "parking": {
+        "kicker": "Chegada",
+        "title": "Estacionamento",
+        "text": "Informações de estacionamento e acesso (placeholder)."
+      },
+      "maps": {
+        "kicker": "Mapa",
+        "title": "Rotas",
+        "linkText": "Abrir no Google Maps",
+        "linkHref": "#",
+        "suffix": "(substitua pelo link real)."
+      }
+    }
+  }
+  ,"termos": {
+    "title": "Política de Inscrição",
+    "body": "Bem-vindo(a) ao CONAD2026 – Concílio Distrital Brasileiro das Assembleias de Deus\n\nEstamos muito felizes em tê-lo conosco. Para garantir a organização e o bom andamento do evento, pedimos que você leia atentamente a nossa Política de Inscrição.\n\nAo clicar no botão “Aceito os Termos”, você declara que leu, compreendeu e concorda com todas as regras e políticas do evento.\n\nInscrições\n\nO valor da inscrição não inclui transporte.\n\nCancelamentos e Reembolsos\n\nNão haverá reembolso do valor da inscrição em nenhuma hipótese.\n\nA coordenação do evento reserva-se o direito de cancelar o evento em caso de força maior, sem aviso prévio.\nNessa situação, o valor da inscrição será integralmente devolvido aos inscritos.\n\nRegras do Evento\n\nA participação no CONAD2026 implica o conhecimento e a aceitação de todas as regras do evento.\n\nAs regras têm como objetivo garantir a segurança, o respeito e o bem-estar de todos os participantes.\n\nA coordenação do evento reserva-se o direito de adotar as medidas cabíveis em caso de descumprimento das regras.\n\nContato\n\nEm caso de dúvidas, entre em contato conosco por meio do e-mail ou telefone disponibilizados no site conad2026.com.\n\nAgradecemos a sua compreensão e esperamos que você tenha uma experiência incrível no CONAD2026!"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "title": "CONAD CMS",
+  "docPath": "site/content",
+  "groups": [
+    {
+      "id": "global",
+      "title": "Global",
+      "fields": [
+        { "key": "global.brandMark", "label": "Marca (CONAD)", "type": "string" },
+        { "key": "global.brandYear", "label": "Ano (2026)", "type": "string" },
+        { "key": "global.eventName", "label": "Nome do evento", "type": "string" },
+        { "key": "global.eventDatesAndCity", "label": "Datas e cidade (rodapé)", "type": "string" },
+        { "key": "global.logoSrc", "label": "Logo (src)", "type": "string" },
+        { "key": "global.logoAlt", "label": "Logo (alt)", "type": "string" },
+        { "key": "global.contactEmail", "label": "Email de contato", "type": "string" },
+        { "key": "global.contactEmailHref", "label": "Email (href mailto)", "type": "string" },
+        { "key": "global.contactPhoneLabel", "label": "Telefone (texto)", "type": "string" },
+        { "key": "global.contactPhoneE164", "label": "Telefone (E.164)", "type": "string" },
+        { "key": "global.contactPhoneHref", "label": "Telefone (href tel)", "type": "string" },
+        { "key": "global.contactCity", "label": "Cidade/UF", "type": "string" },
+        { "key": "global.social.instagram", "label": "Instagram (URL)", "type": "string" },
+        { "key": "global.social.youtube", "label": "YouTube (URL)", "type": "string" },
+        { "key": "global.social.facebook", "label": "Facebook (URL)", "type": "string" },
+        { "key": "global.copyright", "label": "Copyright", "type": "string" }
+      ]
+    },
+    {
+      "id": "home",
+      "title": "Home",
+      "fields": [
+        { "key": "home.metaDescription", "label": "Meta description", "type": "string" },
+        { "key": "home.hero.imageSrc", "label": "Hero imagem (src)", "type": "string" },
+        { "key": "home.hero.imageAlt", "label": "Hero imagem (alt)", "type": "string" },
+        { "key": "home.hero.eyebrow", "label": "Hero: linha pequena", "type": "string" },
+        { "key": "home.hero.title", "label": "Hero: título", "type": "string" },
+        { "key": "home.hero.subtitle", "label": "Hero: subtítulo", "type": "string" },
+        { "key": "home.hero.primaryCtaText", "label": "Hero: CTA primário (texto)", "type": "string" },
+        { "key": "home.hero.primaryCtaHref", "label": "Hero: CTA primário (link)", "type": "string" },
+        { "key": "home.hero.secondaryCtaText", "label": "Hero: CTA secundário (texto)", "type": "string" },
+        { "key": "home.hero.secondaryCtaHref", "label": "Hero: CTA secundário (link)", "type": "string" },
+        { "key": "home.about.title", "label": "Home: Sobre (título)", "type": "string" },
+        { "key": "home.about.lead", "label": "Home: Sobre (lead)", "type": "string" },
+        { "key": "home.quick.title", "label": "Home: Informações rápidas (título)", "type": "string" },
+        { "key": "home.quick.lead", "label": "Home: Informações rápidas (lead)", "type": "string" },
+        { "key": "home.quick.primaryCtaText", "label": "Home: Botão primário (texto)", "type": "string" },
+        { "key": "home.quick.primaryCtaHref", "label": "Home: Botão primário (link)", "type": "string" },
+        { "key": "home.quick.secondaryCtaText", "label": "Home: Botão secundário (texto)", "type": "string" },
+        { "key": "home.quick.secondaryCtaHref", "label": "Home: Botão secundário (link)", "type": "string" }
+      ]
+    },
+    {
+      "id": "precos",
+      "title": "Preços",
+      "fields": [
+        { "key": "precos.metaDescription", "label": "Meta description", "type": "string" },
+        { "key": "precos.pageHeroTitle", "label": "Hero (título)", "type": "string" },
+        { "key": "precos.pageHeroLead", "label": "Hero (lead)", "type": "string" },
+        { "key": "precos.sectionTitle", "label": "Seção (título)", "type": "string" },
+        { "key": "precos.sectionLead", "label": "Seção (lead)", "type": "string" }
+      ]
+    },
+    {
+      "id": "informacoes",
+      "title": "Informações",
+      "fields": [
+        { "key": "informacoes.metaDescription", "label": "Meta description", "type": "string" },
+        { "key": "informacoes.pageHeroTitle", "label": "Hero (título)", "type": "string" },
+        { "key": "informacoes.pageHeroLead", "label": "Hero (lead)", "type": "string" },
+        { "key": "informacoes.scheduleTitle", "label": "Programação (título)", "type": "string" },
+        { "key": "informacoes.scheduleLead", "label": "Programação (lead)", "type": "string" },
+        { "key": "informacoes.faqTitle", "label": "FAQ (título)", "type": "string" }
+      ]
+    },
+    {
+      "id": "preletores",
+      "title": "Preletores",
+      "fields": [
+        { "key": "preletores.metaDescription", "label": "Meta description", "type": "string" },
+        { "key": "preletores.pageHeroTitle", "label": "Hero (título)", "type": "string" },
+        { "key": "preletores.pageHeroLead", "label": "Hero (lead)", "type": "string" },
+        { "key": "preletores.sectionTitle", "label": "Seção (título)", "type": "string" },
+        { "key": "preletores.sectionLead", "label": "Seção (lead)", "type": "string" }
+      ]
+    },
+    {
+      "id": "local",
+      "title": "Local",
+      "fields": [
+        { "key": "local.metaDescription", "label": "Meta description", "type": "string" },
+        { "key": "local.pageHeroTitle", "label": "Hero (título)", "type": "string" },
+        { "key": "local.pageHeroLead", "label": "Hero (lead)", "type": "string" },
+        { "key": "local.mapTitle", "label": "Mapa (título)", "type": "string" },
+        { "key": "local.mapAddress", "label": "Mapa (endereço)", "type": "string" },
+        { "key": "local.sectionTitle", "label": "Seção (título)", "type": "string" },
+        { "key": "local.sectionLead", "label": "Seção (lead)", "type": "string" }
+      ]
+    },
+    {
+      "id": "termos",
+      "title": "Termos",
+      "fields": [
+        { "key": "termos.title", "label": "Título", "type": "string" },
+        { "key": "termos.body", "label": "Texto", "type": "string" }
+      ]
+    }
+  ]
+}

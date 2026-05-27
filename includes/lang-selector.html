@@ -1,0 +1,94 @@
+<!-- Language Selector Component -->
+<div class="lang-selector" data-lang-selector>
+  <button class="lang-toggle" aria-label="Selecionar idioma" aria-haspopup="listbox">
+    <i class="fa-solid fa-globe" aria-hidden="true"></i>
+    <span class="lang-code" data-lang-code>PT</span>
+    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+  </button>
+  <div class="lang-menu" role="listbox" aria-label="Opções de idioma">
+    <button class="lang-option" data-lang="pt-BR" role="option">
+      <span>🇧🇷 Português</span>
+    </button>
+    <button class="lang-option" data-lang="en-US" role="option">
+      <span>🇺🇸 English</span>
+    </button>
+    <button class="lang-option" data-lang="es-ES" role="option">
+      <span>🇪🇸 Español</span>
+    </button>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const selector = document.querySelector('[data-lang-selector]');
+  if (!selector) return;
+
+  const toggle = selector.querySelector('.lang-toggle');
+  const menu = selector.querySelector('.lang-menu');
+  const options = selector.querySelectorAll('.lang-option');
+  const codeSpan = selector.querySelector('.lang-code');
+
+  // Language code mapping
+  const langCodes = {
+    'pt-BR': 'PT',
+    'en-US': 'EN',
+    'es-ES': 'ES',
+  };
+
+  // Update UI with current language
+  function updateUI() {
+    const current = i18n?.getLang?.() || localStorage.getItem('lang') || 'pt-BR';
+    codeSpan.textContent = langCodes[current] || 'PT';
+    
+    options.forEach(opt => {
+      opt.setAttribute('aria-selected', opt.dataset.lang === current ? 'true' : 'false');
+    });
+  }
+
+  // Toggle menu
+  toggle.addEventListener('click', function() {
+    const isOpen = menu.classList.contains('is-open');
+    menu.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', !isOpen);
+  });
+
+  // Close menu on click outside
+  document.addEventListener('click', function(e) {
+    if (!selector.contains(e.target)) {
+      menu.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Language selection
+  options.forEach(opt => {
+    opt.addEventListener('click', async function() {
+      const lang = this.dataset.lang;
+      
+      // Update localStorage
+      localStorage.setItem('lang', lang);
+      
+      // Update i18n if available
+      if (window.i18n?.setLang) {
+        window.i18n.setLang(lang);
+        await window.i18n.init(lang);
+        
+        // Re-translate page if available
+        if (window.i18n?.translatePage) {
+          window.i18n.translatePage();
+        }
+      }
+      
+      // Update UI
+      updateUI();
+      
+      // Close menu
+      menu.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Initial UI update
+  updateUI();
+});
+</script>

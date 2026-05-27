@@ -1,0 +1,12 @@
+{
+  "name": "conad/site",
+  "description": "CONAD site (admin + inscricao) dependencies",
+  "type": "project",
+  "require": {
+    "php": ">=7.4",
+    "phpoffice/phpspreadsheet": "^2.2"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}

@@ -1,0 +1,21 @@
+<?php
+// Copie para `config.local.php` e preencha.
+
+$env = static function (string $key, ?string $default = null): ?string {
+    $v = getenv($key);
+    if ($v === false) return $default;
+    $v = trim((string)$v);
+    return $v === '' ? $default : $v;
+};
+
+defined('DB_HOST') || define('DB_HOST', $env('CONAD_DB_HOST', 'localhost'));
+defined('DB_NAME') || define('DB_NAME', $env('CONAD_DB_NAME', 'inscricoes'));
+defined('DB_USER') || define('DB_USER', $env('CONAD_DB_USER', ''));
+defined('DB_PASS') || define('DB_PASS', $env('CONAD_DB_PASS', ''));
+
+defined('ADMIN_BASE_PATH') || define('ADMIN_BASE_PATH', $env('CONAD_ADMIN_BASE_PATH', '/admin'));
+defined('SESSION_NAME') || define('SESSION_NAME', $env('CONAD_SESSION_NAME', 'conad_admin'));
+
+defined('APP_DEBUG') || define('APP_DEBUG', strtolower((string)$env('CONAD_DEBUG', '0')) === '1');
+
+defined('MAPBOX_TOKEN') || define('MAPBOX_TOKEN', $env('CONAD_MAPBOX_TOKEN', ''));

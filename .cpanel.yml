@@ -3,4 +3,8 @@ deployment:
   tasks:
     - export DEPLOYPATH=$HOME/conad2026/
     - /bin/mkdir -p $DEPLOYPATH
-    - /bin/cp -R package.json package-lock.json next.config.ts postcss.config.mjs tsconfig.json server.js public src $DEPLOYPATH
+    - /bin/cp -R css js images content includes admin vendor database favicon.svg composer.json $DEPLOYPATH
+    - /bin/cp index.html precos.html preletores.html informacoes.html local.html $DEPLOYPATH
+    - /bin/cp inscricao.php plano.php checkout.php checkout_success.php checkout_cancel.php termos.php pagamento.php $DEPLOYPATH
+    - /bin/cp public-all-data.php public-content.php public-event-info.php public-home-config.php public-languages.php public-plans.php public-preletores.php $DEPLOYPATH
+    - /bin/cp health.php $DEPLOYPATH

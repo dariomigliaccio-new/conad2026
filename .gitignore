@@ -1,41 +1,39 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Credenciais — nunca comitar
+admin/includes/config.local.php
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+# Ferramentas de debug / diagnóstico
+debug.php
+diagnostic.php
+diagnose-db.php
+capture-error.php
+check-admins.php
+check-plans.php
+fix-config.php
+test-bootstrap.php
+test-full-flow.php
+test-inscription.php
+test-map-data.php
+test-plans-endpoint.php
 
-# testing
-/coverage
+# Documentos de debug
+DIAGNOSTIC_INSCRIPTION.md
+FORMULARIO_NAO_APARECE.md
+i18n-example.html
+local-broken.html
+local.html
 
-# next.js
-/.next/
-/out/
+# Backups / projetos antigos
+admin_legacy_2025-12-19/
+conad2026-next/
 
-# production
-/build
+# Workspace React (experimentos)
+app/node_modules/
 
-# misc
+# Sistema
 .DS_Store
-*.pem
+error_log
+osdJtp.zip
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Dados de importação
+import/*.csv
+import/*.xlsx
