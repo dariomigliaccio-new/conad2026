@@ -20,10 +20,29 @@ export default function Header({ logo, logoAlt }: Props) {
     <>
       <header className="saksHeader">
         <div className="saksHeaderInner">
-          <Link href="/" className="saksLogo">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={logo} alt={logoAlt} style={{ height: 72, width: "auto", display: "block" }} />
-          </Link>
+          <div className="saksHeaderLeft">
+            <button
+              className="saksHamburger"
+              onClick={() => setOpen(o => !o)}
+              aria-label={open ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={open}
+            >
+              {open ? (
+                <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                  <path d="M5 5l12 12M17 5L5 17" />
+                </svg>
+              ) : (
+                <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                  <path d="M3 6h16M3 11h16M3 16h16" />
+                </svg>
+              )}
+            </button>
+
+            <Link href="/" className="saksLogo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={logo} alt={logoAlt} style={{ height: 72, width: "auto", display: "block" }} />
+            </Link>
+          </div>
 
           <nav className="saksNav" aria-label="Menu principal">
             {NAV.map(item => (
@@ -32,23 +51,6 @@ export default function Header({ logo, logoAlt }: Props) {
               </Link>
             ))}
           </nav>
-
-          <button
-            className="saksHamburger"
-            onClick={() => setOpen(o => !o)}
-            aria-label={open ? "Fechar menu" : "Abrir menu"}
-            aria-expanded={open}
-          >
-            {open ? (
-              <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                <path d="M5 5l12 12M17 5L5 17" />
-              </svg>
-            ) : (
-              <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                <path d="M3 6h16M3 11h16M3 16h16" />
-              </svg>
-            )}
-          </button>
         </div>
       </header>
 
