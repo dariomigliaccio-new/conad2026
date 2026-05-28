@@ -304,7 +304,7 @@ body {
 /* ── PAGE HERO ─────────────────────────────────────── */
 
 .pageHero {
-  padding: clamp(56px, 7vw, 96px) clamp(32px, 10vw, 160px) clamp(48px, 6vw, 80px);
+  padding: clamp(56px, 7vw, 96px) clamp(80px, 16vw, 300px) clamp(48px, 6vw, 80px);
   text-align: center;
   background: var(--background);
   border-bottom: 1px solid var(--line);
