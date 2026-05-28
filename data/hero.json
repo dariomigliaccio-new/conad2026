@@ -1,34 +1,15 @@
 {
   "slides": [
     {
-      "src": "/images/hero1.jpg",
+      "src": "/api/image/1779932926984.jpg",
       "eyebrow": "Conferência Nacional",
       "title": "CONAD 2026",
-      "lead": "15-17 de Agosto, 2026. Três dias de aprendizado, networking e crescimento espiritual.",
+      "lead": "",
       "primaryCta": "Inscreva-se agora",
       "primaryHref": "#planos",
       "secondaryCta": "Ver informações",
-      "secondaryHref": "#informacoes"
-    },
-    {
-      "src": "/images/hero2.jpeg",
-      "eyebrow": "Conferência Nacional",
-      "title": "CONAD 2026",
-      "lead": "15-17 de Agosto, 2026. Três dias de aprendizado, networking e crescimento espiritual.",
-      "primaryCta": "Inscreva-se agora",
-      "primaryHref": "#planos",
-      "secondaryCta": "Ver informações",
-      "secondaryHref": "#informacoes"
-    },
-    {
-      "src": "/images/hero3.jpg",
-      "eyebrow": "Conferência Nacional",
-      "title": "CONAD 2026",
-      "lead": "15-17 de Agosto, 2026. Três dias de aprendizado, networking e crescimento espiritual.",
-      "primaryCta": "Inscreva-se agora",
-      "primaryHref": "#planos",
-      "secondaryCta": "Ver informações",
-      "secondaryHref": "#informacoes"
+      "secondaryHref": "#informacoes",
+      "srcMobile": "/api/image/1779934893545.jpg"
     }
   ]
 }
