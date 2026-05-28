@@ -1557,96 +1557,82 @@ a {
 }
 
 @media (max-width: 900px) {
-  .mainNav {
-    display: none;
-  }
-
   .hero {
     width: calc(100% - 32px);
-    max-width: 800px;
-    aspect-ratio: 800 / 1000;
-    min-height: 0;
+    aspect-ratio: 4 / 5;
+  }
+
+  .heroOverlay {
+    background:
+      linear-gradient(0deg, rgba(0,0,0,.70) 0%, rgba(0,0,0,.28) 55%, rgba(0,0,0,.10) 100%);
   }
 
   .heroContent {
-    width: calc(100% - 32px);
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 0 66px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    left: 0;
+    right: 0;
+    bottom: clamp(28px, 5vw, 56px);
+    width: 100%;
+    padding: 0 clamp(20px, 6vw, 40px);
     text-align: center;
+  }
+
+  .heroContent h1 {
+    font-size: clamp(28px, 7vw, 48px);
+    max-width: 100%;
+  }
+
+  .heroLead {
+    font-size: 15px;
+    max-width: 100%;
   }
 
   .heroActions {
     justify-content: center;
   }
 
-  .experienceGrid {
-    grid-template-columns: 1fr 1fr;
+  .heroActions .button {
+    flex: 1;
+    min-width: 0;
   }
 
-  .experienceItem:nth-child(2n) {
-    border-right: 0;
+  .saksHeaderInner {
+    padding: 8px 20px;
   }
 }
 
 @media (max-width: 640px) {
-  .siteHeader {
-    width: calc(100% - 32px);
-    height: 66px;
-  }
-
-  .brand {
-    width: 136px;
-  }
-
-  .headerCta {
-    min-height: 38px;
-    padding: 0 13px;
-    font-size: 11px;
-  }
-
   .hero {
     width: calc(100% - 20px);
+    aspect-ratio: 3 / 4;
+  }
+
+  .heroContent {
+    bottom: 24px;
+    padding: 0 20px;
   }
 
   .heroContent h1 {
-    font-size: 42px;
+    font-size: clamp(24px, 8vw, 36px);
   }
 
   .heroLead {
-    font-size: 17px;
+    display: none;
   }
 
-  .button {
+  .heroActions {
+    flex-direction: column;
+  }
+
+  .heroActions .button {
     width: 100%;
-  }
-
-  .experienceGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .experienceItem {
-    min-height: auto;
-    border-right: 0;
-    border-top: 1px solid var(--line);
-  }
-
-  .experienceItem h3 {
-    min-height: 0;
-    font-size: 22px;
-  }
-
-  .experienceItem p,
-  .experienceItem a,
-  .plansCta {
-    font-size: 16px;
   }
 
   .countdownGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .saksHeaderInner {
+    padding: 8px 16px;
   }
 }
 
