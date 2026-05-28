@@ -1060,93 +1060,114 @@ a {
 .registerStrip {
   width: calc(100% - 120px);
   max-width: 1668px;
-  margin: 40px auto 0;
+  margin: 56px auto 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .registerStripInner {
-  padding: 0 clamp(8px, 2vw, 24px);
+  padding: 64px clamp(24px, 6vw, 80px);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 28px;
-}
-
-@media (max-width: 900px) {
-  .registerStrip { width: calc(100% - 48px); margin-top: 28px; }
-}
-
-@media (max-width: 640px) {
-  .registerStrip { width: calc(100% - 32px); margin-top: 20px; }
-}
-
-.registerStripInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  gap: 0;
 }
 
 .registerStripEyebrow {
-  margin: 0;
+  margin: 0 0 18px;
   font-family: var(--font-sans);
   font-size: 10px;
   font-weight: 800;
-  letter-spacing: .2em;
+  letter-spacing: .24em;
   text-transform: uppercase;
   color: var(--accent);
 }
 
 .registerStripTitle {
-  margin: 0;
+  margin: 0 0 10px;
   font-family: var(--font-serif);
-  font-size: clamp(24px, 3vw, 38px);
-  font-weight: 400;
-  letter-spacing: -.01em;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 300;
+  letter-spacing: -.02em;
+  line-height: 1.05;
   color: var(--foreground);
+}
+
+.registerStripSubtitle {
+  margin: 0 0 20px;
+  font-family: var(--font-serif);
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.registerStripDesc {
+  margin: 0 0 28px;
+  max-width: 680px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
 }
 
 .registerStripMeta {
   display: flex;
-  gap: 24px;
+  align-items: center;
+  gap: 16px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 36px;
 }
 
 .registerStripMeta span {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   font-family: var(--font-sans);
   font-size: 13px;
-  color: var(--muted);
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.registerStripMetaDivider {
+  color: var(--line);
+  font-size: 18px;
 }
 
 .registerStripBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 52px;
+  padding: 20px 60px;
   background: #e85d04;
   color: #fff;
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 800;
-  letter-spacing: .12em;
+  letter-spacing: .14em;
   text-transform: uppercase;
   white-space: nowrap;
-  transition: background .15s;
+  transition: background .15s, transform .1s;
   border-radius: 2px;
 }
 
 .registerStripBtn:hover {
   background: #c44d00;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+  .registerStrip { width: calc(100% - 48px); margin-top: 40px; }
+  .registerStripInner { padding: 48px clamp(24px, 5vw, 48px); }
 }
 
 @media (max-width: 640px) {
-  .registerStripBtn {
-    width: 100%;
-    padding: 18px 32px;
-  }
+  .registerStrip { width: 100%; margin-top: 32px; border-left: 0; border-right: 0; }
+  .registerStripInner { padding: 40px 24px; }
+  .registerStripBtn { width: 100%; padding: 18px 32px; }
+  .registerStripMetaDivider { display: none; }
 }
 
 /* ── HERO ───────────────────────────────────────────── */
