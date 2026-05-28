@@ -1926,7 +1926,7 @@ a {
 }
 
 .inscBanner img {
-  height: clamp(60px, 8vw, 100px);
+  height: clamp(120px, 18vw, 220px);
   width: auto;
   display: block;
 }
