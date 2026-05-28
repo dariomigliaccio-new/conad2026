@@ -1110,11 +1110,11 @@ a {
 }
 
 .heroContent {
-  position: relative;
+  position: absolute;
   z-index: 2;
-  width: min(660px, calc(100% - 80px));
-  padding: clamp(48px, 7vw, 110px) 0 48px;
-  margin-left: clamp(28px, 5vw, 72px);
+  bottom: clamp(32px, 5vw, 64px);
+  left: clamp(28px, 5vw, 72px);
+  width: min(660px, calc(100% - 56px));
   color: #fff;
   animation: heroCopyIn .85s cubic-bezier(.2, .8, .2, 1) both;
 }
