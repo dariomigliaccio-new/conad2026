@@ -1,0 +1,9 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "buildCommand": "npm install --include=optional && npm run build"
+  },
+  "deploy": {
+    "startCommand": "npm start"
+  }
+}
