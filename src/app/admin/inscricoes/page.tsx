@@ -39,13 +39,14 @@ function BarChart({ data, title }: { data: { label: string; value: number; color
 
 function PieChart({ data, title }: { data: { label: string; value: number; color: string }[]; title: string }) {
   const total = data.reduce((s, d) => s + d.value, 0) || 1;
-  let cumulative = 0;
-  const slices = data.map(d => {
-    const pct = d.value / total;
-    const start = cumulative;
-    cumulative += pct;
-    return { ...d, start, pct };
-  });
+  const slices = data.reduce<{ label: string; value: number; color: string; start: number; pct: number }[]>(
+    (acc, d) => {
+      const pct = d.value / total;
+      const start = acc.reduce((s, x) => s + x.pct, 0);
+      return [...acc, { ...d, start, pct }];
+    },
+    []
+  );
 
   function describeArc(cx: number, cy: number, r: number, startAngle: number, endAngle: number) {
     if (endAngle - startAngle >= 1) return `M ${cx} ${cy - r} A ${r} ${r} 0 1 1 ${cx - 0.01} ${cy - r} Z`;
