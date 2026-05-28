@@ -7,10 +7,16 @@
       "foto": "/api/image/1779404621175.jpg"
     },
     {
+      "nome": "Joel Freire Costa",
+      "cargo": "Pastor Presidente",
+      "bio": "Pastor Joel Freire Costa Presidente da  Assembly of God Bethlehem Ministry USA￼, sediada em Lighthouse Point, na Flórida. Filho do renomado pastor José Wellington Bezerra da Costa, Pastor Joel tem dedicado sua vida ao crescimento espiritual da igreja, à expansão missionária e à propagação do Evangelho entre comunidades brasileiras e internacionais.",
+      "foto": "/api/image/1779982764482.png"
+    },
+    {
       "nome": "",
       "cargo": "",
       "bio": "",
-      "foto": ""
+      "foto": "/api/image/1779982351352.jpg"
     }
   ]
 }
