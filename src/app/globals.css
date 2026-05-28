@@ -47,58 +47,24 @@ body {
   border-bottom: 1px solid rgba(200, 150, 50, .22);
 }
 
-.saksHeaderTop {
+.saksHeaderInner {
   display: flex;
   align-items: center;
-  gap: 16px;
   padding: 10px 32px;
-  border-bottom: 1px solid rgba(200, 150, 50, .18);
-}
-
-.saksHamburger {
-  justify-self: start;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border: 0;
-  background: none;
-  cursor: pointer;
-  color: var(--header-fg);
-  padding: 0;
+  gap: 32px;
 }
 
 .saksLogo {
   display: block;
   line-height: 0;
-}
-
-.saksHeaderCta {
-  justify-self: end;
-  display: inline-flex;
-  align-items: center;
-  height: 36px;
-  padding: 0 20px;
-  background: var(--accent);
-  color: #fff;
-  font-family: var(--font-sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transition: background .15s;
-}
-
-.saksHeaderCta:hover {
-  background: var(--accent-dark);
+  flex-shrink: 0;
 }
 
 .saksNav {
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex: 1;
+  gap: 4px;
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -110,8 +76,8 @@ body {
 .saksNavLink {
   display: inline-flex;
   align-items: center;
-  height: 42px;
-  padding: 0 18px;
+  height: 44px;
+  padding: 0 16px;
   color: var(--header-fg);
   font-family: var(--font-sans);
   font-size: 10px;
@@ -126,6 +92,27 @@ body {
 .saksNavLink:hover {
   border-bottom-color: var(--accent);
   color: #fff;
+}
+
+.saksHamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: var(--header-fg);
+  padding: 0;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .saksNav { display: none; }
+  .saksHamburger { display: flex; }
+  .saksHeaderInner { padding: 10px 20px; }
 }
 
 /* ── MOBILE MENU ───────────────────────────────────── */

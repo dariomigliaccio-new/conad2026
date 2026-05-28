@@ -19,7 +19,20 @@ export default function Header({ logo, logoAlt }: Props) {
   return (
     <>
       <header className="saksHeader">
-        <div className="saksHeaderTop">
+        <div className="saksHeaderInner">
+          <Link href="/" className="saksLogo">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={logo} alt={logoAlt} style={{ height: 72, width: "auto", display: "block" }} />
+          </Link>
+
+          <nav className="saksNav" aria-label="Menu principal">
+            {NAV.map(item => (
+              <Link key={item.label} href={item.href} className="saksNavLink">
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
           <button
             className="saksHamburger"
             onClick={() => setOpen(o => !o)}
@@ -36,20 +49,7 @@ export default function Header({ logo, logoAlt }: Props) {
               </svg>
             )}
           </button>
-
-          <Link href="/" className="saksLogo">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={logo} alt={logoAlt} style={{ height: 72, width: "auto", display: "block" }} />
-          </Link>
         </div>
-
-        <nav className="saksNav" aria-label="Menu principal">
-          {NAV.map(item => (
-            <Link key={item.label} href={item.href} className="saksNavLink">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
       </header>
 
       <div className={`saksMobileMenu${open ? " isOpen" : ""}`} aria-hidden={!open}>
