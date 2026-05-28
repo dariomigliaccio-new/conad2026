@@ -1917,6 +1917,17 @@ a {
 
 /* ── INSCRIÇÕES FORM ────────────────────────────────────── */
 
+.inscBanner {
+  width: 100%;
+  line-height: 0;
+}
+
+.inscBanner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .inscWrap {
   max-width: 760px;
   margin: 0 auto;

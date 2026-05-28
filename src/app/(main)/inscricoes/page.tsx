@@ -287,12 +287,11 @@ export default function InscricoesPage() {
   // ── Form ─────────────────────────────────────────────
   return (
     <main>
-      <section className="pageHero pageHeroSm">
-        <p className="pageEyebrow">CONAD 2026</p>
-        <h1 className="pageTitle">Inscrições</h1>
-        <div className="pageDivider" />
-        <p className="pageLead">Preencha o formulário abaixo para garantir sua vaga no CONAD 2026.</p>
-      </section>
+      {/* Banner */}
+      <div className="inscBanner">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/inscreva-se-CONAD.png" alt="Inscrições CONAD 2026" />
+      </div>
 
       <div className="inscWrap">
         {errors._ && <div className="inscError">{errors._}</div>}
@@ -311,16 +310,14 @@ export default function InscricoesPage() {
                 className={`inscTipoBtn${form.tipo === "individual" ? " active" : ""}`}
                 onClick={() => set("tipo", "individual")}
               >
-                <IconIndividual />
-                Individual
+                Plano Individual
               </button>
               <button
                 type="button"
                 className={`inscTipoBtn${form.tipo === "familiar" ? " active" : ""}`}
                 onClick={() => set("tipo", "familiar")}
               >
-                <IconFamily />
-                Familiar
+                Plano Familiar
               </button>
             </div>
           </div>
