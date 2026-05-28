@@ -32,6 +32,14 @@ export async function sendConfirmationEmail(to: string, nome: string, id: number
 
       <p style="color:#7A5A38;font-size:15px;line-height:1.7;margin:0 0 24px;">Que o Senhor Jesus abençoe grandemente a sua vida e família.</p>
 
+      <div style="background:#fff;border:1px solid #D8C9A8;border-radius:8px;padding:20px;margin:0 0 24px;">
+        <p style="margin:0 0 12px;font-size:13px;color:#7A5A38;font-weight:700;letter-spacing:.1em;text-transform:uppercase;">Equipe CONAD 2026</p>
+        <p style="margin:0 0 6px;font-size:14px;color:#1C0E04;line-height:1.6;">Pastor José Luciano Correia</p>
+        <p style="margin:0 0 12px;font-size:14px;color:#1C0E04;line-height:1.6;">Fone: (754) 309-6800 &nbsp;·&nbsp; Ramal 210</p>
+        <p style="margin:0 0 6px;font-size:14px;color:#1C0E04;line-height:1.6;">Danny Barbosa</p>
+        <p style="margin:0;font-size:14px;color:#1C0E04;line-height:1.6;">Ramal 209</p>
+      </div>
+
       <hr style="border:none;border-top:1px solid #D8C9A8;margin:32px 0;" />
       <p style="color:#aaa;font-size:11px;text-align:center;margin:0;">CONAD 2026 — 15–17 de Agosto de 2026</p>
     </div>
