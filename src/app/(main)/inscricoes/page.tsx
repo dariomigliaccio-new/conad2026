@@ -102,12 +102,15 @@ function DateSelect({
       </select>
       <input
         className={`inscInput inscAnoInput${hasError ? " inscInputError" : ""}`}
-        type="number"
+        type="text"
+        inputMode="numeric"
         value={ano}
-        min={1900}
-        max={ANO_ATUAL}
+        maxLength={4}
         placeholder="Ano"
-        onChange={e => update(dia, mes, e.target.value.slice(0, 4))}
+        onChange={e => {
+          const y = e.target.value.replace(/\D/g, "").slice(0, 4);
+          update(dia, mes, y);
+        }}
       />
     </div>
   );
@@ -404,13 +407,13 @@ export default function InscricoesPage() {
 
             <div className={`inscField${errors.rua ? " hasError" : ""}`}>
               <label className="inscLabel">Número e Rua *</label>
-              <input className="inscInput" value={form.rua} onChange={e => set("rua", e.target.value)} placeholder="123 Main Street" />
+              <input className="inscInput" autoComplete="street-address" value={form.rua} onChange={e => set("rua", e.target.value)} placeholder="123 Main Street" />
               {errors.rua && <span className="inscFieldError">{errors.rua}</span>}
             </div>
 
             <div className="inscField">
               <label className="inscLabel">Complemento <span className="inscOptional">(opcional)</span></label>
-              <input className="inscInput" value={form.complemento} onChange={e => set("complemento", e.target.value)} placeholder="Apt 4B, Suite 200..." />
+              <input className="inscInput" autoComplete="address-line2" value={form.complemento} onChange={e => set("complemento", e.target.value)} placeholder="Apt 4B, Suite 200..." />
             </div>
 
             <div className={`inscRow${isUSA ? " inscRow3" : " inscRow2"}`}>
@@ -419,6 +422,7 @@ export default function InscricoesPage() {
                   <label className="inscLabel">ZIP Code *{zipLoading && <span className="inscZipSpin"> ↻</span>}</label>
                   <input
                     className="inscInput"
+                    autoComplete="postal-code"
                     value={form.zipcode}
                     onChange={e => set("zipcode", e.target.value.replace(/\D/g, "").slice(0, 5))}
                     onBlur={e => fillByZip(e.target.value)}
@@ -430,13 +434,13 @@ export default function InscricoesPage() {
               )}
               <div className={`inscField${errors.cidade ? " hasError" : ""}`}>
                 <label className="inscLabel">Cidade *</label>
-                <input className="inscInput" value={form.cidade} onChange={e => set("cidade", e.target.value)} placeholder="Boston" />
+                <input className="inscInput" autoComplete="address-level2" value={form.cidade} onChange={e => set("cidade", e.target.value)} placeholder="Boston" />
                 {errors.cidade && <span className="inscFieldError">{errors.cidade}</span>}
               </div>
               {isUSA ? (
                 <div className={`inscField${errors.estado ? " hasError" : ""}`}>
                   <label className="inscLabel">Estado *</label>
-                  <select className="inscSelect" value={form.estado} onChange={e => set("estado", e.target.value)}>
+                  <select className="inscSelect" autoComplete="address-level1" value={form.estado} onChange={e => set("estado", e.target.value)}>
                     <option value="">Selecione</option>
                     {US_STATES.map(s => <option key={s.code} value={s.code}>{s.code} — {s.name}</option>)}
                   </select>
@@ -445,7 +449,7 @@ export default function InscricoesPage() {
               ) : (
                 <div className="inscField">
                   <label className="inscLabel">Estado / Região</label>
-                  <input className="inscInput" value={form.estado} onChange={e => set("estado", e.target.value)} placeholder="State / Province" />
+                  <input className="inscInput" autoComplete="address-level1" value={form.estado} onChange={e => set("estado", e.target.value)} placeholder="State / Province" />
                 </div>
               )}
             </div>
@@ -453,7 +457,7 @@ export default function InscricoesPage() {
             {!isUSA && (
               <div className={`inscField${errors.zipcode ? " hasError" : ""}`}>
                 <label className="inscLabel">Código Postal</label>
-                <input className="inscInput" value={form.zipcode} onChange={e => set("zipcode", e.target.value)} placeholder="Postal Code" />
+                <input className="inscInput" autoComplete="postal-code" value={form.zipcode} onChange={e => set("zipcode", e.target.value)} placeholder="Postal Code" />
               </div>
             )}
           </div>
