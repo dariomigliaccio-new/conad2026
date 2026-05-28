@@ -48,8 +48,8 @@ body {
 }
 
 .saksHeaderInner {
-  position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   padding: 10px 32px;
   min-height: 72px;
@@ -59,22 +59,15 @@ body {
   display: block;
   line-height: 0;
   flex-shrink: 0;
-  z-index: 1;
 }
 
 .saksNav {
-  position: absolute;
-  left: 0;
-  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
-  pointer-events: none;
-}
-
-.saksNav a {
-  pointer-events: auto;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
 .saksNav::-webkit-scrollbar { display: none; }
@@ -104,25 +97,29 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border: 0;
   background: none;
   cursor: pointer;
   color: var(--header-fg);
   padding: 0;
-  flex-shrink: 0;
-  margin-left: auto;
-  z-index: 1;
+  justify-self: end;
 }
 
+/* desktop: esconde hamburger, mostra nav */
 @media (min-width: 769px) {
-  .saksHamburger { display: none; }
+  .saksHamburger { visibility: hidden; pointer-events: none; }
 }
 
+/* mobile: esconde nav, mostra hamburger */
 @media (max-width: 768px) {
   .saksNav { display: none; }
-  .saksHeaderInner { padding: 10px 20px; }
+  .saksHamburger { visibility: visible; pointer-events: auto; }
+  .saksHeaderInner {
+    grid-template-columns: auto 1fr auto;
+    padding: 10px 20px;
+  }
 }
 
 /* ── MOBILE MENU ───────────────────────────────────── */
