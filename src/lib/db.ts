@@ -42,10 +42,18 @@ export async function getRegistration(id: number): Promise<Registration | undefi
   return all.find(r => r.id === id);
 }
 
+export class DuplicateError extends Error {
+  constructor(public field: "email" | "telefone") {
+    super(field === "email" ? "Este e-mail já possui uma inscrição." : "Este telefone já possui uma inscrição.");
+  }
+}
+
 export async function createRegistration(
   data: Omit<Registration, "id" | "createdAt" | "updatedAt" | "comentarios" | "status">
 ): Promise<number> {
   const all = await readAll();
+  if (all.some(r => r.email.toLowerCase() === data.email.toLowerCase())) throw new DuplicateError("email");
+  if (all.some(r => r.telefonePais === data.telefonePais && r.telefoneNumero === data.telefoneNumero)) throw new DuplicateError("telefone");
   const id = all.length > 0 ? Math.max(...all.map(r => r.id)) + 1 : 1;
   const now = new Date().toISOString().slice(0, 19).replace("T", " ");
   const reg: Registration = {

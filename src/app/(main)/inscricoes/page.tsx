@@ -251,6 +251,8 @@ export default function InscricoesPage() {
       });
       const json = await res.json();
       if (json.ok) { setSuccess(json.id); window.scrollTo({ top: 0, behavior: "smooth" }); }
+      else if (json.field === "email") { setErrors({ email: json.error }); window.scrollTo({ top: 0, behavior: "smooth" }); }
+      else if (json.field === "telefone") { setErrors({ telefoneNumero: json.error }); window.scrollTo({ top: 0, behavior: "smooth" }); }
       else setErrors({ _: json.error ?? "Erro ao enviar. Tente novamente." });
     } catch { setErrors({ _: "Erro de conexão. Tente novamente." }); }
     finally { setSubmitting(false); }

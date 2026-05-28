@@ -1,5 +1,5 @@
 import { type NextRequest } from "next/server";
-import { createRegistration, listRegistrations } from "@/lib/db";
+import { createRegistration, listRegistrations, DuplicateError } from "@/lib/db";
 import { sendConfirmationEmail } from "@/lib/email";
 
 function isAdmin(req: NextRequest): boolean {
@@ -44,6 +44,8 @@ export async function POST(req: NextRequest) {
     await sendConfirmationEmail(body.email, body.nome, id);
     return Response.json({ ok: true, id });
   } catch (err) {
+    if (err instanceof DuplicateError)
+      return Response.json({ error: err.message, field: err.field }, { status: 409 });
     console.error("[inscricoes] POST error:", err);
     return Response.json({ error: "Erro ao salvar inscrição" }, { status: 500 });
   }
