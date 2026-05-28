@@ -11,6 +11,7 @@ const navItems = [
   { href: "/admin/local", label: "Local" },
   { href: "/admin/contato", label: "Contato" },
   { href: "/admin/sociais", label: "Redes Sociais" },
+  { href: "/admin/inscricoes", label: "Inscrições" },
   { href: "/admin/banners", label: "Banners" },
   { href: "/admin/conteudo", label: "Conteúdo" },
   { href: "/admin/configuracoes", label: "Configurações" },

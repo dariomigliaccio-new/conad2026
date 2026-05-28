@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# SQLite database (persisted on Railway Volume, not in git)
+data/registrations.db
+data/registrations.db-shm
+data/registrations.db-wal

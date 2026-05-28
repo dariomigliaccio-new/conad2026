@@ -6,6 +6,7 @@ const NAV = [
   { label: "O EVENTO", href: "/evento" },
   { label: "PROGRAMAÇÃO", href: "/programacao" },
   { label: "PRELETORES", href: "/preletores" },
+  { label: "INSCRIÇÕES", href: "/inscricoes" },
   { label: "LOCAL", href: "/local" },
   { label: "CONTATO", href: "/contato" },
 ];
