@@ -6,9 +6,9 @@
       "title": "CONAD 2026",
       "lead": "",
       "primaryCta": "Inscreva-se agora",
-      "primaryHref": "#planos",
-      "secondaryCta": "Ver informações",
-      "secondaryHref": "#informacoes",
+      "primaryHref": "https://www.conad2026.com/inscricoes",
+      "secondaryCta": "Local do evento",
+      "secondaryHref": "https://conad2026.com/local",
       "srcMobile": "/api/image/1779934893545.jpg"
     }
   ]
