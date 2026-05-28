@@ -1,5 +1,6 @@
 export type HeroSlide = {
   src: string;
+  srcMobile?: string;
   eyebrow: string;
   title: string;
   lead: string;

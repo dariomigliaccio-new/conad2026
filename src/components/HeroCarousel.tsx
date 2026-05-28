@@ -65,16 +65,32 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
       >
         {renderedSlides.map((slide, index) => (
           <div className="heroSlide" key={`${slide.src}-${index}`}>
-            <Image
-              src={slide.src}
-              alt=""
-              fill
-              loading={index === 0 ? "eager" : "lazy"}
-              priority={index === 0}
-              fetchPriority={index === 0 ? "high" : "auto"}
-              sizes="100vw"
-              className={index === visualIndex ? "heroImage isMoving" : "heroImage"}
-            />
+            {slide.srcMobile ? (
+              <picture style={{ display: "contents" }}>
+                <source media="(max-width: 900px)" srcSet={slide.srcMobile} />
+                <Image
+                  src={slide.src}
+                  alt=""
+                  fill
+                  loading={index === 0 ? "eager" : "lazy"}
+                  priority={index === 0}
+                  fetchPriority={index === 0 ? "high" : "auto"}
+                  sizes="100vw"
+                  className={index === visualIndex ? "heroImage isMoving" : "heroImage"}
+                />
+              </picture>
+            ) : (
+              <Image
+                src={slide.src}
+                alt=""
+                fill
+                loading={index === 0 ? "eager" : "lazy"}
+                priority={index === 0}
+                fetchPriority={index === 0 ? "high" : "auto"}
+                sizes="100vw"
+                className={index === visualIndex ? "heroImage isMoving" : "heroImage"}
+              />
+            )}
           </div>
         ))}
       </div>
