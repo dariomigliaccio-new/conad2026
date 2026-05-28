@@ -39,7 +39,7 @@ export default async function Home() {
               {evento.cidade}
             </span>
           </div>
-          <a href="/planos" className="registerStripBtn">
+          <a href="/inscricoes" className="registerStripBtn registerStripBtnPulse">
             Garantir minha inscrição
           </a>
         </div>

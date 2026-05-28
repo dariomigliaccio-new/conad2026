@@ -1153,6 +1153,19 @@ a {
   border-radius: 2px;
 }
 
+.registerStripBtnPulse {
+  animation: btnPulse 2s ease-in-out infinite;
+}
+
+.registerStripBtnPulse:hover {
+  animation: none;
+}
+
+@keyframes btnPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 93, 4, 0.55); transform: scale(1); }
+  50%       { box-shadow: 0 0 0 14px rgba(232, 93, 4, 0); transform: scale(1.03); }
+}
+
 .registerStripBtn:hover {
   background: #c44d00;
   transform: translateY(-1px);
