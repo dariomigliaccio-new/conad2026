@@ -10,7 +10,11 @@ export default function AdminConfiguracoes() {
   const [saving, setSaving] = useState(false);
   const [msg, setMsg] = useState("");
 
-  useEffect(() => { fetch("/api/content/global").then(r => r.json()).then(setD); }, []);
+  useEffect(() => {
+    fetch("/api/content/global")
+      .then(r => r.json())
+      .then(j => { if (j?.logo !== undefined || j?.logoAlt !== undefined) setD({ logo: j.logo ?? "", logoAlt: j.logoAlt ?? "CONAD 2026" }); });
+  }, []);
 
   async function save() {
     setSaving(true); setMsg("");

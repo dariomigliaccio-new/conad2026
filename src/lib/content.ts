@@ -51,9 +51,13 @@ async function pushFile(token: string, filePath: string, encoded: string): Promi
   };
   const getRes = await fetch(url, { headers });
   const sha: string | undefined = getRes.ok ? (await getRes.json()).sha : undefined;
-  await fetch(url, {
+  const putRes = await fetch(url, {
     method: "PUT",
     headers,
     body: JSON.stringify({ message: `cms: update ${filePath}`, content: encoded, ...(sha ? { sha } : {}) }),
   });
+  if (!putRes.ok) {
+    const body = await putRes.text();
+    throw new Error(`GitHub PUT ${filePath} → ${putRes.status}: ${body}`);
+  }
 }
