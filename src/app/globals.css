@@ -2030,12 +2030,8 @@ a {
 
 .inscDateRow {
   display: grid;
-  grid-template-columns: 80px 1fr 90px;
+  grid-template-columns: 70px 1fr 100px;
   gap: 8px;
-}
-
-.inscAnoInput {
-  padding: 11px 10px !important;
 }
 
 .inscSelectError,

@@ -100,18 +100,16 @@ function DateSelect({
           <option key={i} value={String(i + 1).padStart(2, "0")}>{m}</option>
         ))}
       </select>
-      <input
-        className={`inscInput inscAnoInput${hasError ? " inscInputError" : ""}`}
-        type="text"
-        inputMode="numeric"
+      <select
+        className={selectClass}
         value={ano}
-        maxLength={4}
-        placeholder="Ano"
-        onChange={e => {
-          const y = e.target.value.replace(/\D/g, "").slice(0, 4);
-          update(dia, mes, y);
-        }}
-      />
+        onChange={e => update(dia, mes, e.target.value)}
+      >
+        <option value="">Ano</option>
+        {Array.from({ length: ANO_ATUAL - 1930 + 1 }, (_, i) => ANO_ATUAL - i).map(y => (
+          <option key={y} value={String(y)}>{y}</option>
+        ))}
+      </select>
     </div>
   );
 }
