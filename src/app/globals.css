@@ -1942,6 +1942,13 @@ a {
   height: clamp(120px, 18vw, 220px);
   width: auto;
   display: block;
+  animation: inscBannerPulse 2.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes inscBannerPulse {
+  0%, 100% { transform: scale(1);    filter: drop-shadow(0 0 0px rgba(201, 132, 24, 0)); }
+  50%       { transform: scale(1.06); filter: drop-shadow(0 0 18px rgba(201, 132, 24, 0.55)); }
 }
 
 .inscWrap {
