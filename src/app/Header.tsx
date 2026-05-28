@@ -39,7 +39,7 @@ export default function Header({ logo, logoAlt }: Props) {
 
           <Link href="/" className="saksLogo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={logo} alt={logoAlt} style={{ height: 180, width: "auto", display: "block", maxWidth: "320px" }} />
+            <img src={logo} alt={logoAlt} style={{ height: 56, width: "auto", display: "block" }} />
           </Link>
 
           <div />
