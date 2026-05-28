@@ -74,7 +74,7 @@ function DateSelect({
   onChangeDob: (dob: string, idade: number | null) => void;
   hasError?: boolean;
 }) {
-  const parts = value && value.length >= 10 ? value.split("/") : ["", "", ""];
+  const parts = value ? value.split("/") : [];
   const dia = parts[0] ?? "";
   const mes = parts[1] ?? "";
   const ano = parts[2] ?? "";
