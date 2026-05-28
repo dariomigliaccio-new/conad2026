@@ -1,14 +1,16 @@
+// Atualizar esta lista com os ministérios oficiais da CONFRADEB USA
 export const MINISTERIOS = [
   "Ministério do Belém",
   "Ministério de Madureira",
   "Ministério do Catete",
   "Ministério de Goiânia",
   "Ministério de Brasília",
-  "Assembleia de Deus (Convencional)",
+  "Ministério de Anápolis",
+  "Ministério de Santo André",
+  "AD Convencional (CGADB)",
   "Outro Ministério",
 ];
 
-// Congregações do Ministério do Belém (EUA e exterior)
 export const CONGREGACOES_BELEM: string[] = [
   // Massachusetts
   "AD Belém – Brockton, MA",
@@ -99,7 +101,7 @@ export const CONGREGACOES_BELEM: string[] = [
   "AD Belém – Providence, RI",
   // Nevada
   "AD Belém – Las Vegas, NV",
-  // Outra
+  // Other
   "Outra congregação não listada",
 ];
 
@@ -156,6 +158,38 @@ export const US_STATES = [
   { code: "WY", name: "Wyoming" },
   { code: "DC", name: "District of Columbia" },
   { code: "PR", name: "Puerto Rico" },
+];
+
+export const COUNTRIES = [
+  { code: "US", name: "United States" },
+  { code: "BR", name: "Brasil" },
+  { code: "PT", name: "Portugal" },
+  { code: "AO", name: "Angola" },
+  { code: "MZ", name: "Moçambique" },
+  { code: "GB", name: "Reino Unido" },
+  { code: "CA", name: "Canada" },
+  { code: "AR", name: "Argentina" },
+  { code: "CL", name: "Chile" },
+  { code: "CO", name: "Colômbia" },
+  { code: "PE", name: "Peru" },
+  { code: "UY", name: "Uruguai" },
+  { code: "PY", name: "Paraguai" },
+  { code: "BO", name: "Bolívia" },
+  { code: "VE", name: "Venezuela" },
+  { code: "EC", name: "Equador" },
+  { code: "MX", name: "México" },
+  { code: "DE", name: "Alemanha" },
+  { code: "FR", name: "França" },
+  { code: "IT", name: "Itália" },
+  { code: "ES", name: "Espanha" },
+  { code: "CH", name: "Suíça" },
+  { code: "NL", name: "Holanda" },
+  { code: "BE", name: "Bélgica" },
+  { code: "AU", name: "Austrália" },
+  { code: "JP", name: "Japão" },
+  { code: "CN", name: "China" },
+  { code: "IN", name: "Índia" },
+  { code: "ZA", name: "África do Sul" },
 ];
 
 export const COUNTRY_CODES = [

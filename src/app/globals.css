@@ -1993,8 +1993,27 @@ a {
   gap: 14px;
 }
 
+.inscRow2 {
+  grid-template-columns: 1fr 1fr;
+}
+
 .inscRow3 {
   grid-template-columns: 120px 1fr 1fr;
+}
+
+.inscDateRow {
+  display: grid;
+  grid-template-columns: 80px 1fr 90px;
+  gap: 8px;
+}
+
+.inscAnoInput {
+  padding: 11px 10px !important;
+}
+
+.inscSelectError,
+.inscInputError {
+  border-color: #e74c3c !important;
 }
 
 .inscField {

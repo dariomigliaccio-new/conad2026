@@ -4,6 +4,7 @@ import {
   MINISTERIOS,
   CONGREGACOES_BELEM,
   US_STATES,
+  COUNTRIES,
   COUNTRY_CODES,
   CARGOS_MINISTERIAIS,
   CARGOS_LIDERANCA,
@@ -18,7 +19,7 @@ type FormData = {
   tipo: "individual" | "familiar";
   nome: string; sobrenome: string; email: string;
   dataNascimento: string; idade: number | null; sexo: string;
-  rua: string; complemento: string; cidade: string; estado: string; zipcode: string;
+  pais: string; rua: string; complemento: string; cidade: string; estado: string; zipcode: string;
   telefonePais: string; telefoneNumero: string;
   ministerio: string; congregacao: string; nomePastor: string;
   isMinistro: string; cargoMinisterio: string;
@@ -34,7 +35,7 @@ const INIT: FormData = {
   tipo: "individual",
   nome: "", sobrenome: "", email: "",
   dataNascimento: "", idade: null, sexo: "",
-  rua: "", complemento: "", cidade: "", estado: "", zipcode: "",
+  pais: "United States", rua: "", complemento: "", cidade: "", estado: "", zipcode: "",
   telefonePais: "+1", telefoneNumero: "",
   ministerio: "", congregacao: "", nomePastor: "",
   isMinistro: "", cargoMinisterio: "",
@@ -42,6 +43,11 @@ const INIT: FormData = {
   conjuge: emptyConjuge(),
   filhos: [],
 };
+
+// ── Constants ─────────────────────────────────────────────
+
+const MESES_PT = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+const ANO_ATUAL = new Date().getFullYear();
 
 // ── Helpers ──────────────────────────────────────────────
 
@@ -57,12 +63,91 @@ function calcularIdade(dob: string): number | null {
   return age >= 0 ? age : null;
 }
 
-function maskDate(raw: string): string {
-  const digits = raw.replace(/\D/g, "").slice(0, 8);
-  if (digits.length <= 2) return digits;
-  if (digits.length <= 4) return `${digits.slice(0, 2)}/${digits.slice(2)}`;
-  return `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
+// ── DateSelect Component ─────────────────────────────────
+
+function DateSelect({
+  value,
+  onChangeDob,
+  hasError,
+}: {
+  value: string;
+  onChangeDob: (dob: string, idade: number | null) => void;
+  hasError?: boolean;
+}) {
+  const parts = value && value.length >= 10 ? value.split("/") : ["", "", ""];
+  const dia = parts[0] ?? "";
+  const mes = parts[1] ?? "";
+  const ano = parts[2] ?? "";
+
+  function update(d: string, m: string, y: string) {
+    const dob = `${d}/${m}/${y}`;
+    onChangeDob(dob, d && m && y.length === 4 ? calcularIdade(dob) : null);
+  }
+
+  const selectClass = `inscSelect${hasError ? " inscSelectError" : ""}`;
+
+  return (
+    <div className="inscDateRow">
+      <select className={selectClass} value={dia} onChange={e => update(e.target.value, mes, ano)}>
+        <option value="">Dia</option>
+        {Array.from({ length: 31 }, (_, i) => i + 1).map(d => (
+          <option key={d} value={String(d).padStart(2, "0")}>{d}</option>
+        ))}
+      </select>
+      <select className={selectClass} value={mes} onChange={e => update(dia, e.target.value, ano)}>
+        <option value="">Mês</option>
+        {MESES_PT.map((m, i) => (
+          <option key={i} value={String(i + 1).padStart(2, "0")}>{m}</option>
+        ))}
+      </select>
+      <input
+        className={`inscInput inscAnoInput${hasError ? " inscInputError" : ""}`}
+        type="number"
+        value={ano}
+        min={1900}
+        max={ANO_ATUAL}
+        placeholder="Ano"
+        onChange={e => update(dia, mes, e.target.value.slice(0, 4))}
+      />
+    </div>
+  );
 }
+
+// ── SVG Icons ─────────────────────────────────────────────
+
+const IconMan = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M15 8c1.628 0 3.2 .787 4.707 2.293a1 1 0 0 1 -1.414 1.414c-.848 -.848 -1.662 -1.369 -2.444 -1.587l-.849 5.944v4.936a1 1 0 0 1 -2 0v-4h-2v4a1 1 0 0 1 -2 0v-4.929l-.85 -5.951c-.781 .218 -1.595 .739 -2.443 1.587a1 1 0 1 1 -1.414 -1.414c1.506 -1.506 3.08 -2.293 4.707 -2.293z" />
+    <path d="M12 1a3 3 0 1 1 -3 3l.005 -.176a3 3 0 0 1 2.995 -2.824" />
+  </svg>
+);
+
+const IconWoman = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M12 1a3 3 0 1 1 -3 3l.005 -.176a3 3 0 0 1 2.995 -2.824" />
+    <path d="M12.5 8h-1a4.5 4.5 0 0 0 -4.5 4.5v3.5h2v5a1 1 0 0 0 2 0v-5h2v5a1 1 0 0 0 2 0v-5h2v-3.5a4.5 4.5 0 0 0 -4.5 -4.5z" />
+  </svg>
+);
+
+const IconFamily = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M10 2a3 3 0 1 1 -3 3l.005 -.176a3 3 0 0 1 2.995 -2.824" />
+    <path d="M14 2a3 3 0 1 1 -3 3l.005 -.176a3 3 0 0 1 2.995 -2.824" />
+    <path d="M7 8c1.628 0 3.2 .787 4.707 2.293a1 1 0 0 1 -1.414 1.414c-.848 -.848 -1.662 -1.369 -2.444 -1.587l-.849 5.944v4.936a1 1 0 0 1 -2 0v-4h-1v4a1 1 0 0 1 -2 0v-4.929l-.85 -5.951c-.781 .218 -1.595 .739 -2.443 1.587a1 1 0 1 1 -1.414 -1.414c1.506 -1.506 3.08 -2.293 4.707 -2.293z" />
+    <path d="M17 8c1.628 0 3.2 .787 4.707 2.293a1 1 0 0 1 -1.414 1.414c-.848 -.848 -1.662 -1.369 -2.444 -1.587l-.849 5.944v4.936a1 1 0 0 1 -2 0v-4h-1v4a1 1 0 0 1 -2 0v-4.929l-.85 -5.951c-.781 .218 -1.595 .739 -2.443 1.587a1 1 0 1 1 -1.414 -1.414c1.506 -1.506 3.08 -2.293 4.707 -2.293z" />
+  </svg>
+);
+
+const IconIndividual = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M15 8c1.628 0 3.2 .787 4.707 2.293a1 1 0 0 1 -1.414 1.414c-.848 -.848 -1.662 -1.369 -2.444 -1.587l-.849 5.944v4.936a1 1 0 0 1 -2 0v-4h-2v4a1 1 0 0 1 -2 0v-4.929l-.85 -5.951c-.781 .218 -1.595 .739 -2.443 1.587a1 1 0 1 1 -1.414 -1.414c1.506 -1.506 3.08 -2.293 4.707 -2.293z" />
+    <path d="M12 1a3 3 0 1 1 -3 3l.005 -.176a3 3 0 0 1 2.995 -2.824" />
+  </svg>
+);
 
 // ── Main Component ───────────────────────────────────────
 
@@ -78,8 +163,10 @@ export default function InscricoesPage() {
     setErrors(e => { const n = { ...e }; delete n[key]; return n; });
   }, []);
 
-  // Zipcode auto-fill
+  const isUSA = form.pais === "United States";
+
   async function fillByZip(zip: string) {
+    if (!isUSA) return;
     const clean = zip.replace(/\D/g, "");
     if (clean.length !== 5) return;
     setZipLoading(true);
@@ -88,32 +175,24 @@ export default function InscricoesPage() {
       if (res.ok) {
         const data = await res.json();
         const place = data.places?.[0];
-        if (place) {
-          setForm(f => ({ ...f, cidade: place["place name"], estado: place["state abbreviation"] }));
-        }
+        if (place) setForm(f => ({ ...f, cidade: place["place name"], estado: place["state abbreviation"] }));
       }
     } catch { /* ignore */ } finally { setZipLoading(false); }
   }
 
-  // Date field with age calculation
-  function handleDob(val: string, target: "titular" | "conjuge") {
-    const masked = maskDate(val);
+  function handleDob(dob: string, idade: number | null, target: "titular" | "conjuge") {
     if (target === "titular") {
-      const idade = calcularIdade(masked);
-      setForm(f => ({ ...f, dataNascimento: masked, idade }));
+      setForm(f => ({ ...f, dataNascimento: dob, idade }));
       setErrors(e => { const n = { ...e }; delete n.dataNascimento; return n; });
     } else {
-      const idade = calcularIdade(masked);
-      setForm(f => ({ ...f, conjuge: { ...f.conjuge, dataNascimento: masked, idade } }));
+      setForm(f => ({ ...f, conjuge: { ...f.conjuge, dataNascimento: dob, idade } }));
     }
   }
 
-  function handleFilhoDob(i: number, val: string) {
-    const masked = maskDate(val);
-    const idade = calcularIdade(masked);
+  function handleFilhoDob(i: number, dob: string, idade: number | null) {
     setForm(f => {
       const filhos = [...f.filhos];
-      filhos[i] = { ...filhos[i], dataNascimento: masked, idade };
+      filhos[i] = { ...filhos[i], dataNascimento: dob, idade };
       return { ...f, filhos };
     });
   }
@@ -129,7 +208,6 @@ export default function InscricoesPage() {
     });
   }
 
-  // Validation
   function validate(): boolean {
     const e: Record<string, string> = {};
     if (!form.nome.trim()) e.nome = "Obrigatório";
@@ -137,13 +215,15 @@ export default function InscricoesPage() {
     if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "E-mail inválido";
     if (!form.dataNascimento || form.dataNascimento.length < 10) e.dataNascimento = "Data inválida";
     if (!form.sexo) e.sexo = "Selecione o sexo";
+    if (!form.pais) e.pais = "Selecione o país";
     if (!form.rua.trim()) e.rua = "Obrigatório";
     if (!form.cidade.trim()) e.cidade = "Obrigatório";
-    if (!form.estado) e.estado = "Selecione o estado";
+    if (isUSA && !form.estado) e.estado = "Selecione o estado";
     if (!form.zipcode.trim()) e.zipcode = "Obrigatório";
     if (!form.telefoneNumero.trim()) e.telefoneNumero = "Obrigatório";
     if (!form.ministerio) e.ministerio = "Selecione o ministério";
     if (form.ministerio === "Ministério do Belém" && !form.congregacao) e.congregacao = "Selecione a congregação";
+    if (form.ministerio && form.ministerio !== "Ministério do Belém" && !form.congregacao.trim()) e.congregacao = "Informe a congregação";
     if (!form.nomePastor.trim()) e.nomePastor = "Obrigatório";
     if (!form.isMinistro) e.isMinistro = "Selecione uma opção";
     if (form.isMinistro === "sim" && !form.cargoMinisterio) e.cargoMinisterio = "Selecione o cargo";
@@ -202,6 +282,7 @@ export default function InscricoesPage() {
 
   const isBelem = form.ministerio === "Ministério do Belém";
   const isFamiliar = form.tipo === "familiar";
+  const isOtherMinisterio = form.ministerio && !isBelem;
 
   // ── Form ─────────────────────────────────────────────
   return (
@@ -230,9 +311,7 @@ export default function InscricoesPage() {
                 className={`inscTipoBtn${form.tipo === "individual" ? " active" : ""}`}
                 onClick={() => set("tipo", "individual")}
               >
-                <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <circle cx="12" cy="7" r="4" /><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-                </svg>
+                <IconIndividual />
                 Individual
               </button>
               <button
@@ -240,9 +319,7 @@ export default function InscricoesPage() {
                 className={`inscTipoBtn${form.tipo === "familiar" ? " active" : ""}`}
                 onClick={() => set("tipo", "familiar")}
               >
-                <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <circle cx="8" cy="7" r="3" /><circle cx="16" cy="7" r="3" /><path d="M1 20c0-3 3-5.5 7-5.5M16 14.5c4 0 7 2.5 7 5.5" /><path d="M8 14.5c2.2 0 4 .8 5.3 2" />
-                </svg>
+                <IconFamily />
                 Familiar
               </button>
             </div>
@@ -274,12 +351,10 @@ export default function InscricoesPage() {
             <div className="inscRow">
               <div className={`inscField${errors.dataNascimento ? " hasError" : ""}`}>
                 <label className="inscLabel">Data de Nascimento *</label>
-                <input
-                  className="inscInput"
+                <DateSelect
                   value={form.dataNascimento}
-                  onChange={e => handleDob(e.target.value, "titular")}
-                  placeholder="DD/MM/AAAA"
-                  maxLength={10}
+                  onChangeDob={(dob, idade) => handleDob(dob, idade, "titular")}
+                  hasError={!!errors.dataNascimento}
                 />
                 {errors.dataNascimento && <span className="inscFieldError">{errors.dataNascimento}</span>}
               </div>
@@ -294,12 +369,14 @@ export default function InscricoesPage() {
             <div className={`inscField${errors.sexo ? " hasError" : ""}`}>
               <label className="inscLabel">Sexo *</label>
               <div className="inscRadioGroup">
-                {[["masculino", "Masculino"], ["feminino", "Feminino"]].map(([val, label]) => (
-                  <label key={val} className={`inscRadioBtn${form.sexo === val ? " active" : ""}`}>
-                    <input type="radio" name="sexo" value={val} checked={form.sexo === val} onChange={() => { set("sexo", val); }} />
-                    {label}
-                  </label>
-                ))}
+                <label className={`inscRadioBtn${form.sexo === "masculino" ? " active" : ""}`}>
+                  <input type="radio" name="sexo" value="masculino" checked={form.sexo === "masculino"} onChange={() => set("sexo", "masculino")} />
+                  <IconMan /> Masculino
+                </label>
+                <label className={`inscRadioBtn${form.sexo === "feminino" ? " active" : ""}`}>
+                  <input type="radio" name="sexo" value="feminino" checked={form.sexo === "feminino"} onChange={() => set("sexo", "feminino")} />
+                  <IconWoman /> Feminino
+                </label>
               </div>
               {errors.sexo && <span className="inscFieldError">{errors.sexo}</span>}
             </div>
@@ -308,6 +385,25 @@ export default function InscricoesPage() {
           {/* ── Endereço ── */}
           <div className="inscSection">
             <h2 className="inscSectionTitle">Endereço</h2>
+
+            <div className={`inscField${errors.pais ? " hasError" : ""}`}>
+              <label className="inscLabel">País *</label>
+              <select
+                className="inscSelect"
+                value={form.pais}
+                onChange={e => {
+                  set("pais", e.target.value);
+                  set("estado", "");
+                  set("zipcode", "");
+                }}
+              >
+                <option value="">Selecione o país</option>
+                {COUNTRIES.map(c => (
+                  <option key={c.code} value={c.name}>{c.name}</option>
+                ))}
+              </select>
+              {errors.pais && <span className="inscFieldError">{errors.pais}</span>}
+            </div>
 
             <div className={`inscField${errors.rua ? " hasError" : ""}`}>
               <label className="inscLabel">Número e Rua *</label>
@@ -320,33 +416,49 @@ export default function InscricoesPage() {
               <input className="inscInput" value={form.complemento} onChange={e => set("complemento", e.target.value)} placeholder="Apt 4B, Suite 200..." />
             </div>
 
-            <div className="inscRow inscRow3">
-              <div className={`inscField${errors.zipcode ? " hasError" : ""}`}>
-                <label className="inscLabel">ZIP Code *{zipLoading && <span className="inscZipSpin"> ↻</span>}</label>
-                <input
-                  className="inscInput"
-                  value={form.zipcode}
-                  onChange={e => set("zipcode", e.target.value.replace(/\D/g, "").slice(0, 5))}
-                  onBlur={e => fillByZip(e.target.value)}
-                  placeholder="02301"
-                  maxLength={5}
-                />
-                {errors.zipcode && <span className="inscFieldError">{errors.zipcode}</span>}
-              </div>
+            <div className={`inscRow${isUSA ? " inscRow3" : " inscRow2"}`}>
+              {isUSA && (
+                <div className={`inscField${errors.zipcode ? " hasError" : ""}`}>
+                  <label className="inscLabel">ZIP Code *{zipLoading && <span className="inscZipSpin"> ↻</span>}</label>
+                  <input
+                    className="inscInput"
+                    value={form.zipcode}
+                    onChange={e => set("zipcode", e.target.value.replace(/\D/g, "").slice(0, 5))}
+                    onBlur={e => fillByZip(e.target.value)}
+                    placeholder="02301"
+                    maxLength={5}
+                  />
+                  {errors.zipcode && <span className="inscFieldError">{errors.zipcode}</span>}
+                </div>
+              )}
               <div className={`inscField${errors.cidade ? " hasError" : ""}`}>
                 <label className="inscLabel">Cidade *</label>
                 <input className="inscInput" value={form.cidade} onChange={e => set("cidade", e.target.value)} placeholder="Boston" />
                 {errors.cidade && <span className="inscFieldError">{errors.cidade}</span>}
               </div>
-              <div className={`inscField${errors.estado ? " hasError" : ""}`}>
-                <label className="inscLabel">Estado *</label>
-                <select className="inscSelect" value={form.estado} onChange={e => set("estado", e.target.value)}>
-                  <option value="">Selecione</option>
-                  {US_STATES.map(s => <option key={s.code} value={s.code}>{s.code} — {s.name}</option>)}
-                </select>
-                {errors.estado && <span className="inscFieldError">{errors.estado}</span>}
-              </div>
+              {isUSA ? (
+                <div className={`inscField${errors.estado ? " hasError" : ""}`}>
+                  <label className="inscLabel">Estado *</label>
+                  <select className="inscSelect" value={form.estado} onChange={e => set("estado", e.target.value)}>
+                    <option value="">Selecione</option>
+                    {US_STATES.map(s => <option key={s.code} value={s.code}>{s.code} — {s.name}</option>)}
+                  </select>
+                  {errors.estado && <span className="inscFieldError">{errors.estado}</span>}
+                </div>
+              ) : (
+                <div className="inscField">
+                  <label className="inscLabel">Estado / Região</label>
+                  <input className="inscInput" value={form.estado} onChange={e => set("estado", e.target.value)} placeholder="State / Province" />
+                </div>
+              )}
             </div>
+
+            {!isUSA && (
+              <div className={`inscField${errors.zipcode ? " hasError" : ""}`}>
+                <label className="inscLabel">Código Postal</label>
+                <input className="inscInput" value={form.zipcode} onChange={e => set("zipcode", e.target.value)} placeholder="Postal Code" />
+              </div>
+            )}
           </div>
 
           {/* ── Telefone ── */}
@@ -355,24 +467,12 @@ export default function InscricoesPage() {
             <div className={`inscField${errors.telefoneNumero ? " hasError" : ""}`}>
               <label className="inscLabel">Telefone / WhatsApp *</label>
               <div className="inscPhoneRow">
-                <select
-                  className="inscPhonePais"
-                  value={form.telefonePais}
-                  onChange={e => set("telefonePais", e.target.value)}
-                >
+                <select className="inscPhonePais" value={form.telefonePais} onChange={e => set("telefonePais", e.target.value)}>
                   {COUNTRY_CODES.map(c => (
-                    <option key={c.code + c.name} value={c.code}>
-                      {c.flag} {c.code} {c.name}
-                    </option>
+                    <option key={c.code + c.name} value={c.code}>{c.flag} {c.code} {c.name}</option>
                   ))}
                 </select>
-                <input
-                  className="inscInput inscPhoneNum"
-                  type="tel"
-                  value={form.telefoneNumero}
-                  onChange={e => set("telefoneNumero", e.target.value)}
-                  placeholder="(508) 555-0100"
-                />
+                <input className="inscInput inscPhoneNum" type="tel" value={form.telefoneNumero} onChange={e => set("telefoneNumero", e.target.value)} placeholder="(508) 555-0100" />
               </div>
               {errors.telefoneNumero && <span className="inscFieldError">{errors.telefoneNumero}</span>}
             </div>
@@ -391,6 +491,7 @@ export default function InscricoesPage() {
               {errors.ministerio && <span className="inscFieldError">{errors.ministerio}</span>}
             </div>
 
+            {/* Ministério do Belém → dropdown de congregações */}
             {isBelem && (
               <div className={`inscField${errors.congregacao ? " hasError" : ""}`}>
                 <label className="inscLabel">Congregação *</label>
@@ -402,6 +503,21 @@ export default function InscricoesPage() {
               </div>
             )}
 
+            {/* Outro ministério → campo de texto para congregação */}
+            {isOtherMinisterio && (
+              <div className={`inscField${errors.congregacao ? " hasError" : ""}`}>
+                <label className="inscLabel">Nome da Congregação *</label>
+                <input
+                  className="inscInput"
+                  value={form.congregacao}
+                  onChange={e => set("congregacao", e.target.value)}
+                  placeholder="Nome da sua congregação"
+                />
+                {errors.congregacao && <span className="inscFieldError">{errors.congregacao}</span>}
+              </div>
+            )}
+
+            {/* Campo pastor aparece para qualquer ministério selecionado */}
             {form.ministerio && (
               <div className={`inscField${errors.nomePastor ? " hasError" : ""}`}>
                 <label className="inscLabel">Nome do Pastor na congregação onde você serve *</label>
@@ -490,7 +606,11 @@ export default function InscricoesPage() {
               <div className="inscRow">
                 <div className={`inscField${errors.conjugeDataNascimento ? " hasError" : ""}`}>
                   <label className="inscLabel">Data de Nascimento *</label>
-                  <input className="inscInput" value={form.conjuge.dataNascimento} onChange={e => handleDob(e.target.value, "conjuge")} placeholder="DD/MM/AAAA" maxLength={10} />
+                  <DateSelect
+                    value={form.conjuge.dataNascimento}
+                    onChangeDob={(dob, idade) => handleDob(dob, idade, "conjuge")}
+                    hasError={!!errors.conjugeDataNascimento}
+                  />
                   {errors.conjugeDataNascimento && <span className="inscFieldError">{errors.conjugeDataNascimento}</span>}
                 </div>
                 <div className="inscField">
@@ -527,7 +647,10 @@ export default function InscricoesPage() {
                     </div>
                     <div className="inscField">
                       <label className="inscLabel">Data de Nascimento *</label>
-                      <input className="inscInput" value={filho.dataNascimento} onChange={e => handleFilhoDob(i, e.target.value)} placeholder="DD/MM/AAAA" maxLength={10} />
+                      <DateSelect
+                        value={filho.dataNascimento}
+                        onChangeDob={(dob, idade) => handleFilhoDob(i, dob, idade)}
+                      />
                     </div>
                   </div>
                   {filho.idade !== null && (
