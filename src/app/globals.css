@@ -48,30 +48,36 @@ body {
 }
 
 .saksHeaderInner {
+  position: relative;
   display: flex;
   align-items: center;
   padding: 10px 32px;
-  gap: 32px;
+  min-height: 72px;
 }
 
 .saksLogo {
   display: block;
   line-height: 0;
   flex-shrink: 0;
+  z-index: 1;
 }
 
 .saksNav {
+  position: absolute;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
-  flex: 1;
+  justify-content: center;
   gap: 4px;
-  overflow-x: auto;
-  scrollbar-width: none;
+  pointer-events: none;
 }
 
-.saksNav::-webkit-scrollbar {
-  display: none;
+.saksNav a {
+  pointer-events: auto;
 }
+
+.saksNav::-webkit-scrollbar { display: none; }
 
 .saksNavLink {
   display: inline-flex;
@@ -95,7 +101,7 @@ body {
 }
 
 .saksHamburger {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 36px;
@@ -107,11 +113,15 @@ body {
   padding: 0;
   flex-shrink: 0;
   margin-left: auto;
+  z-index: 1;
+}
+
+@media (min-width: 769px) {
+  .saksHamburger { display: none; }
 }
 
 @media (max-width: 768px) {
   .saksNav { display: none; }
-  .saksHamburger { display: flex; }
   .saksHeaderInner { padding: 10px 20px; }
 }
 
