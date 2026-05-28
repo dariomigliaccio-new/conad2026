@@ -30,7 +30,7 @@ export async function sendConfirmationEmail(to: string, nome: string, id: number
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "CONAD 2026 <inscricoes@conad2026.com>",
+      from: "CONAD 2026 <inscricoes@conad2026.org>",
       to,
       subject: `Inscrição CONAD 2026 recebida — nº ${String(id).padStart(5, "0")}`,
       html,
