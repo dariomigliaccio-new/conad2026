@@ -1060,13 +1060,11 @@ a {
 .registerStrip {
   width: calc(100% - 120px);
   max-width: 1668px;
-  margin: 28px auto 0;
-  background: var(--header-bg);
-  border: 1px solid rgba(200, 150, 50, .28);
+  margin: 40px auto 0;
 }
 
 .registerStripInner {
-  padding: 36px clamp(24px, 5vw, 64px);
+  padding: 0 clamp(8px, 2vw, 24px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1074,11 +1072,11 @@ a {
 }
 
 @media (max-width: 900px) {
-  .registerStrip { width: calc(100% - 48px); margin-top: 20px; }
+  .registerStrip { width: calc(100% - 48px); margin-top: 28px; }
 }
 
 @media (max-width: 640px) {
-  .registerStrip { width: calc(100% - 32px); margin-top: 16px; }
+  .registerStrip { width: calc(100% - 32px); margin-top: 20px; }
 }
 
 .registerStripInfo {
@@ -1103,7 +1101,7 @@ a {
   font-size: clamp(24px, 3vw, 38px);
   font-weight: 400;
   letter-spacing: -.01em;
-  color: var(--header-fg);
+  color: var(--foreground);
 }
 
 .registerStripMeta {
@@ -1118,7 +1116,7 @@ a {
   gap: 6px;
   font-family: var(--font-sans);
   font-size: 13px;
-  color: rgba(245, 232, 200, .65);
+  color: var(--muted);
 }
 
 .registerStripBtn {
