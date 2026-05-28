@@ -182,7 +182,8 @@ body {
 }
 
 .footerLogo {
-  display: block;
+  display: flex;
+  justify-content: center;
   line-height: 0;
   margin-bottom: 20px;
 }
@@ -191,6 +192,7 @@ body {
   height: clamp(90px, 12vw, 140px);
   width: auto;
   display: block;
+  margin: 0 auto;
 }
 
 .footerTagline {
