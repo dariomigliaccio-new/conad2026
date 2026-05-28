@@ -194,7 +194,7 @@ body {
 .saksFooterGrid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 32px;
   margin-bottom: 40px;
 }
