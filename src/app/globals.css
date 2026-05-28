@@ -1058,19 +1058,27 @@ a {
 /* ── REGISTER STRIP ────────────────────────────────── */
 
 .registerStrip {
+  width: calc(100% - 120px);
+  max-width: 1668px;
+  margin: 28px auto 0;
   background: var(--header-bg);
-  border-top: 1px solid rgba(200, 150, 50, .22);
-  border-bottom: 1px solid rgba(200, 150, 50, .22);
+  border: 1px solid rgba(200, 150, 50, .28);
 }
 
 .registerStripInner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 36px clamp(24px, 6vw, 80px);
+  padding: 36px clamp(24px, 5vw, 64px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 32px;
+}
+
+@media (max-width: 900px) {
+  .registerStrip { width: calc(100% - 48px); margin-top: 20px; }
+}
+
+@media (max-width: 640px) {
+  .registerStrip { width: calc(100% - 32px); margin-top: 16px; }
 }
 
 .registerStripInfo {
@@ -1137,6 +1145,7 @@ a {
   .registerStripInner {
     flex-direction: column;
     align-items: flex-start;
+    padding: 28px 24px;
   }
   .registerStripBtn {
     width: 100%;
