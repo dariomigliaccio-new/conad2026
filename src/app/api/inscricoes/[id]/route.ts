@@ -12,7 +12,7 @@ function isAdmin(req: NextRequest): boolean {
 export async function GET(req: NextRequest, { params }: Ctx) {
   if (!isAdmin(req)) return Response.json({ error: "Não autorizado" }, { status: 401 });
   const { id } = await params;
-  const reg = getRegistration(Number(id));
+  const reg = await getRegistration(Number(id));
   if (!reg) return Response.json({ error: "Não encontrado" }, { status: 404 });
   return Response.json(reg);
 }
@@ -22,7 +22,7 @@ export async function PUT(req: NextRequest, { params }: Ctx) {
   const { id } = await params;
   try {
     const body = await req.json();
-    updateRegistration(Number(id), body);
+    await updateRegistration(Number(id), body);
     return Response.json({ ok: true });
   } catch {
     return Response.json({ error: "Erro ao atualizar" }, { status: 500 });
@@ -32,6 +32,6 @@ export async function PUT(req: NextRequest, { params }: Ctx) {
 export async function DELETE(req: NextRequest, { params }: Ctx) {
   if (!isAdmin(req)) return Response.json({ error: "Não autorizado" }, { status: 401 });
   const { id } = await params;
-  deleteRegistration(Number(id));
+  await deleteRegistration(Number(id));
   return Response.json({ ok: true });
 }

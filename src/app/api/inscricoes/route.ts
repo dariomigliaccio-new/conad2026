@@ -10,13 +10,13 @@ function isAdmin(req: NextRequest): boolean {
 
 export async function GET(req: NextRequest) {
   if (!isAdmin(req)) return Response.json({ error: "Não autorizado" }, { status: 401 });
-  return Response.json(listRegistrations());
+  return Response.json(await listRegistrations());
 }
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const id = createRegistration({
+    const id = await createRegistration({
       tipo: body.tipo,
       nome: body.nome,
       sobrenome: body.sobrenome,
