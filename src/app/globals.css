@@ -1918,13 +1918,16 @@ a {
 /* ── INSCRIÇÕES FORM ────────────────────────────────────── */
 
 .inscBanner {
-  width: 100%;
-  line-height: 0;
+  display: flex;
+  justify-content: center;
+  padding: clamp(24px, 4vw, 48px) 24px clamp(8px, 2vw, 16px);
+  background: var(--background);
+  border-bottom: 1px solid var(--line);
 }
 
 .inscBanner img {
-  width: 100%;
-  height: auto;
+  height: clamp(60px, 8vw, 100px);
+  width: auto;
   display: block;
 }
 
