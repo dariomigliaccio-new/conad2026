@@ -37,7 +37,7 @@ export async function sendConfirmationEmail(to: string, nome: string, id: number
         <p style="margin:0 0 6px;font-size:14px;color:#1C0E04;line-height:1.6;">Pastor José Luciano Correia</p>
         <p style="margin:0 0 12px;font-size:14px;color:#1C0E04;line-height:1.6;">Fone: (754) 309-6800 &nbsp;·&nbsp; Ramal 210</p>
         <p style="margin:0 0 6px;font-size:14px;color:#1C0E04;line-height:1.6;">Danny Barbosa</p>
-        <p style="margin:0;font-size:14px;color:#1C0E04;line-height:1.6;">Ramal 209</p>
+        <p style="margin:0;font-size:14px;color:#1C0E04;line-height:1.6;">Fone: (754) 309-6800 &nbsp;·&nbsp; Ramal 209</p>
       </div>
 
       <hr style="border:none;border-top:1px solid #D8C9A8;margin:32px 0;" />
