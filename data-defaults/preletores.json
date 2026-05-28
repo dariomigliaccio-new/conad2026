@@ -1,22 +1,16 @@
 {
   "lista": [
     {
-      "nome": "Joel Freire Costa",
-      "cargo": "Pastor Presidente",
-      "bio": "Pastor Joel Freire Costa Presidente da  Assembly of God Bethlehem Ministry USA￼, sediada em Lighthouse Point, na Flórida. Filho do renomado pastor José Wellington Bezerra da Costa, Pastor Joel tem dedicado sua vida ao crescimento espiritual da igreja, à expansão missionária e à propagação do Evangelho entre comunidades brasileiras e internacionais.",
-      "foto": "/api/image/1779404621175.jpg"
+      "nome": "José Wellington Bezerra da Costa",
+      "cargo": "Pastor Superintendente",
+      "bio": "José Wellington Bezerra da Costa é um dos mais influentes líderes pentecostais do Brasil e do mundo. Nascido em São Luís do Curu, no Ceará, em 14 de outubro de 1934, foi criado em um lar cristão e desde cedo dedicou sua vida à obra de Deus. Em 1962 foi consagrado ao ministério pastoral e, ao longo das décadas, tornou-se uma das principais referências das Assembleias de Deus no Brasil. ",
+      "foto": "/api/image/1779982846794.png"
     },
     {
       "nome": "Joel Freire Costa",
       "cargo": "Pastor Presidente",
       "bio": "Pastor Joel Freire Costa Presidente da  Assembly of God Bethlehem Ministry USA￼, sediada em Lighthouse Point, na Flórida. Filho do renomado pastor José Wellington Bezerra da Costa, Pastor Joel tem dedicado sua vida ao crescimento espiritual da igreja, à expansão missionária e à propagação do Evangelho entre comunidades brasileiras e internacionais.",
-      "foto": "/api/image/1779982567794.png"
-    },
-    {
-      "nome": "",
-      "cargo": "",
-      "bio": "",
-      "foto": "/api/image/1779982351352.jpg"
+      "foto": "/api/image/1779982764482.png"
     }
   ]
 }
