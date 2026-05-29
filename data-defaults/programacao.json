@@ -1,29 +1,14 @@
 {
   "dias": [
     {
-      "data": "15 de Agosto",
+      "data": "03 de Dezembro de 2026",
       "sessoes": [
-        { "horario": "09:00", "titulo": "Credenciamento e Boas-vindas", "preletor": "", "local": "Foyer Principal" },
-        { "horario": "10:00", "titulo": "Abertura Oficial", "preletor": "A definir", "local": "Auditório Principal" },
-        { "horario": "14:00", "titulo": "Sessão da Tarde", "preletor": "A definir", "local": "Auditório Principal" },
-        { "horario": "19:30", "titulo": "Culto de Abertura", "preletor": "A definir", "local": "Auditório Principal" }
-      ]
-    },
-    {
-      "data": "16 de Agosto",
-      "sessoes": [
-        { "horario": "09:00", "titulo": "Devocional Matinal", "preletor": "A definir", "local": "Auditório Principal" },
-        { "horario": "10:30", "titulo": "Painéis Temáticos", "preletor": "Vários", "local": "Salas Simultâneas" },
-        { "horario": "14:00", "titulo": "Sessão da Tarde", "preletor": "A definir", "local": "Auditório Principal" },
-        { "horario": "19:30", "titulo": "Culto da Noite", "preletor": "A definir", "local": "Auditório Principal" }
-      ]
-    },
-    {
-      "data": "17 de Agosto",
-      "sessoes": [
-        { "horario": "09:00", "titulo": "Devocional Matinal", "preletor": "A definir", "local": "Auditório Principal" },
-        { "horario": "10:30", "titulo": "Sessão de Encerramento", "preletor": "A definir", "local": "Auditório Principal" },
-        { "horario": "14:00", "titulo": "Culto de Encerramento", "preletor": "A definir", "local": "Auditório Principal" }
+        {
+          "horario": "",
+          "titulo": "Recepção dos participantes pela nossa equipe",
+          "preletor": "",
+          "local": ""
+        }
       ]
     }
   ]
