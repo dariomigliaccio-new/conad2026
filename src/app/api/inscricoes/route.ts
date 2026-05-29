@@ -2,14 +2,21 @@ import { type NextRequest } from "next/server";
 import { createRegistration, listRegistrations, DuplicateError } from "@/lib/db";
 import { sendConfirmationEmail } from "@/lib/email";
 
-function isAdmin(req: NextRequest): boolean {
+function getCookie(req: NextRequest, name: string): string {
   const cookie = req.headers.get("cookie") ?? "";
-  const token = cookie.split(";").find(c => c.trim().startsWith("admin_auth="))?.split("=")[1]?.trim();
-  return Boolean(token && process.env.AUTH_SECRET && token === process.env.AUTH_SECRET);
+  return cookie.split(";").find(c => c.trim().startsWith(`${name}=`))?.split("=")[1]?.trim() ?? "";
+}
+
+function isAdmin(req: NextRequest): boolean {
+  return Boolean(getCookie(req, "admin_auth") && process.env.AUTH_SECRET && getCookie(req, "admin_auth") === process.env.AUTH_SECRET);
+}
+
+function isInscricoesTeam(req: NextRequest): boolean {
+  return Boolean(getCookie(req, "inscricoes_auth") && process.env.INSCRICOES_SECRET && getCookie(req, "inscricoes_auth") === process.env.INSCRICOES_SECRET);
 }
 
 export async function GET(req: NextRequest) {
-  if (!isAdmin(req)) return Response.json({ error: "Não autorizado" }, { status: 401 });
+  if (!isAdmin(req) && !isInscricoesTeam(req)) return Response.json({ error: "Não autorizado" }, { status: 401 });
   return Response.json(await listRegistrations());
 }
 

@@ -3,14 +3,21 @@ import { getRegistration, updateRegistration, deleteRegistration } from "@/lib/d
 
 type Ctx = { params: Promise<{ id: string }> };
 
-function isAdmin(req: NextRequest): boolean {
+function getCookie(req: NextRequest, name: string): string {
   const cookie = req.headers.get("cookie") ?? "";
-  const token = cookie.split(";").find(c => c.trim().startsWith("admin_auth="))?.split("=")[1]?.trim();
-  return Boolean(token && process.env.AUTH_SECRET && token === process.env.AUTH_SECRET);
+  return cookie.split(";").find(c => c.trim().startsWith(`${name}=`))?.split("=")[1]?.trim() ?? "";
+}
+
+function isAdmin(req: NextRequest): boolean {
+  return Boolean(getCookie(req, "admin_auth") && process.env.AUTH_SECRET && getCookie(req, "admin_auth") === process.env.AUTH_SECRET);
+}
+
+function isInscricoesTeam(req: NextRequest): boolean {
+  return Boolean(getCookie(req, "inscricoes_auth") && process.env.INSCRICOES_SECRET && getCookie(req, "inscricoes_auth") === process.env.INSCRICOES_SECRET);
 }
 
 export async function GET(req: NextRequest, { params }: Ctx) {
-  if (!isAdmin(req)) return Response.json({ error: "Não autorizado" }, { status: 401 });
+  if (!isAdmin(req) && !isInscricoesTeam(req)) return Response.json({ error: "Não autorizado" }, { status: 401 });
   const { id } = await params;
   const reg = await getRegistration(Number(id));
   if (!reg) return Response.json({ error: "Não encontrado" }, { status: 404 });
@@ -18,7 +25,7 @@ export async function GET(req: NextRequest, { params }: Ctx) {
 }
 
 export async function PUT(req: NextRequest, { params }: Ctx) {
-  if (!isAdmin(req)) return Response.json({ error: "Não autorizado" }, { status: 401 });
+  if (!isAdmin(req) && !isInscricoesTeam(req)) return Response.json({ error: "Não autorizado" }, { status: 401 });
   const { id } = await params;
   try {
     const body = await req.json();
