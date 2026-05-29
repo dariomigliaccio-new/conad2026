@@ -2526,3 +2526,27 @@ a {
     flex-wrap: wrap;
   }
 }
+
+.whatsappFab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
+  transition: transform .2s, box-shadow .2s;
+}
+.whatsappFab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(0,0,0,.28);
+}
+@media (max-width: 640px) {
+  .whatsappFab { bottom: 20px; right: 16px; width: 50px; height: 50px; }
+}

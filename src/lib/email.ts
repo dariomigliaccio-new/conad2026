@@ -34,10 +34,8 @@ export async function sendConfirmationEmail(to: string, nome: string, id: number
 
       <div style="background:#fff;border:1px solid #D8C9A8;border-radius:8px;padding:20px;margin:0 0 24px;">
         <p style="margin:0 0 12px;font-size:13px;color:#7A5A38;font-weight:700;letter-spacing:.1em;text-transform:uppercase;">Equipe CONAD 2026</p>
-        <p style="margin:0 0 6px;font-size:14px;color:#1C0E04;line-height:1.6;">Pastor José Luciano Correia</p>
-        <p style="margin:0 0 12px;font-size:14px;color:#1C0E04;line-height:1.6;">Fone: (754) 309-6800 &nbsp;·&nbsp; Ramal 210</p>
-        <p style="margin:0 0 6px;font-size:14px;color:#1C0E04;line-height:1.6;">Danny Barbosa</p>
-        <p style="margin:0;font-size:14px;color:#1C0E04;line-height:1.6;">Fone: (754) 309-6800 &nbsp;·&nbsp; Ramal 209</p>
+        <p style="margin:0 0 4px;font-size:14px;color:#1C0E04;line-height:1.6;">Pastor José Luciano Correia &nbsp;·&nbsp; Danny Barbosa</p>
+        <p style="margin:0;font-size:14px;color:#1C0E04;line-height:1.6;">+1 (954) 588-5507</p>
       </div>
 
       <hr style="border:none;border-top:1px solid #D8C9A8;margin:32px 0;" />
