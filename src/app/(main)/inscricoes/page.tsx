@@ -296,6 +296,12 @@ export default function InscricoesPage() {
         <img src="/images/inscreva-se-CONAD.png" alt="Inscrições CONAD 2026" />
       </div>
 
+      {/* Imagem pulsando */}
+      <div className="inscPulseWrap">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/11.jpg" alt="CONAD 2026" className="inscPulseImg" />
+      </div>
+
       <div className="inscWrap">
         {errors._ && <div className="inscError">{errors._}</div>}
         {Object.keys(errors).length > 0 && !errors._ && (

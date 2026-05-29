@@ -1965,6 +1965,22 @@ a {
   50%       { transform: scale(1.06); filter: drop-shadow(0 0 18px rgba(201, 132, 24, 0.55)); }
 }
 
+.inscPulseWrap {
+  display: flex;
+  justify-content: center;
+  padding: clamp(16px, 3vw, 32px) 24px;
+  background: var(--background);
+}
+
+.inscPulseImg {
+  width: clamp(260px, 60vw, 560px);
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  animation: inscBannerPulse 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
 .inscWrap {
   max-width: 760px;
   margin: 0 auto;
