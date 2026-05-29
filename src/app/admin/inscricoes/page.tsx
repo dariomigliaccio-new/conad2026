@@ -226,10 +226,57 @@ const STATUS_COLORS: Record<string, string> = {
   pendente: "#f59e0b", confirmado: "#3b82f6", pago: "#22c55e", cancelado: "#ef4444",
 };
 
+function DeleteConfirmModal({ reg, onConfirm, onCancel }: { reg: Reg; onConfirm: () => void; onCancel: () => void }) {
+  return (
+    <div className="inscModalOverlay" onClick={e => { if (e.target === e.currentTarget) onCancel(); }}>
+      <div className="inscModal" style={{ maxWidth: 440 }}>
+        <div style={{ padding: "32px 32px 24px", display: "flex", flexDirection: "column", gap: 20 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+            <div style={{ width: 44, height: 44, borderRadius: "50%", background: "#fff0f0", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c0392b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+            <div>
+              <p style={{ margin: 0, fontSize: 11, fontWeight: 800, letterSpacing: ".1em", textTransform: "uppercase", color: "#c0392b" }}>Atenção — Ação irreversível</p>
+              <h3 style={{ margin: "4px 0 0", fontSize: 17, fontWeight: 700 }}>Excluir inscrição</h3>
+            </div>
+          </div>
+
+          <div style={{ background: "#fff8f8", border: "1px solid #f0b8b8", borderRadius: 6, padding: "14px 16px" }}>
+            <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#7a1a1a" }}>
+              Você está excluindo a inscrição de <strong>{reg.nome} {reg.sobrenome}</strong> (#{String(reg.id).padStart(5, "0")}).
+              <br /><br />
+              <strong>Cuidado:</strong> todos os dados desta pessoa serão removidos permanentemente e <strong>não poderão ser recuperados</strong>.
+            </p>
+          </div>
+
+          <div style={{ display: "flex", gap: 10, justifyContent: "flex-end" }}>
+            <button
+              onClick={onCancel}
+              style={{ padding: "10px 20px", fontSize: 13, fontWeight: 600, background: "#f5f5f5", border: "1px solid #ddd", borderRadius: 4, cursor: "pointer" }}
+            >
+              Cancelar
+            </button>
+            <button
+              onClick={onConfirm}
+              style={{ padding: "10px 20px", fontSize: 13, fontWeight: 700, background: "#c0392b", color: "#fff", border: "none", borderRadius: 4, cursor: "pointer" }}
+            >
+              Sim, excluir
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function AdminInscricoes() {
   const [regs, setRegs] = useState<Reg[]>([]);
   const [loading, setLoading] = useState(true);
   const [editing, setEditing] = useState<Reg | null>(null);
+  const [deleting, setDeleting] = useState<Reg | null>(null);
   const [search, setSearch] = useState("");
   const [filterStatus, setFilterStatus] = useState("");
 
@@ -243,9 +290,9 @@ export default function AdminInscricoes() {
   useEffect(() => { load(); }, []);
 
   async function handleDelete(id: number) {
-    if (!confirm("Tem certeza que deseja excluir esta inscrição? Esta ação é irreversível.")) return;
     await fetch(`/api/inscricoes/${id}`, { method: "DELETE" });
     setRegs(r => r.filter(x => x.id !== id));
+    setDeleting(null);
   }
 
   // CSV export
@@ -322,6 +369,9 @@ export default function AdminInscricoes() {
     <div className="adminMain">
       {editing && (
         <EditModal reg={editing} onClose={() => setEditing(null)} onSaved={() => { load(); }} />
+      )}
+      {deleting && (
+        <DeleteConfirmModal reg={deleting} onConfirm={() => handleDelete(deleting.id)} onCancel={() => setDeleting(null)} />
       )}
 
       {/* Header */}
@@ -419,7 +469,7 @@ export default function AdminInscricoes() {
                 <span style={{ fontSize: 12, color: "#888" }}>{r.createdAt.slice(0, 10)}</span>
                 <span style={{ display: "flex", gap: 6 }}>
                   <button className="adminButton" style={{ fontSize: 12, minHeight: 32, padding: "0 10px", background: "#f4f4f8", color: "#333", border: "1px solid #ddd" }} onClick={() => setEditing(r)}>Editar</button>
-                  <button className="adminButton" style={{ fontSize: 12, minHeight: 32, padding: "0 10px", background: "#fff0f0", color: "#c0392b", border: "1px solid #f0b8b8" }} onClick={() => handleDelete(r.id)}>Excluir</button>
+                  <button className="adminButton" style={{ fontSize: 12, minHeight: 32, padding: "0 10px", background: "#fff0f0", color: "#c0392b", border: "1px solid #f0b8b8" }} onClick={() => setDeleting(r)}>Excluir</button>
                 </span>
               </div>
             ))}
