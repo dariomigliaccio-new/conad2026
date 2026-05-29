@@ -305,14 +305,14 @@ body {
 /* ── PAGE HERO ─────────────────────────────────────── */
 
 .pageHero {
-  padding: clamp(56px, 7vw, 96px) clamp(80px, 16vw, 300px) clamp(48px, 6vw, 80px);
+  padding: clamp(48px, 7vw, 96px) clamp(20px, 16vw, 300px) clamp(40px, 6vw, 80px);
   text-align: center;
   background: var(--background);
   border-bottom: 1px solid var(--line);
 }
 
 .pageHeroSm {
-  padding: clamp(36px, 4vw, 56px) clamp(32px, 10vw, 160px) clamp(28px, 3vw, 44px);
+  padding: clamp(32px, 4vw, 56px) clamp(20px, 10vw, 160px) clamp(24px, 3vw, 44px);
 }
 
 .pageEyebrow {
@@ -1378,6 +1378,14 @@ a {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   max-width: 1280px;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .experienceGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  .experienceGrid { grid-template-columns: 1fr; }
 }
 
 .experienceItem {
@@ -2505,6 +2513,7 @@ a {
 .inscModalSection h3 { font-size: 12px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: #74747d; margin: 0 0 12px; }
 
 .inscModalRow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 480px) { .inscModalRow { grid-template-columns: 1fr; } }
 .inscModalBody label { display: grid; gap: 5px; font-size: 13px; font-weight: 700; color: #333; margin-bottom: 10px; }
 
 .inscModalInput {
