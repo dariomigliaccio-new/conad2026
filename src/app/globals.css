@@ -2528,8 +2528,12 @@ a {
   }
 
   .adminBrand { display: none; }
-  .adminBrandLogo { display: block; width: 100%; text-align: center; }
+  .adminBrandLogo { display: block; width: 100%; text-align: center; padding: 8px 0 4px; }
+  .adminBrandLogo img { height: 90px; margin: 0 auto; }
   .adminTopbar { display: none; }
+  .adminSidebarInscricoes .adminNav { display: none; }
+  .adminSidebarInscricoes { background: #1C0E04; justify-content: center; padding: 16px; }
+  .adminSidebarInscricoes > button { align-self: center; background: rgba(255,255,255,.1) !important; color: rgba(255,255,255,.7) !important; border-color: rgba(255,255,255,.2) !important; }
 
   .adminNav {
     display: flex;

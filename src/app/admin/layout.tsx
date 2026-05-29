@@ -36,7 +36,7 @@ export default async function AdminLayout({
 
   return (
     <div className="adminShell">
-      <aside className="adminSidebar">
+      <aside className={`adminSidebar${isInscricoesOnly ? " adminSidebarInscricoes" : ""}`}>
         <Link className="adminBrand" href="/">
           <span>CONAD</span>
           <strong>2026</strong>
