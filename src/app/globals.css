@@ -417,7 +417,7 @@ body {
   position: relative;
   width: 180px;
   height: 180px;
-  border-radius: 50%;
+  border-radius: 4px;
   overflow: hidden;
   background: var(--line);
   flex-shrink: 0;
@@ -708,7 +708,7 @@ body {
 
 .prelatoresGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 32px; margin-top: 48px; }
 .preletorCard { text-align: center; }
-.preletorFoto { position: relative; width: 160px; height: 160px; margin: 0 auto 16px; border-radius: 50%; overflow: hidden; background: var(--line); }
+.preletorFoto { position: relative; width: 160px; height: 160px; margin: 0 auto 16px; border-radius: 4px; overflow: hidden; background: var(--line); }
 .preletorFotoPlaceholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 48px; color: #999; }
 .preletorCard h3 { font-family: var(--font-serif); font-size: 22px; font-weight: 400; margin: 0 0 4px; }
 .preletorCargo { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
