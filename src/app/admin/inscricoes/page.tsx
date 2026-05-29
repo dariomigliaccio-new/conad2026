@@ -439,43 +439,63 @@ export default function AdminInscricoes() {
         ) : filtered.length === 0 ? (
           <p style={{ color: "#999", fontSize: 14, padding: "20px 0" }}>Nenhuma inscrição encontrada.</p>
         ) : (
-          <div className="inscRegTableWrap">
-          <div className="inscRegTable">
-            <div className="inscRegTableHead">
-              <span>Nº</span><span>Nome</span><span>Tipo</span><span>Ministério</span>
-              <span>Contato</span><span>Status</span><span>Data</span><span>Ações</span>
-            </div>
-            {filtered.map(r => (
-              <div key={r.id} className="inscRegRow">
-                <span className="inscRegId">#{String(r.id).padStart(5, "0")}</span>
-                <span>
-                  <strong style={{ display: "block", fontSize: 14 }}>{r.nome} {r.sobrenome}</strong>
-                  <span style={{ fontSize: 12, color: "#888" }}>{r.email}</span>
-                  {r.comentarios && <span title={r.comentarios} style={{ marginLeft: 6, cursor: "help", fontSize: 13 }}>💬</span>}
-                </span>
-                <span style={{ textTransform: "capitalize", fontSize: 13 }}>{r.tipo}</span>
-                <span style={{ fontSize: 12, color: "#555" }}>
-                  {r.ministerio}
-                  {r.congregacao && <span style={{ display: "block", color: "#888" }}>{r.congregacao}</span>}
-                </span>
-                <span style={{ fontSize: 12 }}>
-                  {r.telefonePais} {r.telefoneNumero}
-                  <span style={{ display: "block", color: "#888" }}>{r.cidade}, {r.estado}</span>
-                </span>
-                <span>
-                  <span className="inscStatusBadge" style={{ background: STATUS_COLORS[r.status] ?? "#999" }}>
-                    {r.status}
-                  </span>
-                </span>
-                <span style={{ fontSize: 12, color: "#888" }}>{r.createdAt.slice(0, 10)}</span>
-                <span style={{ display: "flex", gap: 6 }}>
-                  <button className="adminButton" style={{ fontSize: 12, minHeight: 32, padding: "0 10px", background: "#f4f4f8", color: "#333", border: "1px solid #ddd" }} onClick={() => setEditing(r)}>Editar</button>
-                  <button className="adminButton" style={{ fontSize: 12, minHeight: 32, padding: "0 10px", background: "#fff0f0", color: "#c0392b", border: "1px solid #f0b8b8" }} onClick={() => setDeleting(r)}>Excluir</button>
-                </span>
+          <>
+            {/* Desktop: tabela */}
+            <div className="inscRegTable inscRegTableDesktop">
+              <div className="inscRegTableHead">
+                <span>Nº</span><span>Nome</span><span>Tipo</span><span>Ministério</span>
+                <span>Contato</span><span>Status</span><span>Data</span><span>Ações</span>
               </div>
-            ))}
-          </div>
-          </div>
+              {filtered.map(r => (
+                <div key={r.id} className="inscRegRow">
+                  <span className="inscRegId">#{String(r.id).padStart(5, "0")}</span>
+                  <span>
+                    <strong style={{ display: "block", fontSize: 14 }}>{r.nome} {r.sobrenome}</strong>
+                    <span style={{ fontSize: 12, color: "#888" }}>{r.email}</span>
+                    {r.comentarios && <span title={r.comentarios} style={{ marginLeft: 6, cursor: "help", fontSize: 13 }}>💬</span>}
+                  </span>
+                  <span style={{ textTransform: "capitalize", fontSize: 13 }}>{r.tipo}</span>
+                  <span style={{ fontSize: 12, color: "#555" }}>
+                    {r.ministerio}
+                    {r.congregacao && <span style={{ display: "block", color: "#888" }}>{r.congregacao}</span>}
+                  </span>
+                  <span style={{ fontSize: 12 }}>
+                    {r.telefonePais} {r.telefoneNumero}
+                    <span style={{ display: "block", color: "#888" }}>{r.cidade}, {r.estado}</span>
+                  </span>
+                  <span>
+                    <span className="inscStatusBadge" style={{ background: STATUS_COLORS[r.status] ?? "#999" }}>{r.status}</span>
+                  </span>
+                  <span style={{ fontSize: 12, color: "#888" }}>{r.createdAt.slice(0, 10)}</span>
+                  <span style={{ display: "flex", gap: 6 }}>
+                    <button className="adminButton" style={{ fontSize: 12, minHeight: 32, padding: "0 10px", background: "#f4f4f8", color: "#333", border: "1px solid #ddd" }} onClick={() => setEditing(r)}>Editar</button>
+                    <button className="adminButton" style={{ fontSize: 12, minHeight: 32, padding: "0 10px", background: "#fff0f0", color: "#c0392b", border: "1px solid #f0b8b8" }} onClick={() => setDeleting(r)}>Excluir</button>
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile: cards */}
+            <div className="inscRegCards">
+              {filtered.map(r => (
+                <div key={r.id} className="inscRegCard">
+                  <div className="inscRegCardTop">
+                    <span className="inscRegId">#{String(r.id).padStart(5, "0")}</span>
+                    <span className="inscStatusBadge" style={{ background: STATUS_COLORS[r.status] ?? "#999" }}>{r.status}</span>
+                  </div>
+                  <strong className="inscRegCardNome">{r.nome} {r.sobrenome}</strong>
+                  <span className="inscRegCardInfo">{r.email}</span>
+                  <span className="inscRegCardInfo">{r.telefonePais} {r.telefoneNumero}</span>
+                  <span className="inscRegCardInfo">{r.ministerio}{r.congregacao ? ` — ${r.congregacao}` : ""}</span>
+                  <span className="inscRegCardInfo" style={{ color: "#aaa" }}>{r.createdAt.slice(0, 10)} · {r.tipo}</span>
+                  <div className="inscRegCardActions">
+                    <button className="adminButton" style={{ flex: 1, fontSize: 13, background: "#f4f4f8", color: "#333", border: "1px solid #ddd" }} onClick={() => setEditing(r)}>Editar</button>
+                    <button className="adminButton" style={{ flex: 1, fontSize: 13, background: "#fff0f0", color: "#c0392b", border: "1px solid #f0b8b8" }} onClick={() => setDeleting(r)}>Excluir</button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
         )}
       </div>
     </div>

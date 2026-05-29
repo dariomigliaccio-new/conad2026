@@ -21,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -2474,13 +2475,29 @@ a {
   .inscChartsGrid { grid-template-columns: 1fr; }
 }
 
-/* Tabela com scroll horizontal em vez de esconder colunas */
-.inscRegTableWrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+/* Cards mobile — ocultos no desktop */
+.inscRegCards { display: none; }
+.inscRegCard {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f0f5;
 }
+.inscRegCard:last-child { border-bottom: none; }
+.inscRegCardTop { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+.inscRegCardNome { font-size: 15px; font-weight: 700; color: #111; }
+.inscRegCardInfo { font-size: 13px; color: #666; }
+.inscRegCardActions { display: flex; gap: 8px; margin-top: 8px; }
 
 @media (max-width: 760px) {
+  /* Bloquear scroll horizontal */
+  html, body { overflow-x: hidden; max-width: 100vw; }
+
+  /* Tabela → cards */
+  .inscRegTableDesktop { display: none; }
+  .inscRegCards { display: block; }
+
   /* Layout geral */
   .adminShell { grid-template-columns: 1fr; }
 
