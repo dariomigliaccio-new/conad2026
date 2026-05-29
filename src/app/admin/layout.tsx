@@ -41,6 +41,10 @@ export default async function AdminLayout({
           <span>CONAD</span>
           <strong>2026</strong>
         </Link>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <Link href="/" className="adminBrandLogo">
+          <img src="/images/novo-logo.png" alt="CONAD 2026" />
+        </Link>
         <nav className="adminNav" aria-label="Navegacao do admin">
           {navItems.map((item) => (
             <Link href={item.href} key={item.href}>
@@ -54,7 +58,7 @@ export default async function AdminLayout({
         <header className="adminTopbar">
           <div>
             <p>Painel administrativo</p>
-            <h1>CMS CONAD 2026</h1>
+            <h1>INSCRIÇÕES CONAD 2026</h1>
           </div>
           {!isInscricoesOnly && (
             <Link className="adminPreviewLink" href="/">

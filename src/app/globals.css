@@ -1682,6 +1682,16 @@ a {
   font-weight: 600;
 }
 
+.adminBrandLogo {
+  display: none;
+  line-height: 0;
+}
+
+.adminBrandLogo img {
+  height: 48px;
+  width: auto;
+}
+
 .adminNav {
   display: grid;
   gap: 8px;
@@ -2515,7 +2525,8 @@ a {
     gap: 8px;
   }
 
-  .adminBrand { margin-bottom: 0; font-size: 18px; }
+  .adminBrand { display: none; }
+  .adminBrandLogo { display: block; }
 
   .adminNav {
     display: flex;
