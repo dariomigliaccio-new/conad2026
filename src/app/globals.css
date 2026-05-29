@@ -1688,8 +1688,10 @@ a {
 }
 
 .adminBrandLogo img {
-  height: 48px;
+  height: 72px;
   width: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .adminNav {
@@ -2526,7 +2528,8 @@ a {
   }
 
   .adminBrand { display: none; }
-  .adminBrandLogo { display: block; }
+  .adminBrandLogo { display: block; width: 100%; text-align: center; }
+  .adminTopbar { display: none; }
 
   .adminNav {
     display: flex;
