@@ -472,12 +472,10 @@ body {
 
 /* Map: same dimensions as the hero banner */
 .localMapWrap {
-  width: calc(100% - 120px);
-  max-width: 700px;
-  aspect-ratio: 1 / 1;
-  margin: 32px auto;
+  width: 100%;
+  height: 560px;
+  margin: 0;
   overflow: hidden;
-  border-radius: 2px;
   line-height: 0;
 }
 
@@ -488,15 +486,8 @@ body {
   display: block;
 }
 
-@media (max-width: 900px) {
-  .localMapWrap { margin-top: 20px; }
-}
 @media (max-width: 640px) {
-  .localMapWrap {
-    width: calc(100% - 32px);
-    margin-top: 12px;
-    aspect-ratio: 4 / 3;
-  }
+  .localMapWrap { height: 380px; }
 }
 
 .localContent {

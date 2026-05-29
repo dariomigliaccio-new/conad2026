@@ -1,40 +1,25 @@
 import { readContent } from "@/lib/content";
+import MapBox3D from "./MapBox3D";
 
 export const dynamic = "force-dynamic";
 
 type Local = { nome: string; endereco: string; cidade: string; estado: string; cep: string; descricao: string; lat: string; lng: string; como_chegar: string; hospedagem: string };
 
+const VENUE_LAT = 28.848;
+const VENUE_LNG = -81.877;
+
 export default async function LocalPage() {
   const d = await readContent<Local>("local");
+  const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN ?? process.env.MAPBOX_TOKEN ?? "";
 
-  const hasCoords = d.lat && d.lng;
-  const mapSrc = hasCoords
-    ? `https://maps.google.com/maps?q=${d.lat},${d.lng}&z=15&output=embed&hl=pt`
-    : null;
-
-  const fullAddress = [d.endereco, d.cidade, d.estado, d.cep].filter(Boolean).join(", ");
+  const lat = d.lat ? parseFloat(d.lat) : VENUE_LAT;
+  const lng = d.lng ? parseFloat(d.lng) : VENUE_LNG;
 
   return (
     <main>
-      <section className="pageHero pageHeroSm">
-        <p className="pageEyebrow">CONAD 2026</p>
-        <div className="pageDivider" />
-        <p className="pageLead">{d.descricao}</p>
-      </section>
-
-      {mapSrc && (
-        <div className="localMapWrap">
-          <iframe
-            src={mapSrc}
-            className="localMapImg"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title={`Mapa — ${d.nome}`}
-          />
-        </div>
-      )}
+      <div className="localMapWrap">
+        <MapBox3D lat={lat} lng={lng} token={token} />
+      </div>
 
       <section className="section localContent">
         <p className="localVenueAddress">39034 County Rd 452, Leesburg, FL 34788</p>
