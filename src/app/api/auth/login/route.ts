@@ -3,25 +3,27 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   const { user, pass } = await req.json();
 
-  const validUser = process.env.ADMIN_USER;
-  const validPass = process.env.ADMIN_PASS;
-  const secret = process.env.AUTH_SECRET;
-
-  if (!validUser || !validPass || !secret) {
-    return NextResponse.json({ error: "Servidor não configurado" }, { status: 500 });
-  }
-
-  if (user !== validUser || pass !== validPass) {
-    return NextResponse.json({ error: "Credenciais inválidas" }, { status: 401 });
-  }
-
-  const res = NextResponse.json({ ok: true });
-  res.cookies.set("admin_auth", secret, {
+  const cookieOpts = {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    maxAge: 60 * 60 * 24 * 7, // 7 days
+    sameSite: "lax" as const,
+    maxAge: 60 * 60 * 24 * 7,
     path: "/",
-  });
-  return res;
+  };
+
+  // Admin completo
+  if (user === process.env.ADMIN_USER && pass === process.env.ADMIN_PASS && process.env.AUTH_SECRET) {
+    const res = NextResponse.json({ ok: true, role: "admin" });
+    res.cookies.set("admin_auth", process.env.AUTH_SECRET, cookieOpts);
+    return res;
+  }
+
+  // Acesso restrito a inscrições
+  if (user === process.env.INSCRICOES_USER && pass === process.env.INSCRICOES_PASS && process.env.INSCRICOES_SECRET) {
+    const res = NextResponse.json({ ok: true, role: "inscricoes" });
+    res.cookies.set("inscricoes_auth", process.env.INSCRICOES_SECRET, cookieOpts);
+    return res;
+  }
+
+  return NextResponse.json({ error: "Credenciais inválidas" }, { status: 401 });
 }

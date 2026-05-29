@@ -6,18 +6,24 @@ export function proxy(request: NextRequest) {
 
   const token = request.cookies.get("admin_auth")?.value;
   const secret = process.env.AUTH_SECRET;
-  const authenticated = token && secret && token === secret;
+  const isAdmin = token && secret && token === secret;
+
+  const inscToken = request.cookies.get("inscricoes_auth")?.value;
+  const inscSecret = process.env.INSCRICOES_SECRET;
+  const isInscricoes = inscToken && inscSecret && inscToken === inscSecret;
 
   if (pathname.startsWith("/admin")) {
-    if (!authenticated) {
-      return NextResponse.redirect(new URL("/login", request.url));
+    if (isAdmin) return NextResponse.next();
+    if (isInscricoes) {
+      if (pathname.startsWith("/admin/inscricoes")) return NextResponse.next();
+      return NextResponse.redirect(new URL("/admin/inscricoes", request.url));
     }
-    return NextResponse.next();
+    return NextResponse.redirect(new URL("/login", request.url));
   }
 
   if (request.method === "POST") {
     if (pathname.startsWith("/api/content/") || pathname === "/api/upload") {
-      if (!authenticated) {
+      if (!isAdmin) {
         return NextResponse.json({ error: "Não autorizado" }, { status: 401 });
       }
     }

@@ -19,7 +19,8 @@ export default function LoginPage() {
       body: JSON.stringify({ user, pass }),
     });
     if (r.ok) {
-      router.push("/admin");
+      const d = await r.json();
+      router.push(d.role === "inscricoes" ? "/admin/inscricoes" : "/admin");
     } else {
       const d = await r.json();
       setError(d.error ?? "Erro ao entrar.");

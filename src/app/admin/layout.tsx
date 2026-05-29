@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { cookies } from "next/headers";
 import { LogoutButton } from "@/components/admin/LogoutButton";
 
-const navItems = [
+const ADMIN_NAV = [
   { href: "/admin", label: "Dashboard" },
   { href: "/admin/hero", label: "Carrossel" },
   { href: "/admin/evento", label: "O Evento" },
@@ -17,11 +18,22 @@ const navItems = [
   { href: "/admin/configuracoes", label: "Configurações" },
 ];
 
-export default function AdminLayout({
+const INSCRICOES_NAV = [
+  { href: "/admin/inscricoes", label: "Inscrições" },
+];
+
+export default async function AdminLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jar = await cookies();
+  const inscToken = jar.get("inscricoes_auth")?.value;
+  const inscSecret = process.env.INSCRICOES_SECRET;
+  const isInscricoesOnly = inscToken && inscSecret && inscToken === inscSecret;
+
+  const navItems = isInscricoesOnly ? INSCRICOES_NAV : ADMIN_NAV;
+
   return (
     <div className="adminShell">
       <aside className="adminSidebar">
@@ -44,9 +56,11 @@ export default function AdminLayout({
             <p>Painel administrativo</p>
             <h1>CMS CONAD 2026</h1>
           </div>
-          <Link className="adminPreviewLink" href="/">
-            Ver site
-          </Link>
+          {!isInscricoesOnly && (
+            <Link className="adminPreviewLink" href="/">
+              Ver site
+            </Link>
+          )}
         </header>
         {children}
       </div>
