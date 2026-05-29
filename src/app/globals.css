@@ -2468,18 +2468,98 @@ a {
   background: #fafafa;
 }
 
-/* Responsive */
+/* ── Admin + Inscricoes Responsive ─────────────────────── */
+
 @media (max-width: 900px) {
   .inscChartsGrid { grid-template-columns: 1fr; }
-  .inscRegTableHead, .inscRegRow { grid-template-columns: 70px 1fr 80px auto; }
-  .inscRegTableHead span:nth-child(n+4),
-  .inscRegRow span:nth-child(n+4) { display: none; }
-  .inscRegTableHead span:nth-child(4),
-  .inscRegRow span:nth-child(4),
-  .inscRegTableHead span:nth-child(8),
-  .inscRegRow span:nth-child(8) { display: flex; }
 }
 
+/* Tabela com scroll horizontal em vez de esconder colunas */
+.inscRegTableWrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 760px) {
+  /* Layout geral */
+  .adminShell { grid-template-columns: 1fr; }
+
+  /* Sidebar vira nav horizontal com scroll */
+  .adminSidebar {
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid #dedee3;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .adminBrand { margin-bottom: 0; font-size: 18px; }
+
+  .adminNav {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .adminNav::-webkit-scrollbar { display: none; }
+  .adminNav a {
+    white-space: nowrap;
+    padding: 8px 12px;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+
+  /* Logout menor */
+  .adminSidebar > button {
+    margin: 0 !important;
+    width: auto !important;
+    align-self: flex-start;
+    padding: 6px 12px !important;
+    font-size: 10px !important;
+  }
+
+  /* Topbar */
+  .adminTopbar { padding: 14px 16px; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .adminTopbar h1 { font-size: 18px; }
+
+  /* Main */
+  .adminMain { padding: 14px 12px 32px; gap: 12px; }
+
+  /* Metrics: 2 colunas */
+  .adminMetricGrid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .adminMetric strong { font-size: 22px; }
+
+  /* Module grid */
+  .adminModuleGrid { grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  /* Panel header empilha */
+  .adminPanelHeader { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .adminPanelHeader > div:last-child { width: 100%; }
+  .adminPanelHeader input,
+  .adminPanelHeader select { width: 100%; min-width: unset !important; }
+
+  /* Banner */
+  .bannerRow { grid-template-columns: 80px 1fr; }
+  .bannerRow img { display: none; }
+  .bannerActions { flex-wrap: wrap; }
+
+  /* Topbar title */
+  .adminTopbar > div:last-child { align-self: stretch; }
+}
+
+@media (max-width: 480px) {
+  .adminMetricGrid { grid-template-columns: repeat(2, 1fr); }
+  .adminModuleGrid { grid-template-columns: 1fr; }
+  .adminMain { padding: 10px 8px 28px; }
+}
+
+/* Formulário de inscrição responsivo */
 @media (max-width: 600px) {
   .inscRow { grid-template-columns: 1fr; }
   .inscRow3 { grid-template-columns: 1fr; }
@@ -2487,44 +2567,6 @@ a {
   .inscPhonePais { max-width: 100%; }
   .inscPhoneRow { flex-direction: column; }
   .inscModal { width: 100vw; }
-}
-
-/* ── (existing) responsive ─── */
-@media (max-width: 760px) {
-  .adminShell {
-    grid-template-columns: 1fr;
-  }
-
-  .adminSidebar {
-    position: relative;
-    height: auto;
-    border-right: 0;
-    border-bottom: 1px solid #dedee3;
-  }
-
-  .adminNav {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .adminTopbar,
-  .adminPanelHeader,
-  .bannerRow {
-    align-items: stretch;
-    grid-template-columns: 1fr;
-  }
-
-  .adminTopbar {
-    flex-direction: column;
-  }
-
-  .adminMetricGrid,
-  .adminModuleGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .bannerActions {
-    flex-wrap: wrap;
-  }
 }
 
 .whatsappFab {

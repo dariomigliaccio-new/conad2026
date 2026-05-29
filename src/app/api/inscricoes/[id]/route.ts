@@ -37,7 +37,7 @@ export async function PUT(req: NextRequest, { params }: Ctx) {
 }
 
 export async function DELETE(req: NextRequest, { params }: Ctx) {
-  if (!isAdmin(req)) return Response.json({ error: "Não autorizado" }, { status: 401 });
+  if (!isAdmin(req) && !isInscricoesTeam(req)) return Response.json({ error: "Não autorizado" }, { status: 401 });
   const { id } = await params;
   await deleteRegistration(Number(id));
   return Response.json({ ok: true });

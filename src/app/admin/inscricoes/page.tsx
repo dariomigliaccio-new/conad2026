@@ -439,6 +439,7 @@ export default function AdminInscricoes() {
         ) : filtered.length === 0 ? (
           <p style={{ color: "#999", fontSize: 14, padding: "20px 0" }}>Nenhuma inscrição encontrada.</p>
         ) : (
+          <div className="inscRegTableWrap">
           <div className="inscRegTable">
             <div className="inscRegTableHead">
               <span>Nº</span><span>Nome</span><span>Tipo</span><span>Ministério</span>
@@ -473,6 +474,7 @@ export default function AdminInscricoes() {
                 </span>
               </div>
             ))}
+          </div>
           </div>
         )}
       </div>
