@@ -290,10 +290,15 @@ export default function InscricoesPage() {
   // ── Form ─────────────────────────────────────────────
   return (
     <main>
-      {/* Banner */}
-      <div className="hero" style={{ margin: "32px auto 0" }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/12.jpg" alt="Inscrições CONAD 2026" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+      {/* Faixa ticker */}
+      <div className="inscTicker">
+        <div className="inscTickerTrack">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <span key={i} className="inscTickerItem">
+              ★ &nbsp;Inscrições abertas — garanta sua vaga para o CONAD 2026&nbsp;
+            </span>
+          ))}
+        </div>
       </div>
 
       <div className="inscWrap">

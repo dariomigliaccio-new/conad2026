@@ -1965,20 +1965,34 @@ a {
   50%       { transform: scale(1.06); filter: drop-shadow(0 0 18px rgba(201, 132, 24, 0.55)); }
 }
 
-.inscPulseWrap {
-  display: flex;
-  justify-content: center;
-  padding: clamp(16px, 3vw, 32px) 24px;
-  background: var(--background);
+.inscTicker {
+  width: 100%;
+  background: #7A3000;
+  overflow: hidden;
+  padding: 14px 0;
+  border-bottom: 2px solid #5a2200;
 }
 
-.inscPulseImg {
-  width: clamp(260px, 60vw, 560px);
-  height: auto;
-  display: block;
-  border-radius: 4px;
-  animation: inscBannerPulse 3s ease-in-out infinite;
-  transform-origin: center;
+.inscTickerTrack {
+  display: flex;
+  width: max-content;
+  animation: inscTickerScroll 22s linear infinite;
+}
+
+.inscTickerItem {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0 8px;
+}
+
+@keyframes inscTickerScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .inscWrap {
