@@ -41,7 +41,7 @@ export async function sendConfirmationEmail(to: string, nome: string, id: number
       </div>
 
       <hr style="border:none;border-top:1px solid #D8C9A8;margin:32px 0;" />
-      <p style="color:#aaa;font-size:11px;text-align:center;margin:0;">CONAD 2026 — 15–17 de Agosto de 2026</p>
+      <p style="color:#aaa;font-size:11px;text-align:center;margin:0;">CONAD 2026 — 3–6 de Dezembro de 2026</p>
     </div>
   `;
 
