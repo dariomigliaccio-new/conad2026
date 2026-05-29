@@ -671,6 +671,11 @@ export default function InscricoesPage() {
 
           {/* ── Submit ── */}
           <div className="inscSubmitWrap">
+            <div className="inscSubmitNotice">
+              <p>Após a finalização da sua inscrição, enviaremos um <strong>e-mail de confirmação</strong> contendo o código da sua inscrição.</p>
+              <p>Guarde este e-mail com atenção ou imprima-o, pois ele servirá como comprovante da sua reserva e poderá ser solicitado durante o credenciamento do evento.</p>
+              <p>Caso não encontre o e-mail na sua caixa de entrada, recomendamos verificar também as pastas de <strong>spam</strong>, lixo eletrônico ou promoções.</p>
+            </div>
             <button type="submit" className="inscSubmitBtn" disabled={submitting}>
               {submitting ? "Enviando..." : "Finalizar Inscrição"}
             </button>
