@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 const NAV = [
+  { label: "HOME", href: "/" },
   { label: "O EVENTO", href: "/evento" },
   { label: "PROGRAMAÇÃO", href: "/programacao" },
   { label: "PRELETORES", href: "/preletores" },
