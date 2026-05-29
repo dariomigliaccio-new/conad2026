@@ -291,15 +291,9 @@ export default function InscricoesPage() {
   return (
     <main>
       {/* Banner */}
-      <div className="inscBanner">
+      <div className="hero" style={{ margin: "32px auto 0" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/inscreva-se-CONAD.png" alt="Inscrições CONAD 2026" />
-      </div>
-
-      {/* Imagem pulsando */}
-      <div className="inscPulseWrap">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/11.jpg" alt="CONAD 2026" className="inscPulseImg" />
+        <img src="/images/12.jpg" alt="Inscrições CONAD 2026" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
       </div>
 
       <div className="inscWrap">
