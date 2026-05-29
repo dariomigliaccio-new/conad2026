@@ -473,8 +473,8 @@ body {
 /* Map: same dimensions as the hero banner */
 .localMapWrap {
   width: calc(100% - 120px);
-  max-width: 1668px;
-  aspect-ratio: 1668 / 661;
+  max-width: 700px;
+  aspect-ratio: 1 / 1;
   margin: 32px auto;
   overflow: hidden;
   border-radius: 2px;
@@ -500,8 +500,18 @@ body {
 }
 
 .localContent {
-  max-width: 900px;
+  max-width: 700px;
   margin: 0 auto;
+  text-align: center;
+}
+
+.localDescricao {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 0;
 }
 
 .localVenueBlock {
@@ -534,7 +544,7 @@ body {
   font-size: 18px;
   font-weight: 300;
   color: var(--muted);
-  margin: 0;
+  margin: 0 0 20px;
 }
 
 .localInfoGrid {

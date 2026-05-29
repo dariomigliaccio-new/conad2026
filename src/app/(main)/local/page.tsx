@@ -18,7 +18,6 @@ export default async function LocalPage() {
     <main>
       <section className="pageHero pageHeroSm">
         <p className="pageEyebrow">CONAD 2026</p>
-        <h1 className="pageTitle">Local do Evento</h1>
         <div className="pageDivider" />
         <p className="pageLead">{d.descricao}</p>
       </section>
@@ -38,28 +37,8 @@ export default async function LocalPage() {
       )}
 
       <section className="section localContent">
-        <div className="localVenueBlock">
-          <p className="localVenueLabel">VENUE</p>
-          <h2 className="localVenueName">{d.nome}</h2>
-          {fullAddress && <p className="localVenueAddress">{fullAddress}</p>}
-        </div>
-
-        <div className="localInfoGrid">
-          {d.como_chegar && (
-            <div className="localInfoCard">
-              <span className="localInfoIcon">→</span>
-              <h3>Como chegar</h3>
-              <p style={{ whiteSpace: "pre-line" }}>{d.como_chegar}</p>
-            </div>
-          )}
-          {d.hospedagem && (
-            <div className="localInfoCard">
-              <span className="localInfoIcon">◇</span>
-              <h3>Hospedagem</h3>
-              <p style={{ whiteSpace: "pre-line" }}>{d.hospedagem}</p>
-            </div>
-          )}
-        </div>
+        <p className="localVenueAddress">39034 County Rd 452, Leesburg, FL 34788</p>
+        <p className="localDescricao">Prepare-se para uma experiência transformadora que incluirá atividades emocionantes, momentos de reflexão e oportunidades para fortalecer sua fé e amizades. Mal podemos esperar para compartilhar este tempo com você em um ambiente inspirador e acolhedor.</p>
       </section>
     </main>
   );
