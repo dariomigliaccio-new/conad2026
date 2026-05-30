@@ -166,6 +166,21 @@ export default function InscricoesPage() {
 
   const isUSA = form.pais === "United States";
 
+  // Função para encontrar o código DDI do país selecionado
+  function getPhoneCodeByCountry(countryName: string): string {
+    const countryCode = COUNTRIES.find(c => c.name === countryName)?.code;
+    if (!countryCode) return "+1"; // Default USA
+    
+    const phoneCode = COUNTRY_CODES.find(c => 
+      c.name.includes(countryName) || 
+      c.name === countryName ||
+      (countryName === "Estados Unidos" && c.code === "+1") ||
+      (countryName === "Canadá" && c.code === "+1")
+    )?.code;
+    
+    return phoneCode || "+1";
+  }
+
   async function fillByZip(zip: string) {
     if (!isUSA) return;
     const clean = zip.replace(/\D/g, "");
@@ -397,9 +412,15 @@ export default function InscricoesPage() {
                 className="inscSelect"
                 value={form.pais}
                 onChange={e => {
-                  set("pais", e.target.value);
+                  const newCountry = e.target.value;
+                  set("pais", newCountry);
                   set("estado", "");
                   set("zipcode", "");
+                  // Auto-sincroniza código de telefone com o país
+                  if (newCountry) {
+                    const newPhoneCode = getPhoneCodeByCountry(newCountry);
+                    set("telefonePais", newPhoneCode);
+                  }
                 }}
               >
                 <option value="">Selecione o país</option>
