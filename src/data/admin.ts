@@ -63,11 +63,11 @@ export const editableContent = [
   {
     key: "event.date",
     label: "Data do evento",
-    value: "15-17 de Agosto, 2026",
+    value: "3-6 de Dezembro, 2026",
   },
   {
     key: "event.location",
     label: "Local",
-    value: "Lighthouse Point, FL",
+    value: "39034 County Rd 452 Leesburg, FL 34788",
   },
 ];

@@ -1797,7 +1797,25 @@ a {
   font-size: 13px;
   font-weight: 900;
   cursor: pointer;
+  text-decoration: none;
+  transition: opacity .15s;
 }
+
+.adminPreviewLink {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,.25);
+  color: rgba(255,255,255,.8);
+  font-size: 12px;
+}
+
+.adminPreviewLink:hover { border-color: rgba(255,255,255,.6); color: #fff; }
+
+.adminTopbar button.adminButton {
+  background: #c0392b;
+  font-size: 12px;
+}
+
+.adminTopbar button.adminButton:hover { background: #a93226; }
 
 .adminMain {
   display: grid;
