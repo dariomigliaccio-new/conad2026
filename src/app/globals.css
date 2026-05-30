@@ -2703,82 +2703,100 @@ a {
 
 /* Formulário de inscrição responsivo */
 @media (max-width: 600px) {
-  /* Previne scroll horizontal em mobile */
+  /* Previne scroll horizontal em mobile - MÁXIMO PRIORITY */
   html, body {
-    overflow-x: hidden;
-    width: 100%;
-    max-width: 100vw;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+  
+  /* Força documento fixo */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
   /* Form container ajustado para mobile */
   .inscWrap {
-    max-width: 100%;
-    width: 100%;
-    padding: clamp(16px, 4vw, 24px) clamp(12px, 3vw, 20px) 60px;
-    box-sizing: border-box;
+    max-width: 100% !important;
+    width: 100vw !important;
+    padding: clamp(12px, 3vw, 20px) clamp(10px, 2vw, 16px) 60px !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
   }
   
   main {
-    overflow-x: hidden;
-    width: 100%;
+    overflow-x: hidden !important;
+    width: 100vw !important;
+    max-width: 100% !important;
   }
   
   /* Garante que inputs não vazam */
   .inscInput, .inscSelect {
-    width: 100%;
-    box-sizing: border-box;
-    max-width: 100%;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
   }
   
   /* Grid ajustado para mobile */
   .inscRow { 
-    grid-template-columns: 1fr;
-    width: 100%;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
   }
   .inscRow2 {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
   .inscRow3 { 
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
   .inscDateRow {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 6px;
+    width: 100% !important;
   }
   
-  /* Phone input no mobile */
+  /* Phone input no mobile - SEPARADO */
   .inscPhonePais { 
-    max-width: 100%;
-    box-sizing: border-box;
+    max-width: 120px !important;
+    min-width: 100px !important;
+    flex: 0 0 auto !important;
+    box-sizing: border-box !important;
+    padding: 11px 8px !important;
   }
   .inscPhoneRow { 
-    flex-direction: column;
-    width: 100%;
+    display: grid !important;
+    grid-template-columns: 120px 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
   }
   .inscPhoneNum {
-    width: 100%;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   
   /* Sections ajustadas */
   .inscSection {
-    padding: 20px 16px 16px;
-    margin-bottom: 16px;
-    width: 100%;
-    box-sizing: border-box;
+    padding: 16px 12px 12px !important;
+    margin-bottom: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
   
   .inscTipoToggle { 
-    flex-direction: column;
-    width: 100%;
+    flex-direction: column !important;
+    width: 100% !important;
   }
   .inscTipoBtn {
-    width: 100%;
+    width: 100% !important;
   }
   
   /* Modal ajustado */
   .inscModal { 
-    width: 100vw;
-    box-sizing: border-box;
+    width: 100vw !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
   }
 }
 

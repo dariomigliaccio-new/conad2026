@@ -181,6 +181,35 @@ export default function InscricoesPage() {
     return phoneCode || "+1";
   }
 
+  // Função para obter placeholder e máscara de telefone por país
+  function getPhoneFormat(pais: string): { placeholder: string; maxLength: number } {
+    const formats: Record<string, { placeholder: string; maxLength: number }> = {
+      "United States": { placeholder: "(508) 555-0100", maxLength: 14 },
+      "Estados Unidos": { placeholder: "(508) 555-0100", maxLength: 14 },
+      "Brasil": { placeholder: "(11) 98765-4321", maxLength: 15 },
+      "Portugal": { placeholder: "912 345 678", maxLength: 11 },
+      "Canadá": { placeholder: "(613) 555-0100", maxLength: 14 },
+      "Alemanha": { placeholder: "0171 12345678", maxLength: 13 },
+      "França": { placeholder: "01 23 45 67 89", maxLength: 14 },
+      "Itália": { placeholder: "333 123 4567", maxLength: 12 },
+      "Espanha": { placeholder: "612 345 678", maxLength: 11 },
+      "Reino Unido": { placeholder: "7911 123456", maxLength: 11 },
+      "Suíça": { placeholder: "79 123 45 67", maxLength: 11 },
+      "Países Baixos": { placeholder: "06 12345678", maxLength: 11 },
+      "Suécia": { placeholder: "070 123 45 67", maxLength: 12 },
+      "Dinamarca": { placeholder: "40 12 34 56", maxLength: 10 },
+      "Argentina": { placeholder: "11 2345-6789", maxLength: 12 },
+      "México": { placeholder: "55 1234 5678", maxLength: 12 },
+      "Austrália": { placeholder: "412 345 678", maxLength: 11 },
+      "Japão": { placeholder: "090-1234-5678", maxLength: 12 },
+      "China": { placeholder: "13912345678", maxLength: 11 },
+      "Índia": { placeholder: "98123 45678", maxLength: 10 },
+      "Nova Zelândia": { placeholder: "021 123 4567", maxLength: 11 },
+    };
+    
+    return formats[pais] || { placeholder: "Número de telefone", maxLength: 20 };
+  }
+
   async function fillByZip(zip: string) {
     if (!isUSA) return;
     const clean = zip.replace(/\D/g, "");
@@ -491,15 +520,22 @@ export default function InscricoesPage() {
           {/* ── Telefone ── */}
           <div className="inscSection">
             <h2 className="inscSectionTitle">Contato</h2>
-            <div className={`inscField${errors.telefoneNumero ? " hasError" : ""}`}>
+              <div className={`inscField${errors.telefoneNumero ? " hasError" : ""}`}>
               <label className="inscLabel">Telefone / WhatsApp *</label>
               <div className="inscPhoneRow">
                 <select className="inscPhonePais" value={form.telefonePais} onChange={e => set("telefonePais", e.target.value)}>
                   {COUNTRY_CODES.map(c => (
-                    <option key={c.code + c.name} value={c.code}>{c.flag} {c.code} {c.name}</option>
+                    <option key={c.code + c.name} value={c.code}>{c.flag} {c.code}</option>
                   ))}
                 </select>
-                <input className="inscInput inscPhoneNum" type="tel" value={form.telefoneNumero} onChange={e => set("telefoneNumero", e.target.value)} placeholder="(508) 555-0100" />
+                <input 
+                  className="inscInput inscPhoneNum" 
+                  type="tel" 
+                  value={form.telefoneNumero} 
+                  onChange={e => set("telefoneNumero", e.target.value.slice(0, getPhoneFormat(form.pais).maxLength))} 
+                  placeholder={getPhoneFormat(form.pais).placeholder}
+                  maxLength={getPhoneFormat(form.pais).maxLength}
+                />
               </div>
               {errors.telefoneNumero && <span className="inscFieldError">{errors.telefoneNumero}</span>}
             </div>
