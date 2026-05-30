@@ -1803,15 +1803,16 @@ a {
 
 .adminPreviewLink {
   background: transparent;
-  border: 1.5px solid rgba(255,255,255,.25);
-  color: rgba(255,255,255,.8);
+  border: 1.5px solid #c0c0cc;
+  color: #444;
   font-size: 12px;
 }
 
-.adminPreviewLink:hover { border-color: rgba(255,255,255,.6); color: #fff; }
+.adminPreviewLink:hover { border-color: #888; color: #111; }
 
 .adminTopbar button.adminButton {
   background: #c0392b;
+  color: #fff;
   font-size: 12px;
 }
 
