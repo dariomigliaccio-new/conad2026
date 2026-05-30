@@ -11,10 +11,13 @@ export async function POST(req: Request) {
     path: "/",
   };
 
+  const clear = { maxAge: 0, path: "/" };
+
   // Admin completo
   if (user === process.env.ADMIN_USER && pass === process.env.ADMIN_PASS && process.env.AUTH_SECRET) {
     const res = NextResponse.json({ ok: true, role: "admin" });
     res.cookies.set("admin_auth", process.env.AUTH_SECRET, cookieOpts);
+    res.cookies.set("inscricoes_auth", "", clear); // limpa cookie de inscrições
     return res;
   }
 
@@ -22,6 +25,7 @@ export async function POST(req: Request) {
   if (user === process.env.INSCRICOES_USER && pass === process.env.INSCRICOES_PASS && process.env.INSCRICOES_SECRET) {
     const res = NextResponse.json({ ok: true, role: "inscricoes" });
     res.cookies.set("inscricoes_auth", process.env.INSCRICOES_SECRET, cookieOpts);
+    res.cookies.set("admin_auth", "", clear); // limpa cookie de admin
     return res;
   }
 
