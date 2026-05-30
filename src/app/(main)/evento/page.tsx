@@ -19,14 +19,8 @@ export default async function EventoPage() {
 
   return (
     <main>
-      <section className="pageHero pageHeroSm eventoHero">
-        <p className="pageEyebrow">{d.subtitulo}</p>
-        <h1 className="pageTitle">{d.titulo}</h1>
-        <div className="pageDivider" />
-      </section>
-
       {embedUrl && (
-        <div className="eventoVideoWrap">
+        <div className="eventoVideoWrap" style={{ paddingTop: "clamp(24px, 3vw, 40px)" }}>
           <div className="eventoVideoFrame">
             <iframe
               src={embedUrl}
