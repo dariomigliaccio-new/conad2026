@@ -8,6 +8,7 @@ export type Registration = {
   tipo: string;
   nome: string; sobrenome: string; email: string;
   dataNascimento: string; idade: number | null; sexo: string;
+  pais: string;
   rua: string; complemento: string; cidade: string; estado: string; zipcode: string;
   telefonePais: string; telefoneNumero: string;
   ministerio: string; congregacao: string; nomePastor: string;

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 type Reg = {
   id: number; tipo: string; nome: string; sobrenome: string; email: string;
   dataNascimento: string; idade: number | null; sexo: string;
+  pais: string;
   rua: string; complemento: string; cidade: string; estado: string; zipcode: string;
   telefonePais: string; telefoneNumero: string;
   ministerio: string; congregacao: string; nomePastor: string;
@@ -144,6 +145,7 @@ function EditModal({ reg, onClose, onSaved }: { reg: Reg; onClose: () => void; o
 
           <div className="inscModalSection">
             <h3>Endereço</h3>
+            <label>País<input className={inp} value={form.pais} onChange={e => f("pais", e.target.value)} /></label>
             <label>Rua / Número<input className={inp} value={form.rua} onChange={e => f("rua", e.target.value)} /></label>
             <label>Complemento<input className={inp} value={form.complemento} onChange={e => f("complemento", e.target.value)} /></label>
             <div className="inscModalRow">

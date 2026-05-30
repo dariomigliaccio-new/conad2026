@@ -31,6 +31,7 @@ export async function POST(req: NextRequest) {
       dataNascimento: body.dataNascimento,
       idade: body.idade ?? null,
       sexo: body.sexo,
+      pais: body.pais,
       rua: body.rua,
       complemento: body.complemento ?? "",
       cidade: body.cidade,
