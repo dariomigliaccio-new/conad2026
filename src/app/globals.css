@@ -2703,12 +2703,83 @@ a {
 
 /* Formulário de inscrição responsivo */
 @media (max-width: 600px) {
-  .inscRow { grid-template-columns: 1fr; }
-  .inscRow3 { grid-template-columns: 1fr; }
-  .inscTipoToggle { flex-direction: column; }
-  .inscPhonePais { max-width: 100%; }
-  .inscPhoneRow { flex-direction: column; }
-  .inscModal { width: 100vw; }
+  /* Previne scroll horizontal em mobile */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  /* Form container ajustado para mobile */
+  .inscWrap {
+    max-width: 100%;
+    width: 100%;
+    padding: clamp(16px, 4vw, 24px) clamp(12px, 3vw, 20px) 60px;
+    box-sizing: border-box;
+  }
+  
+  main {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Garante que inputs não vazam */
+  .inscInput, .inscSelect {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  
+  /* Grid ajustado para mobile */
+  .inscRow { 
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+  .inscRow2 {
+    grid-template-columns: 1fr;
+  }
+  .inscRow3 { 
+    grid-template-columns: 1fr;
+  }
+  .inscDateRow {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+  }
+  
+  /* Phone input no mobile */
+  .inscPhonePais { 
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .inscPhoneRow { 
+    flex-direction: column;
+    width: 100%;
+  }
+  .inscPhoneNum {
+    width: 100%;
+  }
+  
+  /* Sections ajustadas */
+  .inscSection {
+    padding: 20px 16px 16px;
+    margin-bottom: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .inscTipoToggle { 
+    flex-direction: column;
+    width: 100%;
+  }
+  .inscTipoBtn {
+    width: 100%;
+  }
+  
+  /* Modal ajustado */
+  .inscModal { 
+    width: 100vw;
+    box-sizing: border-box;
+  }
 }
 
 .whatsappFab {
