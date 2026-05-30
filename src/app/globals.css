@@ -2703,111 +2703,79 @@ a {
 
 /* Formulário de inscrição responsivo */
 @media (max-width: 600px) {
-  /* Previne scroll horizontal em mobile - MÁXIMO PRIORITY */
+  /* Previne scroll horizontal */
   html, body {
-    overflow-x: hidden !important;
-    width: 100% !important;
-    max-width: 100vw !important;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
   }
-  
-  /* Força documento fixo */
-  * {
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-  
-  /* Form container ajustado para mobile */
-  .inscWrap {
-    max-width: 100% !important;
-    width: 100% !important;
-    padding: 12px 16px 60px !important;
-    box-sizing: border-box !important;
-    overflow-x: hidden !important;
-    margin: 0 !important;
-  }
-  
+
   main {
-    overflow-x: hidden !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
   }
-  
-  /* Garante que inputs não vazam */
+
+  /* Form container */
+  .inscWrap {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px 14px 60px;
+    box-sizing: border-box;
+  }
+
+  /* Inputs ocupam largura total */
   .inscInput, .inscSelect {
-    width: 100% !important;
-    box-sizing: border-box !important;
-    max-width: 100% !important;
-    overflow: hidden !important;
+    width: 100%;
+    box-sizing: border-box;
   }
-  
-  /* Grid ajustado para mobile */
-  .inscRow { 
-    grid-template-columns: 1fr !important;
-    width: 100% !important;
+
+  /* Grids em coluna unica */
+  .inscRow,
+  .inscRow2,
+  .inscRow3 {
+    grid-template-columns: 1fr;
   }
-  .inscRow2 {
-    grid-template-columns: 1fr !important;
-  }
-  .inscRow3 { 
-    grid-template-columns: 1fr !important;
-  }
+
   .inscDateRow {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 6px;
-    width: 100% !important;
   }
-  
-  /* Phone input no mobile - VERTICAL (código em cima) */
-  .inscPhonePais { 
-    width: 100% !important;
-    box-sizing: border-box !important;
-    padding: 11px 14px !important;
-    font-size: 15px !important;
-    margin-bottom: 8px !important;
+
+  /* Telefone: codigo em cima, numero embaixo */
+  .inscPhoneRow {
+    flex-direction: column;
+    gap: 8px;
   }
-  .inscPhoneRow { 
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0 !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
+
+  .inscPhonePais {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
+
   .inscPhoneNum {
-    width: 100% !important;
-    box-sizing: border-box !important;
+    width: 100%;
+    box-sizing: border-box;
   }
-  
-  /* Sections ajustadas */
+
+  /* Sections */
   .inscSection {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 16px 16px 12px !important;
-    margin: 0 0 12px 0 !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 16px;
   }
-  
-  .inscField {
-    width: 100% !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
+
+  /* Toggle tipo */
+  .inscTipoToggle {
+    flex-direction: column;
   }
-  
-  .inscTipoToggle { 
-    flex-direction: column !important;
-    width: 100% !important;
-  }
-  .inscTipoBtn {
-    width: 100% !important;
-  }
-  
-  /* Modal ajustado */
-  .inscModal { 
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-    overflow-x: hidden !important;
+
+  /* Modal */
+  .inscModal {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
 

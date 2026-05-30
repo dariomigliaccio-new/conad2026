@@ -181,33 +181,42 @@ export default function InscricoesPage() {
     return phoneCode || "+1";
   }
 
-  // Função para obter placeholder e máscara de telefone por país
-  function getPhoneFormat(pais: string): { placeholder: string; maxLength: number } {
+  // Função para obter placeholder e máscara de telefone por código DDI
+  function getPhoneFormat(ddi: string): { placeholder: string; maxLength: number } {
     const formats: Record<string, { placeholder: string; maxLength: number }> = {
-      "United States": { placeholder: "(508) 555-0100", maxLength: 14 },
-      "Estados Unidos": { placeholder: "(508) 555-0100", maxLength: 14 },
-      "Brasil": { placeholder: "(11) 98765-4321", maxLength: 15 },
-      "Portugal": { placeholder: "912 345 678", maxLength: 11 },
-      "Canadá": { placeholder: "(613) 555-0100", maxLength: 14 },
-      "Alemanha": { placeholder: "0171 12345678", maxLength: 13 },
-      "França": { placeholder: "01 23 45 67 89", maxLength: 14 },
-      "Itália": { placeholder: "333 123 4567", maxLength: 12 },
-      "Espanha": { placeholder: "612 345 678", maxLength: 11 },
-      "Reino Unido": { placeholder: "7911 123456", maxLength: 11 },
-      "Suíça": { placeholder: "79 123 45 67", maxLength: 11 },
-      "Países Baixos": { placeholder: "06 12345678", maxLength: 11 },
-      "Suécia": { placeholder: "070 123 45 67", maxLength: 12 },
-      "Dinamarca": { placeholder: "40 12 34 56", maxLength: 10 },
-      "Argentina": { placeholder: "11 2345-6789", maxLength: 12 },
-      "México": { placeholder: "55 1234 5678", maxLength: 12 },
-      "Austrália": { placeholder: "412 345 678", maxLength: 11 },
-      "Japão": { placeholder: "090-1234-5678", maxLength: 12 },
-      "China": { placeholder: "13912345678", maxLength: 11 },
-      "Índia": { placeholder: "98123 45678", maxLength: 10 },
-      "Nova Zelândia": { placeholder: "021 123 4567", maxLength: 11 },
+      "+1":   { placeholder: "(508) 555-0100", maxLength: 14 },
+      "+55":  { placeholder: "(11) 98765-4321", maxLength: 15 },
+      "+351": { placeholder: "912 345 678", maxLength: 11 },
+      "+244": { placeholder: "923 456 789", maxLength: 11 },
+      "+258": { placeholder: "82 123 4567", maxLength: 11 },
+      "+44":  { placeholder: "7911 123456", maxLength: 11 },
+      "+49":  { placeholder: "0171 12345678", maxLength: 13 },
+      "+33":  { placeholder: "01 23 45 67 89", maxLength: 14 },
+      "+39":  { placeholder: "333 123 4567", maxLength: 12 },
+      "+34":  { placeholder: "612 345 678", maxLength: 11 },
+      "+41":  { placeholder: "79 123 45 67", maxLength: 11 },
+      "+31":  { placeholder: "06 12345678", maxLength: 11 },
+      "+46":  { placeholder: "070 123 45 67", maxLength: 12 },
+      "+45":  { placeholder: "40 12 34 56", maxLength: 10 },
+      "+54":  { placeholder: "11 2345-6789", maxLength: 12 },
+      "+52":  { placeholder: "55 1234 5678", maxLength: 12 },
+      "+61":  { placeholder: "412 345 678", maxLength: 11 },
+      "+81":  { placeholder: "090-1234-5678", maxLength: 12 },
+      "+86":  { placeholder: "139 1234 5678", maxLength: 13 },
+      "+91":  { placeholder: "98123 45678", maxLength: 11 },
+      "+64":  { placeholder: "021 123 4567", maxLength: 11 },
+      "+56":  { placeholder: "9 1234 5678", maxLength: 11 },
+      "+57":  { placeholder: "300 1234567", maxLength: 11 },
+      "+51":  { placeholder: "912 345 678", maxLength: 11 },
+      "+598": { placeholder: "91 234 567", maxLength: 10 },
+      "+595": { placeholder: "961 456789", maxLength: 10 },
+      "+591": { placeholder: "71234567", maxLength: 8 },
+      "+58":  { placeholder: "412-1234567", maxLength: 11 },
+      "+593": { placeholder: "99 123 4567", maxLength: 11 },
+      "+27":  { placeholder: "071 123 4567", maxLength: 12 },
     };
     
-    return formats[pais] || { placeholder: "Número de telefone", maxLength: 20 };
+    return formats[ddi] || { placeholder: "Número de telefone", maxLength: 20 };
   }
 
   async function fillByZip(zip: string) {
@@ -532,9 +541,9 @@ export default function InscricoesPage() {
                   className="inscInput inscPhoneNum" 
                   type="tel" 
                   value={form.telefoneNumero} 
-                  onChange={e => set("telefoneNumero", e.target.value.slice(0, getPhoneFormat(form.pais).maxLength))} 
-                  placeholder={getPhoneFormat(form.pais).placeholder}
-                  maxLength={getPhoneFormat(form.pais).maxLength}
+                  onChange={e => set("telefoneNumero", e.target.value.slice(0, getPhoneFormat(form.telefonePais).maxLength))} 
+                  placeholder={getPhoneFormat(form.telefonePais).placeholder}
+                  maxLength={getPhoneFormat(form.telefonePais).maxLength}
                 />
               </div>
               {errors.telefoneNumero && <span className="inscFieldError">{errors.telefoneNumero}</span>}
