@@ -1,12 +1,12 @@
 {
   "nome": "CONAD 2026",
-  "endereco": "4000 N Federal HWY",
-  "cidade": "Lighthouse Point",
+  "endereco": "39034 County Rd 452 Leesburg, FL 34788",
+  "cidade": "Leesburg",
   "estado": "FL",
-  "cep": "33034",
-  "descricao": "Informações sobre o local do evento serão divulgadas em breve.",
-  "lat": "26.2806129136399",
-  "lng": "-80.09641935973526",
+  "cep": "34788",
+  "descricao": "teste",
+  "lat": "28.914575388507735",
+  "lng": "-81.76837873141956",
   "como_chegar": "",
   "hospedagem": "Informações sobre hospedagem parceira serão divulgadas em breve."
 }
