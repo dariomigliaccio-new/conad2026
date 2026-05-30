@@ -65,14 +65,7 @@ export default async function AdminLayout({
             <p>Painel administrativo</p>
             <h1>INSCRIÇÕES CONAD 2026</h1>
           </div>
-          <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-            {!isInscricoesOnly && (
-              <Link className="adminPreviewLink" href="/">
-                Ver site
-              </Link>
-            )}
-            <LogoutButton />
-          </div>
+          <LogoutButton />
         </header>
         {children}
       </div>

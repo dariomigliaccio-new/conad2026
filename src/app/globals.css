@@ -1811,14 +1811,14 @@ a {
 
 .adminPreviewLink:hover { background: #1d4ed8; color: #fff; }
 
-.adminTopbar button.adminButton {
-  background: #c0392b;
-  color: #fff;
-  font-size: 12px;
+.adminLogoutBtn {
+  background: #2563eb !important;
+  color: #fff !important;
+  font-size: 13px;
   white-space: nowrap;
 }
 
-.adminTopbar button.adminButton:hover { background: #a93226; }
+.adminLogoutBtn:hover { background: #1d4ed8 !important; }
 
 .adminMain {
   display: grid;
