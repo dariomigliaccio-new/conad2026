@@ -2724,10 +2724,11 @@ a {
     box-sizing: border-box;
   }
 
-  /* Inputs ocupam largura total */
+  /* Inputs ocupam largura total + font 16px previne zoom iOS */
   .inscInput, .inscSelect {
     width: 100%;
     box-sizing: border-box;
+    font-size: 16px !important;
   }
 
   /* Grids em coluna unica */
@@ -2752,11 +2753,13 @@ a {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    font-size: 16px !important;
   }
 
   .inscPhoneNum {
     width: 100%;
     box-sizing: border-box;
+    font-size: 16px !important;
   }
 
   /* Sections */
