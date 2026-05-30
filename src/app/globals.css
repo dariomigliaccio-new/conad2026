@@ -2614,10 +2614,12 @@ a {
   .adminBrand { display: none; }
   .adminBrandLogo { display: block; width: 100%; text-align: center; padding: 8px 0 4px; }
   .adminBrandLogo img { height: 160px; margin: 0 auto; }
-  .adminTopbar { display: none; }
+  /* topbar visível no mobile com logout */
+  .adminTopbar { display: flex; padding: 10px 14px; gap: 8px; }
+  .adminTopbar > div:first-child { display: none; }
   .adminSidebarInscricoes .adminNav { display: none; }
   .adminSidebarInscricoes { background: #1C0E04; justify-content: center; padding: 16px; }
-  .adminSidebarInscricoes > button { align-self: center; background: rgba(255,255,255,.1) !important; color: rgba(255,255,255,.7) !important; border-color: rgba(255,255,255,.2) !important; }
+  .adminSidebarInscricoes > button { display: none; }
 
   .adminNav {
     display: flex;

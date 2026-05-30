@@ -28,9 +28,14 @@ export default async function AdminLayout({
   children: React.ReactNode;
 }>) {
   const jar = await cookies();
+
+  const adminToken = jar.get("admin_auth")?.value;
+  const authSecret = process.env.AUTH_SECRET;
+  const isFullAdmin = Boolean(adminToken && authSecret && adminToken === authSecret);
+
   const inscToken = jar.get("inscricoes_auth")?.value;
   const inscSecret = process.env.INSCRICOES_SECRET;
-  const isInscricoesOnly = inscToken && inscSecret && inscToken === inscSecret;
+  const isInscricoesOnly = !isFullAdmin && Boolean(inscToken && inscSecret && inscToken === inscSecret);
 
   const navItems = isInscricoesOnly ? INSCRICOES_NAV : ADMIN_NAV;
 
@@ -60,11 +65,14 @@ export default async function AdminLayout({
             <p>Painel administrativo</p>
             <h1>INSCRIÇÕES CONAD 2026</h1>
           </div>
-          {!isInscricoesOnly && (
-            <Link className="adminPreviewLink" href="/">
-              Ver site
-            </Link>
-          )}
+          <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+            {!isInscricoesOnly && (
+              <Link className="adminPreviewLink" href="/">
+                Ver site
+              </Link>
+            )}
+            <LogoutButton />
+          </div>
         </header>
         {children}
       </div>
