@@ -354,6 +354,31 @@ body {
 
 /* ── EVENTO ─────────────────────────────────────────── */
 
+.eventoHero {
+  padding-bottom: clamp(20px, 3vw, 36px);
+}
+
+.eventoVideoWrap {
+  width: calc(100% - 120px);
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: clamp(32px, 4vw, 56px);
+}
+
+.eventoVideoFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 8px 32px rgba(0,0,0,.15);
+}
+
+@media (max-width: 768px) {
+  .eventoVideoWrap { width: calc(100% - 32px); }
+}
+
 .eventoMetaSection {
   display: flex;
   align-items: stretch;

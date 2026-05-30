@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 
-type Evento = { titulo: string; subtitulo: string; descricao: string; data: string; cidade: string };
-const EMPTY: Evento = { titulo: "", subtitulo: "", descricao: "", data: "", cidade: "" };
+type Evento = { titulo: string; subtitulo: string; descricao: string; data: string; cidade: string; youtube_url: string };
+const EMPTY: Evento = { titulo: "", subtitulo: "", descricao: "", data: "", cidade: "", youtube_url: "" };
 
 export default function AdminEvento() {
   const [d, setD] = useState<Evento>(EMPTY);
@@ -31,9 +31,22 @@ export default function AdminEvento() {
         <div className="adminForm">
           <label>Título principal<input value={d.titulo} onChange={f("titulo")} /></label>
           <label>Subtítulo / Tagline<input value={d.subtitulo} onChange={f("subtitulo")} /></label>
-          <label>Descrição<textarea rows={5} value={d.descricao} onChange={f("descricao")} /></label>
-          <label>Data do evento (ex: 15-17 de Agosto, 2026)<input value={d.data} onChange={f("data")} /></label>
+          <label>
+            Link do YouTube (cole a URL do vídeo)
+            <input
+              value={d.youtube_url}
+              onChange={f("youtube_url")}
+              placeholder="https://www.youtube.com/watch?v=... ou https://youtu.be/..."
+            />
+          </label>
+          {d.youtube_url && (
+            <p style={{ fontSize: 12, color: "#888", margin: "-8px 0 0" }}>
+              O vídeo aparecerá automaticamente na página O Evento.
+            </p>
+          )}
+          <label>Data do evento (ex: 3-6 de Dezembro, 2026)<input value={d.data} onChange={f("data")} /></label>
           <label>Cidade / Local resumido<input value={d.cidade} onChange={f("cidade")} /></label>
+          <label>Descrição (não exibida no site, apenas referência)<textarea rows={4} value={d.descricao} onChange={f("descricao")} /></label>
         </div>
       </div>
     </div>
