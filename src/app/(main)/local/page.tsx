@@ -23,7 +23,7 @@ export default async function LocalPage() {
 
       <section className="section localContent">
         <p className="localVenueAddress">39034 County Rd 452, Leesburg, FL 34788</p>
-        <p className="localDescricao">Prepare-se para uma experiência transformadora que incluirá atividades emocionantes, momentos de reflexão e oportunidades para fortalecer sua fé e amizades. Mal podemos esperar para compartilhar este tempo com você em um ambiente inspirador e acolhedor.</p>
+        <p className="localDescricao">Serão momentos que ficarão guardados para sempre em nossos corações, com experiências que certamente marcarão vidas, famílias e ministérios. Temos a convicção de que o nosso amado Senhor Jesus fará maravilhas em nosso meio, renovando forças, restaurando corações e manifestando Sua presença de maneira poderosa.</p>
       </section>
     </main>
   );
