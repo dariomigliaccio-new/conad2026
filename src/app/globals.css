@@ -1802,18 +1802,20 @@ a {
 }
 
 .adminPreviewLink {
-  background: transparent;
-  border: 1.5px solid #c0c0cc;
-  color: #444;
+  background: #2563eb;
+  border: 0;
+  color: #fff;
   font-size: 12px;
+  white-space: nowrap;
 }
 
-.adminPreviewLink:hover { border-color: #888; color: #111; }
+.adminPreviewLink:hover { background: #1d4ed8; color: #fff; }
 
 .adminTopbar button.adminButton {
   background: #c0392b;
   color: #fff;
   font-size: 12px;
+  white-space: nowrap;
 }
 
 .adminTopbar button.adminButton:hover { background: #a93226; }

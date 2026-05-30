@@ -37,7 +37,7 @@ export function LogoutButton() {
         (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,.2)";
       }}
     >
-      Sair do Manager
+      Logout
     </button>
   );
 }
